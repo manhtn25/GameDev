@@ -5,15 +5,16 @@ TagManager:
   serializedVersion: 2
   tags:
   - Cherry
+  - Trap
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
   - Ground
-  - 
+  - Interactables
   - 
   - 
   - 
@@ -41,6 +42,9 @@ TagManager:
   m_SortingLayers:
   - name: Background
     uniqueID: 3106448999
+    locked: 0
+  - name: Interactables
+    uniqueID: 3572130001
     locked: 0
   - name: Default
     uniqueID: 0
