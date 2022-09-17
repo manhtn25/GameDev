@@ -14,4 +14,4 @@ Please try pulling the files, editing the readme with your name and commiting it
 
 - Gabriel
 
--
+- Daniel
