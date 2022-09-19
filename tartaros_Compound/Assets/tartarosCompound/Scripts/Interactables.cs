@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using UnityEngine.UI;
 
 public class Interactables : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class Interactables : MonoBehaviour
 
     public bool isInRange;
     public KeyCode interactKey;
+    public bool inVirtual = false;
 
 
     public List<Vector3Int> replaceTiles;
@@ -26,6 +28,8 @@ public class Interactables : MonoBehaviour
     [SerializeField] private GameObject virtualCamera;
 
     [SerializeField] private GameObject platforms;
+
+    [SerializeField] private GameObject terminalText;
 
 
 
@@ -48,12 +52,20 @@ public class Interactables : MonoBehaviour
     private void Update()
     {
 
-       
-
-        if (isInRange && Input.GetKeyDown(interactKey))
+        if (isInRange)
         {
-            
-            
+            terminalText.SetActive(true);
+        }
+        else
+        {
+            terminalText.SetActive(false);
+        }
+
+
+        if (isInRange && Input.GetKeyDown(interactKey) && !inVirtual)
+        {
+
+
             //just reveals the platforms && enable a new character and change background, but platforms are static and no timer, pressing E again resets world
             Debug.Log("success");
             physicalMap.enabled = !physicalMap.enabled; //false
@@ -67,10 +79,33 @@ public class Interactables : MonoBehaviour
             virtualCamera.SetActive(true);
 
             platforms.SetActive(true);
+
+            inVirtual = true;
+
         }
+        else if (isInRange && Input.GetKeyDown(interactKey) && inVirtual)
+        {
+
+            physicalMap.enabled = !physicalMap.enabled; //false
+
+            virtualMap.enabled = !virtualMap.enabled; //true
+
+            physicalPlayer.SetActive(true);
+            virtualPlayer.SetActive(false);
+
+            realCamera.SetActive(true);
+            virtualCamera.SetActive(false);
+
+            platforms.SetActive(false);
+
+            inVirtual = false;
+
+        }
+      
 
     }
 
+   
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
