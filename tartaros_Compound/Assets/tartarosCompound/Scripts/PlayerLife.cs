@@ -5,15 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class PlayerLife : MonoBehaviour
 {
-    private Animator anim;
+   /* private Animator anim;*/
     private Rigidbody2D rb;
 
-    [SerializeField] private AudioSource deathSoundEffect;
-
+/*    [SerializeField] private AudioSource deathSoundEffect;
+*/
     // Start is called before the first frame update
     private void Start()
     {
-        anim = GetComponent<Animator>();
+        /*anim = GetComponent<Animator>();*/
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -23,15 +23,16 @@ public class PlayerLife : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Trap"))
         {
-            deathSoundEffect.Play();
-            Die();
+            /*deathSoundEffect.Play();*/
+/*            Die();
+*/            RestartLevel();
         }
     }
 
     private void Die()
     {
-        anim.SetTrigger("death");
-        rb.bodyType = RigidbodyType2D.Static;
+/*        anim.SetTrigger("death");
+*/        rb.bodyType = RigidbodyType2D.Static;
     }
 
     private void RestartLevel()

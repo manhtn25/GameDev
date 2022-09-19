@@ -67,7 +67,7 @@ public class Interactables : MonoBehaviour
 
 
             //just reveals the platforms && enable a new character and change background, but platforms are static and no timer, pressing E again resets world
-            Debug.Log("success");
+          
             physicalMap.enabled = !physicalMap.enabled; //false
 
             virtualMap.enabled = !virtualMap.enabled; //true
@@ -91,8 +91,9 @@ public class Interactables : MonoBehaviour
             virtualMap.enabled = !virtualMap.enabled; //true
 
             physicalPlayer.SetActive(true);
-            virtualPlayer.SetActive(false);
-
+            Destroy(virtualPlayer);
+/*            virtualPlayer.SetActive(false);
+*/
             realCamera.SetActive(true);
             virtualCamera.SetActive(false);
 
@@ -112,7 +113,7 @@ public class Interactables : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             isInRange = true;
-            Debug.Log("Player in range");
+            
         }
     }
 
@@ -121,7 +122,7 @@ public class Interactables : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             isInRange = false;
-            Debug.Log("Out of Range");
+    
         }
     }
 

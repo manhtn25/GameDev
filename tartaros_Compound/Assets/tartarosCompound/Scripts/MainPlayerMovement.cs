@@ -14,7 +14,7 @@ public class MainPlayerMovement : MonoBehaviour
 
     private float dirX = 0f;
     [SerializeField] private float moveSpeed = 7f; //serializedfield allows the edits of value in the editor
-    [SerializeField] private float jumpForce = 14f;
+    [SerializeField] private float jumpForce = 17f;
 
     private int horizontalVal = 0; //this one sets up an integer whether player is walking or trying to run
 

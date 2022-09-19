@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class ItemCollector : MonoBehaviour
 {
 
-    private int realCoins = 0;
+    public int realCoins = 0;
 
     [SerializeField] private Text coinsText; //make sure to import libarary
 
@@ -22,8 +22,6 @@ public class ItemCollector : MonoBehaviour
             /*            collectionSoundEffect.Play();
             */
             Destroy(collision.gameObject); 
-
-
             realCoins++;
             coinsText.text = "Coins: " + realCoins;
 
