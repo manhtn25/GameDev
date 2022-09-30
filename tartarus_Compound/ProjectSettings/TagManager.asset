@@ -4,8 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Cherry
   - Trap
+  - Checkpoint
+  - Coins
+  - FallingPoint
   layers:
   - Default
   - TransparentFX
