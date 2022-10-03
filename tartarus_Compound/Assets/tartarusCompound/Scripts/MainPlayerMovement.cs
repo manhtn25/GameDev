@@ -28,6 +28,7 @@ public class MainPlayerMovement : MonoBehaviour
     private enum MovementState { idle, running, jumping, falling, sneaking, shooting, punching } //this is basically an array, instead of having to remember the correct name, just refer to the its index position
 
     [SerializeField] private AudioSource jumpSoundEffect;
+    public AudioClip running, jump, land;
 
     //data types int = 16, float = 4.45f, string = "bla", bool = true/false
 
@@ -95,6 +96,11 @@ public class MainPlayerMovement : MonoBehaviour
         {
 /*            jumpSoundEffect.Play();
 */          rb.velocity = new Vector3(rb.velocity.x, jumpForce, 0); //vector3(x, y, z), optional but can also use Vector2
+            /*            jumpSoundEffect.Play();
+             *          
+            */
+            AudioSource.PlayClipAtPoint(jump, transform.position);
+            rb.velocity = new Vector3(rb.velocity.x, jumpForce, 0); //vector3(x, y, z), optional but can also use Vector2
                        
  
         }
@@ -118,6 +124,7 @@ public class MainPlayerMovement : MonoBehaviour
             //make sure spelling within animator is exact
             //anim.SetBool("running", true); //running right
             state = MovementState.running;
+            GetComponent<AudioSource>().UnPause();
             sprite.flipX = false;
             facingRight = true;
 
@@ -126,29 +133,34 @@ public class MainPlayerMovement : MonoBehaviour
         {
             //anim.SetBool("running", true);//running left
             state = MovementState.running;
+            GetComponent<AudioSource>().UnPause();
             sprite.flipX = true;
             facingRight = false;
         }
         else if (dirX > 0f && horizontalVal == 0)
         {
             state = MovementState.sneaking;
+            GetComponent<AudioSource>().Pause();
             sprite.flipX = false;
         }
         else if (dirX < 0f && horizontalVal == 0)
         {
             state = MovementState.sneaking;
+            GetComponent<AudioSource>().Pause();
             sprite.flipX = true;
         }
         else
         {
             /* anim.SetBool("running", false);*/
             state = MovementState.idle;
+            GetComponent<AudioSource>().Pause();
         }
 
 
         if (rb.velocity.y > .1f)
         {
             state = MovementState.jumping;
+            GetComponent<AudioSource>().Pause();
         }
         else if (rb.velocity.y > .1f && maxJumps > 0)
         {
@@ -157,6 +169,7 @@ public class MainPlayerMovement : MonoBehaviour
         else if (rb.velocity.y < -.1f)
         {
             state = MovementState.falling;
+            GetComponent<AudioSource>().Pause();
         }
 
 

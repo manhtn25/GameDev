@@ -7,6 +7,7 @@ public class ItemCollector : MonoBehaviour
 {
 
     public int realCoins = 0;
+    public AudioClip coinSound;
 
     [SerializeField] private Text coinsText; //make sure to import libarary
 
@@ -21,6 +22,7 @@ public class ItemCollector : MonoBehaviour
         {
             /*            collectionSoundEffect.Play();
             */
+            AudioSource.PlayClipAtPoint(coinSound, transform.position);
             Destroy(collision.gameObject); 
             realCoins++;
             coinsText.text = "Coins: " + realCoins;
