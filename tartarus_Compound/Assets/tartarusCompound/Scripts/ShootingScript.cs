@@ -11,6 +11,9 @@ public class ShootingScript : MonoBehaviour
     [SerializeField] private Transform GunNozzleRight;
     [SerializeField] private Transform GunNozzleLeft;
 
+    public AudioClip gunShot;
+    //[SerializeField] private AudioSource gunMainSound;
+
     private float bulletSpeed = 400f;
 
     private GameObject tempBullet;
@@ -30,13 +33,18 @@ public class ShootingScript : MonoBehaviour
             {
                 tempBullet = Instantiate(BulletRight, GunNozzleRight.position, BulletRight.transform.rotation);
                 tempBullet.GetComponent<Rigidbody2D>().AddForce(Vector2.right * bulletSpeed);
+                AudioSource.PlayClipAtPoint(gunShot, transform.position);
             }
             else
             {
                 tempBullet = Instantiate(BulletLeft, GunNozzleLeft.position, BulletLeft.transform.rotation);
                 tempBullet.GetComponent<Rigidbody2D>().AddForce(Vector2.left * bulletSpeed);
+                AudioSource.PlayClipAtPoint(gunShot, transform.position);
             }
 
+        }else if (Time.time < nextFire)
+        {
+          
         }
 
         

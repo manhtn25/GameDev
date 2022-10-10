@@ -10,6 +10,18 @@ public class PlayerLife : MonoBehaviour
 
     private Vector3 respawnPoint; //records player position at the start of the game
 
+    private bool hasFallen = false;
+    private float deathTime = 0.30f;
+
+
+    private SpriteRenderer mainPlayer;
+    private Animator anim;
+
+    [SerializeField] ObjectiveReached objectiveFlag; //different way to access another object from a script
+
+    [SerializeField] private AudioClip deathSound;
+
+    [SerializeField] ObjectiveReached endingFlag;
 
     /*    [SerializeField] private AudioSource deathSoundEffect;
     */
@@ -19,9 +31,21 @@ public class PlayerLife : MonoBehaviour
     {
         /*anim = GetComponent<Animator>();*/
         rb = GetComponent<Rigidbody2D>();
-
         respawnPoint = transform.position;
+        mainPlayer = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
 
+
+    }
+
+    private void Update()
+    {
+        
+     if (Input.GetKeyDown(KeyCode.H)) //for geting stuck
+        {
+            StartCoroutine(Respawn());
+        }
+      
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -38,9 +62,17 @@ public class PlayerLife : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("WorldFall"))
         {
-            transform.position = respawnPoint;
-          
-            
+            //just disable the sprite renderer and then enable it, cause disabling object stops all the coroutine and play the explode anim
+            anim.Play("Player_Explode");
+            AudioSource.PlayClipAtPoint(deathSound, transform.position);
+            StartCoroutine(Respawn());
+
+        }
+
+        else if (collision.gameObject.CompareTag("OutofBounds"))
+        {
+            //StartCoroutine("Respawn", 5f);
+           
         }
     }
 
@@ -59,8 +91,23 @@ public class PlayerLife : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Checkpoint"))
         {
-            respawnPoint = transform.position;
-          
+            if (collision.gameObject.name == "checkpointOne")
+            {
+                respawnPoint = transform.position;
+                objectiveFlag.CheckPointAnim();
+
+            }else if (collision.gameObject.name == "checkpointOneFinal")
+            {
+                respawnPoint = transform.position;
+                endingFlag.CheckPointAnim();
+            }else 
+            {
+                respawnPoint = transform.position;
+            }
+            
+           
+
+
         }
         /*else if (collision.tag == "Hole")
         {
@@ -70,5 +117,32 @@ public class PlayerLife : MonoBehaviour
         //consider ienumerating the timer in between respawns
     }
 
-   
+    private IEnumerator Respawn()
+    {
+
+        //mainPlayer.enabled = false;
+        yield return new WaitForSeconds(deathTime);
+        anim.Play("Player_Idle");
+        transform.position = respawnPoint;
+        //mainPlayer.enabled = true;
+        Debug.Log("Success");
+    }
+
+    public void combackAlive()
+    {
+        StartCoroutine(EnemyPhysicalDeath());
+    }
+
+    private IEnumerator EnemyPhysicalDeath()
+    {
+
+        //mainPlayer.enabled = false;
+        yield return new WaitForSeconds(1.25f);
+        anim.Play("Player_Idle");
+        transform.position = respawnPoint;
+        GetComponent<MainPlayerMovement>().canMove = true;
+
+        //mainPlayer.enabled = true;
+    }
+
 }

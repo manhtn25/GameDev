@@ -4,16 +4,6 @@ MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences: []
-  defaultReferences:
-  - terminal: {fileID: 8300000, guid: 040e74c5a866ce845ab53552a09b060f, type: 3}
-  - physicalMap: {instanceID: 0}
-  - virtualMap: {instanceID: 0}
-  - virtualPlayer: {instanceID: 0}
-  - physicalPlayer: {instanceID: 0}
-  - realCamera: {instanceID: 0}
-  - virtualCamera: {instanceID: 0}
-  - platforms: {instanceID: 0}
-  - terminalText: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

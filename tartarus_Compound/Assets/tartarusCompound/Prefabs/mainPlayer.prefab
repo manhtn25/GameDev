@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6748923577955663652}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: gunNozzleRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 6748923578418543211}
   - component: {fileID: 6748923578418543208}
   - component: {fileID: 6748923578418543209}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: punchLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -76,6 +76,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd13eac6428228140b3894318587caf3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyOne: {fileID: 0}
+  enemyTwo: {fileID: 0}
 --- !u!61 &6748923578418543209
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -111,7 +113,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6748923578473308912}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: gunNozzleLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -144,7 +146,7 @@ GameObject:
   - component: {fileID: 6748923578782400001}
   - component: {fileID: 6748923578782400062}
   - component: {fileID: 6748923578782400063}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: punchRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -178,6 +180,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd13eac6428228140b3894318587caf3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyOne: {fileID: 0}
+  enemyTwo: {fileID: 0}
 --- !u!61 &6748923578782400063
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -218,13 +222,12 @@ GameObject:
   - component: {fileID: 6748923579185124689}
   - component: {fileID: 6748923579185124684}
   - component: {fileID: 6748923579185124685}
-  - component: {fileID: 6748923579185124683}
   - component: {fileID: 6748923579185124682}
   - component: {fileID: 6748923579185124680}
   - component: {fileID: 6748923579185124681}
   - component: {fileID: 6748923579185124678}
   - component: {fileID: 6748923579185124679}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: mainPlayer
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -296,7 +299,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.24, y: 0.24}
+  m_Size: {x: 0.85714287, y: 1.7142857}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -341,7 +344,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1.7142857, y: 1.7142857}
-    newSize: {x: 0.24, y: 0.24}
+    newSize: {x: 0.85714287, y: 1.7142857}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -387,20 +390,9 @@ MonoBehaviour:
   moveSpeed: 7
   jumpForce: 14
   facingRight: 1
-  jumpSoundEffect: {fileID: 0}
---- !u!114 &6748923579185124683
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6748923579185124690}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5ba9ea6ff2a6f1458a293f4660a3489, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mainPlayer: {fileID: 0}
+  curPunch: 0
+  running: {fileID: 8300000, guid: 78dcf5fab06f4564e8a989d2aa3c7e62, type: 3}
+  jump: {fileID: 8300000, guid: 5dd0f7f79de307a41ad00ccfd3b2243f, type: 3}
 --- !u!114 &6748923579185124682
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -414,6 +406,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   realCoins: 0
+  coinSound: {fileID: 0}
   coinsText: {fileID: 0}
 --- !u!114 &6748923579185124680
 MonoBehaviour:
@@ -427,7 +420,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5ba9ea6ff2a6f1458a293f4660a3489, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainPlayer: {fileID: 6748923579185124690}
+  objectiveFlag: {fileID: 0}
+  endingFlag: {fileID: 0}
 --- !u!114 &6748923579185124681
 MonoBehaviour:
   m_ObjectHideFlags: 0

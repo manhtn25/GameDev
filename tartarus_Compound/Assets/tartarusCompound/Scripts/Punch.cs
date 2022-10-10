@@ -2,19 +2,58 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-
 public class Punch : MonoBehaviour
 {
-    public AudioClip punching;
+
+    //MainEnemyGuard explode;
+
+
+    //[SerializeField] NewMainEnemyScript enemyOne;
+   // [SerializeField] MainEnemyGuard enemyTwo;
+
+    NewMainEnemyScript enemy;
+
+
+    private void Start()
+    {
+        //explode = GameObject.FindGameObjectWithTag("Enemy").GetComponent<MainEnemyGuard>();
+        //enemy = GameObject.FindGameObjectWithTag("Enemy").GetComponent<NewMainEnemyScript>();
+
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+
+        /* if (collision.gameObject.CompareTag("Enemy"))
+         {
+             if (collision.gameObject.name == "enemyBotTwo")
+             {
+                 enemyOne.EnemyGuardParticle();
+                 //explode.EnemyGuardParticle();
+
+
+                 Destroy(collision.gameObject, .10f);
+
+             }
+             else if (collision.gameObject.name == "enemyBotOne")
+             {
+                 //explode.EnemyGuardParticle();
+                 //enemyTwo.EnemyGuardParticle();
+                 Destroy(collision.gameObject, .10f);
+             }
+
+
+         }*/
+
         if (collision.CompareTag("Enemy"))
         {
-            AudioSource.PlayClipAtPoint(punching, transform.position);
-            Destroy(collision.gameObject);
+
+            enemy = collision.transform.gameObject.GetComponent<NewMainEnemyScript>();
+            enemy.EnemyGuardParticle();
+            Destroy(collision.gameObject, .10f);
            
         }
+
+      
     }
 }

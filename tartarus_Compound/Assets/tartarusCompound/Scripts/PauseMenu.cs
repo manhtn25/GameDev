@@ -20,7 +20,7 @@ public class PauseMenu : MonoBehaviour
         //for player controller class
         /*
          * 
-         *  if (!PauseMenu.instance.isPaused) { }
+         *  
          * 
          */
 
@@ -30,7 +30,7 @@ public class PauseMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       
+
     }
 
     // Update is called once per frame
@@ -70,3 +70,4 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1.0f;
     }
 }
+

@@ -7,13 +7,17 @@ public class PunchingDmg : MonoBehaviour
     [SerializeField] private GameObject punchRight;
     [SerializeField] private GameObject punchLeft;
 
-    private float punchRate = 0.25f;
+    private Animator anim;
+
+    private float punchRate = 0.2f;
     private float nextPunch = 0.0f;
 
     private void Start()
     {
         punchRight.SetActive(false);
         punchLeft.SetActive(false);
+
+        anim = GetComponent<Animator>(); //animator component
     }
 
     public void Punch()
@@ -25,15 +29,17 @@ public class PunchingDmg : MonoBehaviour
 
             if (GetComponent<MainPlayerMovement>().facingRight)
             {
-                StartCoroutine("PunchWait", .25f);
+                StartCoroutine("PunchWait", .15f);
                 punchRight.SetActive(true);
-
+               
+               
 
             }
             else
             {
-                StartCoroutine("PunchWait", .25f);
+                StartCoroutine("PunchWait", .15f);
                 punchLeft.SetActive(true);
+               
 
             }
 
@@ -41,12 +47,14 @@ public class PunchingDmg : MonoBehaviour
 
     }
 
-    IEnumerator PunchWait(float punchDelay)
+    private IEnumerator PunchWait(float punchDelay)
     {
         yield return new WaitForSeconds(punchDelay);
         punchRight.SetActive(false);
         punchLeft.SetActive(false);
-       
+       // anim.SetBool("canPunch", false);
         
+
+
     }
 }

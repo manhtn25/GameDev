@@ -15,8 +15,7 @@ public class Interactables : MonoBehaviour
     public bool isInRange;
     public KeyCode interactKey;
     public bool inVirtual = false;
-    public AudioClip terminal;
-
+    
 
     public List<Vector3Int> replaceTiles;
     [SerializeField] public TilemapRenderer physicalMap;
@@ -31,6 +30,9 @@ public class Interactables : MonoBehaviour
     [SerializeField] private GameObject platforms;
 
     [SerializeField] private GameObject terminalText;
+
+    public AudioClip terminal;
+
 
 
 
@@ -65,11 +67,9 @@ public class Interactables : MonoBehaviour
 
         if (isInRange && Input.GetKeyDown(interactKey) && !inVirtual)
         {
-
             AudioSource.PlayClipAtPoint(terminal, transform.position);
 
             //just reveals the platforms && enable a new character and change background, but platforms are static and no timer, pressing E again resets world
-          
 
             physicalMap.enabled = !physicalMap.enabled; //false
 
@@ -89,7 +89,6 @@ public class Interactables : MonoBehaviour
         else if (isInRange && Input.GetKeyDown(interactKey) && inVirtual)
         {
             AudioSource.PlayClipAtPoint(terminal, transform.position);
-
             physicalMap.enabled = !physicalMap.enabled; //false
 
             virtualMap.enabled = !virtualMap.enabled; //true

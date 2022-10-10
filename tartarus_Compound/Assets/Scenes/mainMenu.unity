@@ -207,7 +207,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1898997028}
+      - m_Target: {fileID: 1898997029}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
         m_MethodName: QuitGame
         m_Mode: 1
@@ -598,7 +598,7 @@ GameObject:
   - component: {fileID: 1898997027}
   - component: {fileID: 1898997026}
   - component: {fileID: 1898997025}
-  - component: {fileID: 1898997028}
+  - component: {fileID: 1898997029}
   m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
@@ -692,7 +692,7 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!114 &1898997028
+--- !u!114 &1898997029
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -701,7 +701,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1898997023}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bde099ec858de454fb26bdd6afff72b0, type: 3}
+  m_Script: {fileID: 11500000, guid: 87dd8ec01c891ff4599e276037d37852, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   startScene: tutorialLevel
@@ -800,7 +800,11 @@ PrefabInstance:
     - target: {fileID: 2856065441044484369, guid: a11f413049b4a7d4c807fe9208636d0d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1898997028}
+      objectReference: {fileID: 1898997029}
+    - target: {fileID: 2856065441044484369, guid: a11f413049b4a7d4c807fe9208636d0d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: StartGame
+      objectReference: {fileID: 0}
     - target: {fileID: 2856065441044484375, guid: a11f413049b4a7d4c807fe9208636d0d, type: 3}
       propertyPath: m_Name
       value: Start Game Button

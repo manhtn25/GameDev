@@ -1,16 +1,7 @@
 fileFormatVersion: 2
-guid: d9a616f95048ea84e8fc6f7920f846b8
+guid: 61c6c1c772cc1b54fb75ed6acee86dc7
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: 8109154662235370213
-    second: UI_Heart_0
-  - first:
-      213: 2139837793675082937
-    second: UI_Heart_1
-  - first:
-      213: -4390673095631447188
-    second: UI_Heart_2
+  internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -57,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -72,36 +63,12 @@ TextureImporter:
   compressionQualitySet: 0
   textureFormatSet: 0
   ignorePngGamma: 0
-  applyGammaDecoding: 1
+  applyGammaDecoding: 0
   swizzle: 50462976
-  cookieLightType: 1
+  cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 64
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Standalone
-    maxTextureSize: 64
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -113,11 +80,23 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: Server
-    maxTextureSize: 64
+    buildTarget: Standalone
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -142,8 +121,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c77f0d6fa52143d498eb5e1c1c20b788
-      internalID: 8109154662235370213
+      spriteID: 6c86bd4a4f8af954dafc5834ba2a6404
+      internalID: -25033800
       vertices: []
       indices: 
       edges: []
@@ -163,8 +142,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a8a603124f070a04db57b76a36cd517b
-      internalID: 2139837793675082937
+      spriteID: 7c670842a277ef64f8e637bf631355af
+      internalID: 1139630460
       vertices: []
       indices: 
       edges: []
@@ -184,8 +163,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3812db01545ccdf4392046f0800857d1
-      internalID: -4390673095631447188
+      spriteID: 8b8a326bcc36fd94d86b8afaf47214ae
+      internalID: 2051287482
       vertices: []
       indices: 
       edges: []
@@ -201,9 +180,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      UI_Heart_0: 8109154662235370213
-      UI_Heart_2: -4390673095631447188
-      UI_Heart_1: 2139837793675082937
+      UI_Heart_0: -25033800
+      UI_Heart_2: 2051287482
+      UI_Heart_1: 1139630460
   spritePackingTag: 
   pSDRemoveMatte: 0
   userData: 

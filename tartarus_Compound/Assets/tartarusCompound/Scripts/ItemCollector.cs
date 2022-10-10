@@ -25,7 +25,7 @@ public class ItemCollector : MonoBehaviour
             AudioSource.PlayClipAtPoint(coinSound, transform.position);
             Destroy(collision.gameObject); 
             realCoins++;
-            coinsText.text = "Coins: " + realCoins;
+            coinsText.text = ": " + realCoins;
 
             //keep an eye on the hierarchy of objects to see if it actually got destroyed
         }
