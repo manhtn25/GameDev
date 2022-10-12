@@ -33,7 +33,7 @@ public class MainPlayerMovement : MonoBehaviour
     private float punchForwardPos = 10f;
     private float punchTime = .2f;
     private float punchCoolDown = 1f;
-
+    private int punchCount = 1;
     private float punchBetweenTime = 0f;
 
     public bool canMove = true;
@@ -108,13 +108,15 @@ public class MainPlayerMovement : MonoBehaviour
             }
             else if (Input.GetButtonUp("Fire1") && !Input.GetButton("Fire2") && movementVector != Vector2.zero)
             {
-                if (Time.time > punchBetweenTime)
+                if (Time.time > punchBetweenTime && punchCount > 0)
                 {
                     StartCoroutine(PunchWait()); //set a dash punch
+                    
                     punchBetweenTime = Time.time + 3.0f;
+                    punchCount--;
                 }
-                           
-
+                
+         
             }
             else if (Input.GetButton("Fire1") && !Input.GetButton("Fire2"))
             {
@@ -338,9 +340,10 @@ public class MainPlayerMovement : MonoBehaviour
 
     private bool IsGrounded()
     {
+   
         return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, .1f, jumpableGround);
         //creates another box similar to the size of the actual boxcollider, 0f is the rotation value, vector2.down + .1f moves the box a tiny bit down/ offsets it (overlaps it)
-
+        
     }
 
 
