@@ -1,7 +1,6 @@
-This is a test run for Unity collab
+This is the main repository for the Give Coin Consortium's game **"Tartarus Compound"**.
 
-Please try pulling the files, editing the readme with your name and commiting it back
-
+#### GCC Members:
 - Jackson
 
 - Jake
