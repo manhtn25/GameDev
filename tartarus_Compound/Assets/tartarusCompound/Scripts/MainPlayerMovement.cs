@@ -33,7 +33,7 @@ public class MainPlayerMovement : MonoBehaviour
     private float punchForwardPos = 10f;
     private float punchTime = .2f;
     private float punchCoolDown = 1f;
-    private int punchCount = 1;
+    //private int punchCount = 1;
     private float punchBetweenTime = 0f;
 
     public bool canMove = true;
@@ -41,7 +41,9 @@ public class MainPlayerMovement : MonoBehaviour
 
     [SerializeField] TrailRenderer dashTrail;
 
-    
+    [SerializeField] ParticleSystem punchTrailRight;
+    [SerializeField] ParticleSystem punchTrailLeft;
+
 
     [SerializeField] private GameObject coinUI;
 
@@ -72,6 +74,7 @@ public class MainPlayerMovement : MonoBehaviour
 
         //runningSound.Stop();
         //numPunches = extraPunchVal;
+
     }
 
 
@@ -108,14 +111,16 @@ public class MainPlayerMovement : MonoBehaviour
             }
             else if (Input.GetButtonUp("Fire1") && !Input.GetButton("Fire2") && movementVector != Vector2.zero)
             {
-                if (Time.time > punchBetweenTime && punchCount > 0)
+                if (Time.time > punchBetweenTime)
                 {
+                   
                     StartCoroutine(PunchWait()); //set a dash punch
                     
                     punchBetweenTime = Time.time + 3.0f;
-                    punchCount--;
+                    
                 }
-                
+
+               
          
             }
             else if (Input.GetButton("Fire1") && !Input.GetButton("Fire2"))
@@ -329,7 +334,7 @@ public class MainPlayerMovement : MonoBehaviour
             state = MovementState.punching;
             punchAnim.Punch();
 
-          
+           
 
         }
 
@@ -356,12 +361,17 @@ public class MainPlayerMovement : MonoBehaviour
         if (facingRight)
         {
             rb.velocity = new Vector2(transform.localScale.x * punchForwardPos, 0f);
+            punchTrailRight.Play();
+     
         }
         else
         {
             rb.velocity = new Vector2(-transform.localScale.x * punchForwardPos, 0f);
+            punchTrailLeft.Play();
+  
         }
-        
+
+       
         dashTrail.emitting = true;
         yield return new WaitForSeconds(punchTime);
         dashTrail.emitting = false;

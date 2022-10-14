@@ -216,7 +216,7 @@ public class NewMainEnemyScript : MonoBehaviour
         if (canDamage)
         {
             punchRight.SetActive(true);
-            StartCoroutine("EnemyPunchWait", .05f);
+            StartCoroutine("EnemyPunchWait", .02f);
 
         }
 

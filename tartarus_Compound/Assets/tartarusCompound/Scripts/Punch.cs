@@ -12,12 +12,15 @@ public class Punch : MonoBehaviour
    // [SerializeField] MainEnemyGuard enemyTwo;
 
     NewMainEnemyScript enemy;
+    FlyingEnemyPatrol enemyTwo;
 
+   
 
     private void Start()
     {
         //explode = GameObject.FindGameObjectWithTag("Enemy").GetComponent<MainEnemyGuard>();
         //enemy = GameObject.FindGameObjectWithTag("Enemy").GetComponent<NewMainEnemyScript>();
+
 
     }
 
@@ -54,6 +57,15 @@ public class Punch : MonoBehaviour
            
         }
 
+        else if (collision.CompareTag("FlyingEnemy"))
+        {
+            enemyTwo = collision.transform.gameObject.GetComponent<FlyingEnemyPatrol>();
+            enemyTwo.FlyingEnemyGuardParticle();
+            //Destroy(collision.gameObject, .10f);
+        }
+
       
     }
+
+   
 }

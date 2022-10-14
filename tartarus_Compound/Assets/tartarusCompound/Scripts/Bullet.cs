@@ -5,6 +5,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     NewMainEnemyScript explode;
+    FlyingEnemyPatrol explodeTwo;
 
     private void Start()
     {
@@ -21,6 +22,16 @@ public class Bullet : MonoBehaviour
             Destroy(collision.gameObject, .10f);
             
             Destroy(gameObject); //destroys bullet when hitting enemy
+        }
+
+        else if (collision.CompareTag("FlyingEnemy"))
+        {
+            explodeTwo = collision.transform.gameObject.GetComponent<FlyingEnemyPatrol>();
+            explodeTwo.FlyingEnemyGuardParticle();
+            //Destroy(collision.gameObject, .10f);
+
+            Destroy(gameObject); //destroys bullet when hitting enemy
+
         }
 
         else if (collision.CompareTag("TilemappedLevel"))

@@ -4,58 +4,103 @@ using UnityEngine;
 
 public class FlyingEnemyPatrol : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed = 1f;
-    [SerializeField] private GameObject[] points;
+    [SerializeField] float speed;
+    [SerializeField] private GameObject exclamationPoint;
+    private GameObject player;
+    public bool chase = false;
+    private bool dead = false;
+    public Transform initialPoint;
+    private Animator anim;
 
-    private Rigidbody2D myRigidbody;
-    private BoxCollider2D myBoxCollider;
+    private Rigidbody2D rb; //caching the components; make sure to make it private and not expose it to use in other scripts
+    private SpriteRenderer sprite;
+    private CircleCollider2D coll;
+ 
 
-
-    //best to utilize platforms with edges to make instead of one continous patrol route
-
-    //there should be friendly fire when laser are shot
-
-    //utilize istrigger points
-
-    //trigger all enemies to attack within area to attack
-
-    //patrol is still buggy in that its switching y, instead of x how its facing
 
     private void Start()
     {
-        myRigidbody = GetComponent<Rigidbody2D>();
-        myBoxCollider = GetComponent<BoxCollider2D>();
+        player = GameObject.FindGameObjectWithTag("Player");
+        anim = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody2D>(); //do this you can use the component
+        sprite = GetComponent<SpriteRenderer>();
+        coll = GetComponent<CircleCollider2D>();
+        exclamationPoint.SetActive(false);
+     
     }
 
     private void Update()
     {
-        if (IsFacingRight())
+        if(player == null)
         {
-            myRigidbody.velocity = new Vector2(0f, moveSpeed);
-            //myRigidbody.velocity = new Vector2(moveSpeed, 0f);
+            return;
+        }
+
+        if (dead)
+        {
+          
+           rb.velocity = Vector2.zero;
+           
         }
         else
         {
-            myRigidbody.velocity = new Vector2(0f, -moveSpeed);
-            //myRigidbody.velocity = new Vector2(-moveSpeed, 0f);
+            if (chase == true)
+            {
+                TargetPlayer();
+                exclamationPoint.SetActive(true);
+            }
+            else
+            {
+                BackPatrolling();
+                exclamationPoint.SetActive(false);
+            }
+            TargetPlayer();
+            Flip();
         }
 
+
+        anim.SetBool("IsFlying", true);
+
     }
 
-    private bool IsFacingRight()
+    private void TargetPlayer()
     {
-        return transform.localScale.y > Mathf.Epsilon;
+        transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
     }
 
-
-    private void OnTriggerExit2D(Collider2D collision)
+    private void BackPatrolling()
     {
-        //transform.localScale = new Vector2(-(Mathf.Sign(myRigidbody.velocity.x)), transform.localScale.y);
-
-        transform.localScale = new Vector2( transform.localScale.x, -(Mathf.Sign(myRigidbody.velocity.y)));
+        transform.position = Vector2.MoveTowards(transform.position, initialPoint.position, speed * Time.deltaTime);
     }
 
+    private void Flip()
+    {
+        if (transform.position.x > player.transform.position.x)
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
+        else
+        {
+            transform.rotation = Quaternion.Euler(0, 180, 0);
+        }
+    }
 
+    public void FlyingEnemyGuardParticle()
+    {
+        coll.isTrigger = false;
+        dead = true;
+        exclamationPoint.SetActive(false);
+        StartCoroutine(Destroy());
+        
 
+    }
 
+    private IEnumerator Destroy()
+    {
+       
+        yield return new WaitForSeconds(2.0f);
+        anim.Play("Explode_Animation");
+        Destroy(this.gameObject, 0.30f);
+        
+    }
 }
