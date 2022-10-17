@@ -15,7 +15,11 @@ public class FlyingEnemyPatrol : MonoBehaviour
     private Rigidbody2D rb; //caching the components; make sure to make it private and not expose it to use in other scripts
     private SpriteRenderer sprite;
     private CircleCollider2D coll;
- 
+
+    [SerializeField] ParticleSystem flyingAttack;
+    MainPlayerMovement death;
+    PlayerLife respawnAfterDeath;
+
 
 
     private void Start()
@@ -26,7 +30,12 @@ public class FlyingEnemyPatrol : MonoBehaviour
         sprite = GetComponent<SpriteRenderer>();
         coll = GetComponent<CircleCollider2D>();
         exclamationPoint.SetActive(false);
-     
+
+        flyingAttack.Stop();
+
+        death = GameObject.FindGameObjectWithTag("Player").GetComponent<MainPlayerMovement>();
+        respawnAfterDeath = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerLife>();
+
     }
 
     private void Update()
@@ -102,5 +111,22 @@ public class FlyingEnemyPatrol : MonoBehaviour
         anim.Play("Explode_Animation");
         Destroy(this.gameObject, 0.30f);
         
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            flyingAttack.Play();
+
+            death.MainPlayerDeath();
+
+            collision.GetComponent<MainPlayerMovement>().canMove = false;
+
+            //call the playerlife function to respawn --> just invisible not runnign
+            respawnAfterDeath.combackAlive();
+        }
+
+     
     }
 }
