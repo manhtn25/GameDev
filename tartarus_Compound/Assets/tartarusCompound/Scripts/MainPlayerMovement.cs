@@ -117,13 +117,13 @@ public class MainPlayerMovement : MonoBehaviour
                 {
                     punchImage.enabled = !punchImage.enabled;
                     StartCoroutine(PunchWait()); //set a dash punch
-                    
+
                     punchBetweenTime = Time.time + 3.0f;
-                    
+
                 }
 
-               
-         
+
+
             }
             else if (Input.GetButton("Fire1") && !Input.GetButton("Fire2"))
             {
