@@ -704,7 +704,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87dd8ec01c891ff4599e276037d37852, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startScene: tutorialLevel
+  startScene: mainScene
+  prisonDoor: {fileID: 0}
 --- !u!1001 &2856065439999844244
 PrefabInstance:
   m_ObjectHideFlags: 0
