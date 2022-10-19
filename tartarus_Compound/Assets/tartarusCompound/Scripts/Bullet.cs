@@ -6,6 +6,7 @@ public class Bullet : MonoBehaviour
 {
     NewMainEnemyScript explode;
     FlyingEnemyPatrol explodeTwo;
+    StaticEnemyScript explodeStatic;
 
     private void Start()
     {
@@ -37,6 +38,15 @@ public class Bullet : MonoBehaviour
         else if (collision.CompareTag("TilemappedLevel"))
         {
             Destroy(gameObject);
+        }
+
+        else if (collision.CompareTag("StaticEnemy"))
+        {
+            explodeStatic = collision.transform.gameObject.GetComponent<StaticEnemyScript>();
+            explodeStatic.EnemyGuardParticle();
+            Destroy(collision.gameObject, .10f);
+            Destroy(gameObject);
+
         }
     }
 }

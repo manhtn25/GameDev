@@ -13,6 +13,7 @@ public class Punch : MonoBehaviour
 
     NewMainEnemyScript enemy;
     FlyingEnemyPatrol enemyTwo;
+    StaticEnemyScript enemyStatic;
 
    
 
@@ -62,6 +63,13 @@ public class Punch : MonoBehaviour
             enemyTwo = collision.transform.gameObject.GetComponent<FlyingEnemyPatrol>();
             enemyTwo.FlyingEnemyGuardParticle();
             //Destroy(collision.gameObject, .10f);
+        }
+
+        else if (collision.CompareTag("StaticEnemy"))
+        {
+            enemyStatic = collision.transform.gameObject.GetComponent<StaticEnemyScript>();
+            enemyStatic.EnemyGuardParticle();
+            Destroy(collision.gameObject, .10f);
         }
 
       

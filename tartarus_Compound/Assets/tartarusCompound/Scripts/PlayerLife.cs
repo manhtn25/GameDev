@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerLife : MonoBehaviour
 {
@@ -13,7 +14,6 @@ public class PlayerLife : MonoBehaviour
     private bool hasFallen = false;
     private float deathTime = 0.30f;
 
-
     private SpriteRenderer mainPlayer;
     private Animator anim;
 
@@ -23,8 +23,16 @@ public class PlayerLife : MonoBehaviour
 
     [SerializeField] ObjectiveReached endingFlag;
 
+    public Image healthOne;
+    public Image healthTwo;
+    public Image healthThree;
+
     /*    [SerializeField] private AudioSource deathSoundEffect;
     */
+
+    public int maxHealth = 3;
+    public int currentHealth;
+    MainPlayerMovement death;
 
     // Start is called before the first frame update
     private void Start()
@@ -34,6 +42,9 @@ public class PlayerLife : MonoBehaviour
         respawnPoint = transform.position;
         mainPlayer = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
+
+        currentHealth = maxHealth;
+        death = GameObject.FindGameObjectWithTag("Player").GetComponent<MainPlayerMovement>();
 
 
     }
@@ -46,6 +57,25 @@ public class PlayerLife : MonoBehaviour
             StartCoroutine(Respawn());
         }
       
+     if (currentHealth == 3)
+        {
+            healthOne.enabled = true;
+            healthTwo.enabled = true;
+            healthThree.enabled = true;
+        }
+     else if(currentHealth == 2)
+        {
+            healthThree.enabled = false;
+        }
+     else if(currentHealth == 1)
+        {
+            healthTwo.enabled = false;
+        }
+     else if (currentHealth == 0)
+        {
+            healthOne.enabled = false;
+        }
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -125,7 +155,8 @@ public class PlayerLife : MonoBehaviour
         anim.Play("Player_Idle");
         transform.position = respawnPoint;
         //mainPlayer.enabled = true;
-        Debug.Log("Success");
+        //Debug.Log("Success");
+        currentHealth = maxHealth;
     }
 
     public void combackAlive()
@@ -141,8 +172,36 @@ public class PlayerLife : MonoBehaviour
         anim.Play("Player_Idle");
         transform.position = respawnPoint;
         GetComponent<MainPlayerMovement>().canMove = true;
-
+        currentHealth = maxHealth;
         //mainPlayer.enabled = true;
+    }
+
+    public void TakeDamage(int amount)
+    {
+        currentHealth -= amount;
+        //subtract the hearts
+
+        if (currentHealth <= 0)
+        {
+            death.MainPlayerDeath();
+            combackAlive();
+            GetComponent<MainPlayerMovement>().canMove = false;
+            
+
+            //enable all the hearts again
+            //make sure to add where the player can't move
+
+        }
+    }
+
+    private void GainHealth(int amount)
+    {
+        currentHealth += amount;
+
+        if (currentHealth > maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
     }
 
 }

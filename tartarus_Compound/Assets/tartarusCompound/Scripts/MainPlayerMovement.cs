@@ -35,6 +35,8 @@ public class MainPlayerMovement : MonoBehaviour
     private float punchCoolDown = 1f;
     //private int punchCount = 1;
     private float punchBetweenTime = 0f;
+    public Image punchImage;
+    [SerializeField] private GameObject coinUI;
 
     public bool canMove = true;
 
@@ -45,7 +47,7 @@ public class MainPlayerMovement : MonoBehaviour
     [SerializeField] ParticleSystem punchTrailLeft;
 
 
-    [SerializeField] private GameObject coinUI;
+    
 
     //public static PauseMenu instance;
 
@@ -113,7 +115,7 @@ public class MainPlayerMovement : MonoBehaviour
             {
                 if (Time.time > punchBetweenTime)
                 {
-                   
+                    punchImage.enabled = !punchImage.enabled;
                     StartCoroutine(PunchWait()); //set a dash punch
                     
                     punchBetweenTime = Time.time + 3.0f;
@@ -377,8 +379,12 @@ public class MainPlayerMovement : MonoBehaviour
         dashTrail.emitting = false;
         rb.gravityScale = originalGravity;
         isPunching = false;
+        
         yield return new WaitForSeconds(punchCoolDown);
         canPunch = true;
+
+        punchImage.enabled = !punchImage.enabled;
+
     }
    
 

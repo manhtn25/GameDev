@@ -42,7 +42,7 @@ public class StaticEnemyScript : MonoBehaviour
     const string LEFT = "left";
     const string RIGHT = "right";
     private string facingDirection;
-    Vector3 baseScale;
+
 
     private GameObject player;
 
@@ -63,26 +63,35 @@ public class StaticEnemyScript : MonoBehaviour
         exclamationPoint.SetActive(false);
 
         facingDirection = RIGHT;
-        baseScale = transform.localScale;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        Flip();
+
+        enemyPlayerDistance = Vector2.Distance(transform.position, target.transform.position);
 
         //transform.Rotate(Vector3.forward * Time.deltaTime * speed);, useful for rotating vision 
         if (facingDirection == RIGHT)
         {
+ 
             hitInfo = Physics2D.Raycast(transform.position, transform.right, attackRaycast, rayCastMask);
             punchDirection = true;
         }
-        
-        if (facingDirection == LEFT)
+
+        else if (facingDirection == LEFT)
         {
-            hitInfo = Physics2D.Raycast(transform.position, -transform.right, attackRaycast, rayCastMask);
+
+            //hitInfo = Physics2D.Raycast(transform.position, -transform.right, attackRaycast, rayCastMask);
+            hitInfo = Physics2D.Raycast(transform.position, transform.right, attackRaycast, rayCastMask);
             punchDirection = false;
 
+
         }
+
+        //whats wrong with this one is that once it flips the raycast and transform position does not work
 
 
 
@@ -95,10 +104,6 @@ public class StaticEnemyScript : MonoBehaviour
             {
 
                 EnemyLogic();
-
-                //GetComponent<EnemyPatrol>().enabled = false;
-
-                //characterDetected = true;
                 characterDetected = true;
                 exclamationPoint.SetActive(true);
                 //Debug.Log("See");
@@ -119,22 +124,18 @@ public class StaticEnemyScript : MonoBehaviour
             anim.SetBool("canWalk", false);
             StopAttack();
 
-            // Debug.Log("Gone");
-
-            //GetComponent<EnemyPatrol>().enabled = true;
-
             characterDetected = false;
             exclamationPoint.SetActive(false);
         }
 
-        Flip();
+        
 
     }
 
     private void EnemyLogic()
     {
 
-        enemyPlayerDistance = Vector2.Distance(transform.position, target.transform.position);
+        
 
         if (enemyPlayerDistance > attackDistance)
         {
@@ -160,23 +161,22 @@ public class StaticEnemyScript : MonoBehaviour
         anim.SetBool("canWalk", false);
         anim.SetBool("canRun", true);
 
-        //Patrol script need to turn it off somehow, but turn it back on when the script is done and make sure it does not go out of bounds
-
-        //when colliding with the player it flips the other way --> bool to whether player is detected, but still not flaweless though
-
-        //hitting the waypoints flipping the enemy --> work around now is just setting up farther waypoints
-
-        if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Enemy_Attack") && facingDirection == RIGHT)
+        if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Enemy_Attack"))
         {
-            Vector2 targetPosition = new Vector2(target.transform.position.x, transform.position.y);
-            transform.position = Vector2.MoveTowards(transform.position, targetPosition, 5f * Time.deltaTime);
-        }
-        else
-        {
-            Vector2 targetPosition = new Vector2(-target.transform.position.x, transform.position.y);
+            Vector2 targetPosition = new Vector2(player.transform.position.x, transform.position.y);
             transform.position = Vector2.MoveTowards(transform.position, targetPosition, 5f * Time.deltaTime);
 
         }
+        /*
+                if (transform.position.x < target.position.x)
+                {
+                    rb.velocity = new Vector2(walkSpeed, 0);
+                }
+                else
+                {
+                    rb.velocity = new Vector2(-walkSpeed, 0);
+                }
+        */
     }
 
     private void StopAttack()
@@ -241,9 +241,9 @@ public class StaticEnemyScript : MonoBehaviour
     }
 
 
-    private void Flip()
+    private void Flip() //this is just flipping the sprite
     {
-        if (transform.position.x < player.transform.position.x)
+        if (transform.position.x < target.transform.position.x)
         {
             transform.rotation = Quaternion.Euler(0, 0, 0);
             facingDirection = RIGHT;
@@ -254,6 +254,7 @@ public class StaticEnemyScript : MonoBehaviour
             facingDirection = LEFT;
         }
     }
+
 
 
 

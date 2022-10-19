@@ -5,13 +5,13 @@ using UnityEngine;
 public class EnemyPunch : MonoBehaviour
 {
     MainPlayerMovement death;
-    PlayerLife respawnAfterDeath;
+    PlayerLife healthDmg;
 
     private void Start()
     {
         
         death = GameObject.FindGameObjectWithTag("Player").GetComponent<MainPlayerMovement>();
-        respawnAfterDeath = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerLife>();
+        healthDmg = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerLife>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -19,14 +19,14 @@ public class EnemyPunch : MonoBehaviour
       
         if (collision.CompareTag("Player"))
         {
-            //needs to play player death anim
-            death.MainPlayerDeath();
+            //needs to play player death anim // but subtract from now instead
+            //death.MainPlayerDeath();
 
-            collision.GetComponent<MainPlayerMovement>().canMove = false;
-            
+            healthDmg.TakeDamage(1);
+
+            //collision.GetComponent<MainPlayerMovement>().canMove = false;
             //call the playerlife function to respawn --> just invisible not runnign
-            respawnAfterDeath.combackAlive();
-
+            //respawnAfterDeath.combackAlive();
 
         }
     }

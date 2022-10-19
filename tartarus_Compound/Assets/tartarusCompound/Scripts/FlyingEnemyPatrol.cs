@@ -20,6 +20,8 @@ public class FlyingEnemyPatrol : MonoBehaviour
     MainPlayerMovement death;
     PlayerLife respawnAfterDeath;
 
+    PlayerLife healthDmg;
+
 
 
     private void Start()
@@ -35,6 +37,7 @@ public class FlyingEnemyPatrol : MonoBehaviour
 
         death = GameObject.FindGameObjectWithTag("Player").GetComponent<MainPlayerMovement>();
         respawnAfterDeath = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerLife>();
+        healthDmg = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerLife>();
 
     }
 
@@ -118,13 +121,16 @@ public class FlyingEnemyPatrol : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             flyingAttack.Play();
+            healthDmg.TakeDamage(1);
+            /* death.MainPlayerDeath();
 
-            death.MainPlayerDeath();
+             collision.GetComponent<MainPlayerMovement>().canMove = false;
 
-            collision.GetComponent<MainPlayerMovement>().canMove = false;
+             //call the playerlife function to respawn --> just invisible not runnign
+             respawnAfterDeath.combackAlive();*/
 
-            //call the playerlife function to respawn --> just invisible not runnign
-            respawnAfterDeath.combackAlive();
+
+
         }
 
      

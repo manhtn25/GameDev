@@ -7,6 +7,7 @@ public class EnemyPatrol : MonoBehaviour
     [SerializeField] private float moveSpeed = 1f;
     [SerializeField] private GameObject[] points;
     private int curPoints;
+    PlayerLife healthDmg;
 
     private Rigidbody2D myRigidbody;
     private BoxCollider2D myBoxCollider;
