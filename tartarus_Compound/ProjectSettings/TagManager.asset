@@ -13,6 +13,10 @@ TagManager:
   - WorldFall
   - Enemy
   - Cherry
+  - StaticEnemy
+  - FlyingEnemy
+  - FxTemporaire
+  - Virtual
   layers:
   - Default
   - TransparentFX
@@ -58,4 +62,7 @@ TagManager:
     locked: 0
   - name: Terrain
     uniqueID: 3161110929
+    locked: 0
+  - name: VirtualBG
+    uniqueID: 1909177715
     locked: 0
