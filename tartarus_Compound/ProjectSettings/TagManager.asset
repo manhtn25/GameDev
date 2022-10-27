@@ -51,6 +51,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: VirtualBG
+    uniqueID: 1909177715
+    locked: 0
   - name: Background
     uniqueID: 3106448999
     locked: 0
@@ -62,7 +65,4 @@ TagManager:
     locked: 0
   - name: Terrain
     uniqueID: 3161110929
-    locked: 0
-  - name: VirtualBG
-    uniqueID: 1909177715
     locked: 0
