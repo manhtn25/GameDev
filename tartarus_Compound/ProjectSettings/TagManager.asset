@@ -51,11 +51,11 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: VirtualBG
-    uniqueID: 1909177715
-    locked: 0
   - name: Background
     uniqueID: 3106448999
+    locked: 0
+  - name: VirtualBG
+    uniqueID: 1909177715
     locked: 0
   - name: Interactables
     uniqueID: 3572130001
