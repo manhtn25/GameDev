@@ -22,6 +22,8 @@ public class Interactables : MonoBehaviour
     [SerializeField] private GameObject physicalPlayer;
     [SerializeField] private GameObject realCamera;
 
+    [SerializeField] private PlayerLife deathCheck;
+
 
     [SerializeField] private TilemapRenderer virtualMapBackground;
 
@@ -61,6 +63,7 @@ public class Interactables : MonoBehaviour
         }
 
 
+
         if (isInRange && Input.GetKeyDown(interactKey) && !inVirtual)
         {
             AudioSource.PlayClipAtPoint(terminal, transform.position);
@@ -75,18 +78,12 @@ public class Interactables : MonoBehaviour
 
             virtualMapTerrain.enabled = !virtualMapTerrain.enabled;
 
-            //physicalPlayer.SetActive(false);
-            //virtualPlayer.SetActive(true);
-
-            //realCamera.SetActive(false);
-            //virtualCamera.SetActive(true);
-
-            //platforms.SetActive(true);
+          
 
             inVirtual = true;
 
         }
-        else if (isInRange && Input.GetKeyDown(interactKey) && inVirtual)
+        else if(isInRange && Input.GetKeyDown(interactKey) && inVirtual)
         {
             AudioSource.PlayClipAtPoint(terminal, transform.position);
             physicalMapBackground.enabled = !physicalMapBackground.enabled; //false
@@ -97,12 +94,20 @@ public class Interactables : MonoBehaviour
 
             virtualMapTerrain.enabled = !virtualMapTerrain.enabled;
 
-            //physicalPlayer.SetActive(true);
-            //Destroy(virtualPlayer);
-            //virtualPlayer.SetActive(false);
 
-            //realCamera.SetActive(true);
-            // virtualCamera.SetActive(false);
+            inVirtual = false;
+
+        }
+        
+        if (deathCheck.isDead == true)
+        {
+            physicalMapBackground.enabled = true; //false
+
+            virtualMapBackground.enabled = false; //true
+
+            virtualMapTerrainCollider.enabled = false;
+
+            virtualMapTerrain.enabled = false;
 
             inVirtual = false;
 

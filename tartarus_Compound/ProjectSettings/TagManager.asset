@@ -4,7 +4,6 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Trap
   - Checkpoint
   - Coins
   - FallingPoint
@@ -17,6 +16,9 @@ TagManager:
   - FlyingEnemy
   - FxTemporaire
   - Virtual
+  - LaserTrap
+  - ElectricTrap
+  - Trap
   layers:
   - Default
   - TransparentFX

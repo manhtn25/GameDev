@@ -24,9 +24,13 @@ public class PlayerLife : MonoBehaviour
 
     [SerializeField] ObjectiveReached endingFlag;
 
+    [SerializeField] private Interactables virtualCheck;
+
     public Image healthOne;
     public Image healthTwo;
     public Image healthThree;
+
+    public bool isDead = false;
 
     /*    [SerializeField] private AudioSource deathSoundEffect;
     */
@@ -77,16 +81,22 @@ public class PlayerLife : MonoBehaviour
             healthOne.enabled = false;
         }
 
+        if (isDead == true)
+        {
+            virtualCheck.inVirtual = false;
+        }
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         //distinguish between traps and etc. by adding tags
 
-        if (collision.gameObject.CompareTag("Trap"))
+        if (collision.gameObject.CompareTag("LaserTrap") || collision.gameObject.CompareTag("ElectricTrap"))
         {
             anim.Play("Player_Explode");
             AudioSource.PlayClipAtPoint(deathSound, transform.position);
+            isDead = true;
             StartCoroutine(Respawn());
         }
         else if (collision.gameObject.CompareTag("WorldFall"))
@@ -94,6 +104,7 @@ public class PlayerLife : MonoBehaviour
             //just disable the sprite renderer and then enable it, cause disabling object stops all the coroutine and play the explode anim
             anim.Play("Player_Explode");
             AudioSource.PlayClipAtPoint(deathSound, transform.position);
+            isDead = true;
             StartCoroutine(Respawn());
 
         }
@@ -151,12 +162,14 @@ public class PlayerLife : MonoBehaviour
 
         //mainPlayer.enabled = false;
         yield return new WaitForSeconds(deathTime);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         anim.Play("Player_Idle");
+        isDead = false;
         transform.position = respawnPoint;
         //mainPlayer.enabled = true;
         //Debug.Log("Success");
         currentHealth = maxHealth;
+        
     }
 
     public void combackAlive()
@@ -170,9 +183,11 @@ public class PlayerLife : MonoBehaviour
         //mainPlayer.enabled = false;
         yield return new WaitForSeconds(1.25f);
         anim.Play("Player_Idle");
+        isDead = false;
         transform.position = respawnPoint;
         GetComponent<MainPlayerMovement>().canMove = true;
         currentHealth = maxHealth;
+       
         //mainPlayer.enabled = true;
     }
 
@@ -185,6 +200,7 @@ public class PlayerLife : MonoBehaviour
         if (currentHealth <= 0)
         {
             death.MainPlayerDeath();
+            isDead = true;
             combackAlive();
             GetComponent<MainPlayerMovement>().canMove = false;
             

@@ -48,6 +48,9 @@ public class StaticEnemyScript : MonoBehaviour
 
     RaycastHit2D hitInfo;
 
+    private bool staticIsDead = false;
+    [SerializeField] private PlayerLife deathCheck;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -63,6 +66,8 @@ public class StaticEnemyScript : MonoBehaviour
         exclamationPoint.SetActive(false);
 
         facingDirection = RIGHT;
+
+
         
     }
 
@@ -93,10 +98,13 @@ public class StaticEnemyScript : MonoBehaviour
 
         //whats wrong with this one is that once it flips the raycast and transform position does not work
 
-
+        if (staticIsDead == true)
+        {
+            exclamationPoint.SetActive(false);
+        }
 
         //detecting the player
-        if (hitInfo.collider != null)
+        if (hitInfo.collider != null && staticIsDead == false)
         {
             Debug.DrawLine(transform.position, hitInfo.point, Color.red);
 
@@ -114,7 +122,7 @@ public class StaticEnemyScript : MonoBehaviour
 
         }
         //not detecting the player but just patroling
-        else if (hitInfo.collider == null)
+        else if (hitInfo.collider == null && staticIsDead == false)
         {
             // Debug.DrawLine(transform.position, transform.position + transform.right * visionDistance, Color.green);
 
@@ -128,7 +136,10 @@ public class StaticEnemyScript : MonoBehaviour
             exclamationPoint.SetActive(false);
         }
 
-        
+        if (deathCheck.isDead == true)
+        {
+            EnemyDestroyed();
+        }
 
     }
 
@@ -256,12 +267,32 @@ public class StaticEnemyScript : MonoBehaviour
         }
     }
 
- 
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.name == "BulletRight(Clone)" || collision.gameObject.name == "BulletLeft(Clone)")
+        {
+            Destroy(collision.gameObject);
+            staticIsDead = true;
+            EnemyGuardParticle();
+            //EnemyDestroyed();
+        }
+    }
 
 
+    private void EnemyDestroyed()
+    {
+       
+        //exclamationPoint.SetActive(false);
+        Invoke("Respawn", .10f);
+    }
 
+    void Respawn()
+    {
+        anim.Play("Enemy_Idle");
+        staticIsDead = false;
+    }
 
-
-
+  
 
 }

@@ -45,42 +45,21 @@ public class Bullet : MonoBehaviour
             Destroy(gameObject);
         }
 
-        else if (collision.CompareTag("StaticEnemy"))
+      /*  else if (collision.CompareTag("StaticEnemy"))
         {
             explodeStatic = collision.transform.gameObject.GetComponent<StaticEnemyScript>();
-          
-            respawnEnemyPos = collision.gameObject.transform.position;
-
             explodeStatic.EnemyGuardParticle();
 
-            //Destroy(collision.gameObject, .10f);
-
-            explodeStatic.Sprite.enabled = false;
+            Destroy(collision.gameObject, .10f);
 
             Destroy(gameObject); //destroys bullet when hitting enemy
 
-            StartCoroutine(RespawnEnemy(collision.gameObject,  respawnEnemyPos));
-
-
-
-        }
+        }*/
 
 
     }
 
 
-
-    private IEnumerator RespawnEnemy(GameObject orgEnemy, Vector3 respawnPos)
-    {
-        yield return new WaitForSeconds(5);
-
-        GameObject enemyClone = (GameObject)Instantiate(enemyPrefabs[0]);
-        enemyClone.transform.position = respawnPos;
-        //Instantiate(newEnemy, respawnPos, Quaternion.identity);
-        Debug.Log("Success");
-
-        Destroy(orgEnemy);
-    }
 
 
 

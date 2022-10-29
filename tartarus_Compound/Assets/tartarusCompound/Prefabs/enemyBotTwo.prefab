@@ -160,18 +160,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d04c806eef680234ea4edc78f3fcfdda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Sprite: {fileID: 0}
   visionDistance: 0.5
   rayCastMask:
     serializedVersion: 2
     m_Bits: 8
   timer: 3
-  target: {fileID: 0}
+  target: {fileID: 689427458130046347, guid: 7c1a2c0efe68290429de4c306b06ee89, type: 3}
   distance: 2.5
   attackDistance: 2
   characterDetected: 0
   punchRight: {fileID: 2894410750102952706}
   punchLeft: {fileID: 2894410748536055763}
   exclamationPoint: {fileID: 2894410748720022083}
+  enemyStaticPrefab: {fileID: 2894410748279865478}
 --- !u!1 &2894410748536055763
 GameObject:
   m_ObjectHideFlags: 0
