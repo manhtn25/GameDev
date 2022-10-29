@@ -10,14 +10,16 @@ public class MainPlayerMovement : MonoBehaviour
     private SpriteRenderer sprite;
     private Animator anim;
 
+    //set to public so interactables script can change
+
 
     private BoxCollider2D coll;
     [SerializeField] private LayerMask jumpableGround;
-
+    [SerializeField] private Interactables virtualCheck;
     private float dirX = 0f;
     [SerializeField] private float moveSpeed = 10f; //serializedfield allows the edits of value in the editor
     [SerializeField] private float jumpForce = 20f;
-    [SerializeField] private ForceMode ourForceMode;
+    [SerializeField] private ForceMode ForceModeValue;
 
     private int horizontalVal = 0; //this one sets up an integer whether player is walking or trying to run
 
@@ -46,8 +48,8 @@ public class MainPlayerMovement : MonoBehaviour
     [SerializeField] ParticleSystem punchTrailRight;
     [SerializeField] ParticleSystem punchTrailLeft;
 
-
     
+
 
     //public static PauseMenu instance;
 
@@ -66,7 +68,7 @@ public class MainPlayerMovement : MonoBehaviour
         sprite = GetComponent<SpriteRenderer>();
         coll = GetComponent<BoxCollider2D>();
         anim = GetComponent<Animator>(); //animator component
-   
+
 
         bulletAnim = GetComponent<ShootingScript>();
         punchAnim = GetComponent<PunchingDmg>();
@@ -88,6 +90,19 @@ public class MainPlayerMovement : MonoBehaviour
 
         if (!PauseMenu.instance.isPaused)
         {
+
+
+            if (virtualCheck.inVirtual == false)
+            {
+                sprite.color = new Color32(248, 248, 248, 255);
+            }
+
+            else if (virtualCheck.inVirtual == true)
+            {
+                sprite.color = new Color32(67, 237, 255, 255);
+            }
+
+
             coinUI.SetActive(true);
 
             Cursor.visible = false;

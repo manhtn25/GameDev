@@ -17,6 +17,7 @@ public class PlayerLife : MonoBehaviour
     private SpriteRenderer mainPlayer;
     private Animator anim;
 
+
     [SerializeField] ObjectiveReached objectiveFlag; //different way to access another object from a script
 
     [SerializeField] private AudioClip deathSound;
@@ -84,11 +85,9 @@ public class PlayerLife : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Trap"))
         {
-            /*deathSoundEffect.Play();*/
-            /*            Die();
-            */            //RestartLevel();
-
-           // transform.position = respawnPoint;
+            anim.Play("Player_Explode");
+            AudioSource.PlayClipAtPoint(deathSound, transform.position);
+            StartCoroutine(Respawn());
         }
         else if (collision.gameObject.CompareTag("WorldFall"))
         {
@@ -152,6 +151,7 @@ public class PlayerLife : MonoBehaviour
 
         //mainPlayer.enabled = false;
         yield return new WaitForSeconds(deathTime);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         anim.Play("Player_Idle");
         transform.position = respawnPoint;
         //mainPlayer.enabled = true;
@@ -180,6 +180,7 @@ public class PlayerLife : MonoBehaviour
     {
         currentHealth -= amount;
         //subtract the hearts
+
 
         if (currentHealth <= 0)
         {

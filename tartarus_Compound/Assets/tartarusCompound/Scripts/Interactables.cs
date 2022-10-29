@@ -15,25 +15,21 @@ public class Interactables : MonoBehaviour
     public bool isInRange;
     public KeyCode interactKey;
     public bool inVirtual = false;
-    
-
-    public List<Vector3Int> replaceTiles;
-    [SerializeField] public TilemapRenderer physicalMap;
-    [SerializeField] public TilemapRenderer virtualMap;
-
-    [SerializeField] private GameObject virtualPlayer;
-    [SerializeField] private GameObject physicalPlayer;
-
-    [SerializeField] private GameObject realCamera;
-    [SerializeField] private GameObject virtualCamera;
-
-    [SerializeField] private GameObject platforms;
-
     [SerializeField] private GameObject terminalText;
-
     public AudioClip terminal;
 
+    [SerializeField] private TilemapRenderer physicalMapBackground;
+    [SerializeField] private GameObject physicalPlayer;
+    [SerializeField] private GameObject realCamera;
 
+
+    [SerializeField] private TilemapRenderer virtualMapBackground;
+
+    [SerializeField] private TilemapCollider2D virtualMapTerrainCollider;
+    [SerializeField] private TilemapRenderer virtualMapTerrain;
+    //[SerializeField] private GameObject virtualPlayer;
+   
+    //[SerializeField] private GameObject virtualCamera; 
 
 
     //no timer yet + they way the virtualPlayer is facing is different but can be changed
@@ -43,13 +39,13 @@ public class Interactables : MonoBehaviour
     */
     private void Start()
     {
-        virtualMap.enabled = false; //two ways to do it with bool values or !
-        virtualPlayer.SetActive(false);
+        virtualMapBackground.enabled = false; //two ways to do it with bool values or !
 
-        virtualCamera.SetActive(false);
+        virtualMapTerrainCollider.enabled = false;
+        virtualMapTerrain.enabled = false;
 
-/*        platforms.SetActive(false);
-*/    }
+        //platforms.SetActive(false);
+    }
 
     // Update is called once per frame
     private void Update()
@@ -71,17 +67,21 @@ public class Interactables : MonoBehaviour
 
             //just reveals the platforms && enable a new character and change background, but platforms are static and no timer, pressing E again resets world
 
-            physicalMap.enabled = !physicalMap.enabled; //false
+            physicalMapBackground.enabled = !physicalMapBackground.enabled; //false
 
-            virtualMap.enabled = !virtualMap.enabled; //true
+            virtualMapBackground.enabled = !virtualMapBackground.enabled; //true
 
-            physicalPlayer.SetActive(false);
-            virtualPlayer.SetActive(true);
+            virtualMapTerrainCollider.enabled = !virtualMapTerrainCollider.enabled;
 
-            realCamera.SetActive(false);
-            virtualCamera.SetActive(true);
+            virtualMapTerrain.enabled = !virtualMapTerrain.enabled;
 
-            platforms.SetActive(true);
+            //physicalPlayer.SetActive(false);
+            //virtualPlayer.SetActive(true);
+
+            //realCamera.SetActive(false);
+            //virtualCamera.SetActive(true);
+
+            //platforms.SetActive(true);
 
             inVirtual = true;
 
@@ -89,23 +89,25 @@ public class Interactables : MonoBehaviour
         else if (isInRange && Input.GetKeyDown(interactKey) && inVirtual)
         {
             AudioSource.PlayClipAtPoint(terminal, transform.position);
-            physicalMap.enabled = !physicalMap.enabled; //false
+            physicalMapBackground.enabled = !physicalMapBackground.enabled; //false
 
-            virtualMap.enabled = !virtualMap.enabled; //true
+            virtualMapBackground.enabled = !virtualMapBackground.enabled; //true
 
-            physicalPlayer.SetActive(true);
-            Destroy(virtualPlayer);
-/*            virtualPlayer.SetActive(false);
-*/
-            realCamera.SetActive(true);
-            virtualCamera.SetActive(false);
+            virtualMapTerrainCollider.enabled = !virtualMapTerrainCollider.enabled;
 
-            platforms.SetActive(false);
+            virtualMapTerrain.enabled = !virtualMapTerrain.enabled;
+
+            //physicalPlayer.SetActive(true);
+            //Destroy(virtualPlayer);
+            //virtualPlayer.SetActive(false);
+
+            //realCamera.SetActive(true);
+            // virtualCamera.SetActive(false);
 
             inVirtual = false;
 
         }
-      
+
 
     }
 

@@ -8,9 +8,13 @@ public class Bullet : MonoBehaviour
     FlyingEnemyPatrol explodeTwo;
     StaticEnemyScript explodeStatic;
 
+    [SerializeField] private GameObject[] enemyPrefabs;
+
+    private Vector3 respawnEnemyPos;
+
     private void Start()
     {
-        //explode = GameObject.FindGameObjectWithTag("Enemy").GetComponent<NewMainEnemyScript>();
+
    
     }
 
@@ -23,6 +27,7 @@ public class Bullet : MonoBehaviour
             Destroy(collision.gameObject, .10f);
             
             Destroy(gameObject); //destroys bullet when hitting enemy
+            
         }
 
         else if (collision.CompareTag("FlyingEnemy"))
@@ -43,10 +48,40 @@ public class Bullet : MonoBehaviour
         else if (collision.CompareTag("StaticEnemy"))
         {
             explodeStatic = collision.transform.gameObject.GetComponent<StaticEnemyScript>();
+          
+            respawnEnemyPos = collision.gameObject.transform.position;
+
             explodeStatic.EnemyGuardParticle();
-            Destroy(collision.gameObject, .10f);
-            Destroy(gameObject);
+
+            //Destroy(collision.gameObject, .10f);
+
+            explodeStatic.Sprite.enabled = false;
+
+            Destroy(gameObject); //destroys bullet when hitting enemy
+
+            StartCoroutine(RespawnEnemy(collision.gameObject,  respawnEnemyPos));
+
+
 
         }
+
+
     }
+
+
+
+    private IEnumerator RespawnEnemy(GameObject orgEnemy, Vector3 respawnPos)
+    {
+        yield return new WaitForSeconds(5);
+
+        GameObject enemyClone = (GameObject)Instantiate(enemyPrefabs[0]);
+        enemyClone.transform.position = respawnPos;
+        //Instantiate(newEnemy, respawnPos, Quaternion.identity);
+        Debug.Log("Success");
+
+        Destroy(orgEnemy);
+    }
+
+
+
 }
