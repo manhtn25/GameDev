@@ -6,9 +6,9 @@ public class Bullet : MonoBehaviour
 {
     NewMainEnemyScript explode;
     FlyingEnemyPatrol explodeTwo;
-    StaticEnemyScript explodeStatic;
+    //StaticEnemyScript explodeStatic;
 
-    [SerializeField] private GameObject[] enemyPrefabs;
+    //[SerializeField] private GameObject[] enemyPrefabs;
 
     private Vector3 respawnEnemyPos;
 
@@ -20,41 +20,43 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Enemy"))
-        {
-            explode = collision.transform.gameObject.GetComponent<NewMainEnemyScript>();
-            explode.EnemyGuardParticle();
-            Destroy(collision.gameObject, .10f);
-            
-            Destroy(gameObject); //destroys bullet when hitting enemy
-            
-        }
+        
 
-        else if (collision.CompareTag("FlyingEnemy"))
-        {
-            explodeTwo = collision.transform.gameObject.GetComponent<FlyingEnemyPatrol>();
-            explodeTwo.FlyingEnemyGuardParticle();
-            //Destroy(collision.gameObject, .10f);
-
-            Destroy(gameObject); //destroys bullet when hitting enemy
-
-        }
-
-        else if (collision.CompareTag("TilemappedLevel"))
+        if (collision.CompareTag("TilemappedLevel"))
         {
             Destroy(gameObject);
         }
 
-      /*  else if (collision.CompareTag("StaticEnemy"))
+      /*  if (collision.CompareTag("Enemy"))
         {
-            explodeStatic = collision.transform.gameObject.GetComponent<StaticEnemyScript>();
-            explodeStatic.EnemyGuardParticle();
-
+            explode = collision.transform.gameObject.GetComponent<NewMainEnemyScript>();
+            explode.EnemyGuardParticle();
             Destroy(collision.gameObject, .10f);
 
             Destroy(gameObject); //destroys bullet when hitting enemy
 
         }*/
+
+        /* else if (collision.CompareTag("FlyingEnemy"))
+         {
+             explodeTwo = collision.transform.gameObject.GetComponent<FlyingEnemyPatrol>();
+             explodeTwo.FlyingEnemyGuardParticle();
+             //Destroy(collision.gameObject, .10f);
+
+             Destroy(gameObject); //destroys bullet when hitting enemy
+
+         }*/
+
+        /*  else if (collision.CompareTag("StaticEnemy"))
+          {
+              explodeStatic = collision.transform.gameObject.GetComponent<StaticEnemyScript>();
+              explodeStatic.EnemyGuardParticle();
+
+              Destroy(collision.gameObject, .10f);
+
+              Destroy(gameObject); //destroys bullet when hitting enemy
+
+          }*/
 
 
     }

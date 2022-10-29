@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,7 +9,8 @@ public class LaserScript : MonoBehaviour
     private BoxCollider2D coll;
 
     //tried making a list but it was buggy
-    private Interactables virtualCheck;
+    [SerializeField] private Interactables virtualCheck;
+    [SerializeField] private Interactables virtualCheckTwo;
 
     // Start is called before the first frame update
     void Start()
@@ -25,38 +27,7 @@ public class LaserScript : MonoBehaviour
     void Update()
     {
 
-        /*for (int i = 0; i < terminalListSize; i++)
-        {
-            if (virtualCheck[i].inVirtual == false)
-            {
-                anim.SetBool("isOn", true);
-                if (tag == "LaserTrap")
-                {
-                    coll.enabled = true;
-                }
-                else
-                {
-                    coll.enabled = false;
-                }
-                
-            }
-
-            else if (virtualCheck[i].inVirtual == true)
-            {
-                anim.SetBool("isOn", false);
-         
-                if (tag == "LaserTrap")
-                {
-                    coll.enabled = false;
-                }
-                else {
-                    coll.enabled = true; //this is referring to electricTrap
-                }
-            }
-        }*/
-       
-
-        if (virtualCheck.inVirtual == false)
+        if (virtualCheck.inVirtual == false && virtualCheckTwo.inVirtual == false)
         {
             anim.SetBool("isOn", true);
             if (tag == "LaserTrap")
@@ -68,7 +39,7 @@ public class LaserScript : MonoBehaviour
                 coll.enabled = false;
             }
         }
-        else if (virtualCheck.inVirtual == true)
+        else if (virtualCheck.inVirtual == true || virtualCheckTwo.inVirtual == true)
         {
             anim.SetBool("isOn", false);
 
@@ -82,8 +53,36 @@ public class LaserScript : MonoBehaviour
             }
 
         }
-     
-        
+
+
+       /* if (virtualCheckTwo.inVirtual == false)
+        {
+            anim.SetBool("isOn", true);
+            if (tag == "LaserTrap")
+            {
+                coll.enabled = true;
+            }
+            else
+            {
+                coll.enabled = false;
+            }
+        }
+        else if (virtualCheckTwo.inVirtual == true)
+        {
+            anim.SetBool("isOn", false);
+
+            if (tag == "LaserTrap")
+            {
+                coll.enabled = false;
+            }
+            else
+            {
+                coll.enabled = true; //this is referring to electricTrap
+            }
+
+        }*/
+
+
 
 
 
@@ -92,3 +91,4 @@ public class LaserScript : MonoBehaviour
     }
     
 }
+

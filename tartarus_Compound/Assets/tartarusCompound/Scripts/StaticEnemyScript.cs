@@ -6,7 +6,7 @@ public class StaticEnemyScript : MonoBehaviour
 {
     // Start is called before the first frame update
     private Rigidbody2D rb; //caching the components; make sure to make it private and not expose it to use in other scripts
-    public SpriteRenderer Sprite;
+    private SpriteRenderer Sprite;
     private Animator anim;
     private BoxCollider2D coll;
 
@@ -43,13 +43,21 @@ public class StaticEnemyScript : MonoBehaviour
     const string RIGHT = "right";
     private string facingDirection;
 
-
     private GameObject player;
 
     RaycastHit2D hitInfo;
 
+
     private bool staticIsDead = false;
     [SerializeField] private PlayerLife deathCheck;
+
+    private int Enemyhealth = 3;
+    private bool isDamaged = false;
+
+    [SerializeField]
+    private Interactables virtualCheck;
+    [SerializeField]
+    private Interactables virtualCheckTwo;
 
     // Start is called before the first frame update
     void Start()
@@ -72,8 +80,19 @@ public class StaticEnemyScript : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
+        
+        if (virtualCheck.inVirtual == true || virtualCheckTwo.inVirtual == true)
+        {
+            Sprite.enabled = false;
+            exclamationPoint.SetActive(false);
+        }
+        else
+        {
+            Sprite.enabled = true;
+        }
+        
         Flip();
 
         enemyPlayerDistance = Vector2.Distance(transform.position, target.transform.position);
@@ -84,6 +103,7 @@ public class StaticEnemyScript : MonoBehaviour
  
             hitInfo = Physics2D.Raycast(transform.position, transform.right, attackRaycast, rayCastMask);
             punchDirection = true;
+
         }
 
         else if (facingDirection == LEFT)
@@ -93,7 +113,7 @@ public class StaticEnemyScript : MonoBehaviour
             hitInfo = Physics2D.Raycast(transform.position, transform.right, attackRaycast, rayCastMask);
             punchDirection = false;
 
-
+          
         }
 
         //whats wrong with this one is that once it flips the raycast and transform position does not work
@@ -172,7 +192,7 @@ public class StaticEnemyScript : MonoBehaviour
         anim.SetBool("canWalk", false);
         anim.SetBool("canRun", true);
 
-        if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Enemy_Attack"))
+        if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Enemy_Attack") && isDamaged == false)
         {
             Vector2 targetPosition = new Vector2(player.transform.position.x, transform.position.y);
             transform.position = Vector2.MoveTowards(transform.position, targetPosition, 5f * Time.deltaTime);
@@ -270,13 +290,55 @@ public class StaticEnemyScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.name == "BulletRight(Clone)" || collision.gameObject.name == "BulletLeft(Clone)")
+        if (collision.gameObject.name == "BulletRight(Clone)" || collision.gameObject.name == "BulletLeft(Clone)" )
         {
             Destroy(collision.gameObject);
-            staticIsDead = true;
-            EnemyGuardParticle();
-            //EnemyDestroyed();
+
+            Enemyhealth--;
+            Sprite.color = new Color32(255, 127, 127, 255);
+
+            if (Enemyhealth <= 0)
+            {
+                staticIsDead = true;
+                ResetSprite();
+                EnemyGuardParticle();
+            }
+            else
+            {
+                isDamaged = true;
+                Invoke("ResetSprite", .15f);
+            }
+
+            
+            
         }
+        else if (collision.gameObject.name == "punchRight" || collision.gameObject.name == "punchLeft")
+        {
+
+            Enemyhealth--;
+            Sprite.color = new Color32(255, 127, 127, 255);
+
+
+            if (Enemyhealth <= 0)
+            {
+                staticIsDead = true;
+                ResetSprite();
+                EnemyGuardParticle();
+            }
+            else
+            {
+                isDamaged = true;
+                Invoke("ResetSprite", .15f);
+            }
+
+       
+        }
+    }
+
+    private void ResetSprite()
+    {
+        Sprite.color = new Color32(255, 255, 255, 255);
+        isDamaged = false;
     }
 
 
@@ -287,10 +349,11 @@ public class StaticEnemyScript : MonoBehaviour
         Invoke("Respawn", .10f);
     }
 
-    void Respawn()
+    private void Respawn()
     {
         anim.Play("Enemy_Idle");
         staticIsDead = false;
+        Enemyhealth = 3;
     }
 
   

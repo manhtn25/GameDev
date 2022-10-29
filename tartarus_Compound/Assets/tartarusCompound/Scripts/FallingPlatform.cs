@@ -53,19 +53,24 @@ public class FallingPlatform : MonoBehaviour
         yield return new WaitForSeconds(fallDelay);
         rb.bodyType = RigidbodyType2D.Dynamic; //applies gravity when falling
 
-        Destroy(gameObject, destroyDelay); //commen this out to have platform respawn back
+        //Destroy(gameObject, destroyDelay); //comment this out to have platform respawn back
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
      
-        if (collision.gameObject.CompareTag("FallingPoint")) //assign a game object with this properyty
+        if (collision.gameObject.CompareTag("RespawnPlatforms")) //assign a game object with this properyty
         {
-            transform.position = platformRespawn;
-            rb.bodyType = RigidbodyType2D.Kinematic;
-            falling = true;
+            Invoke("FallingPlatformTimer", 3);
             
         }
         
+    }
+
+    private void FallingPlatformTimer()
+    {
+        transform.position = platformRespawn;
+        rb.bodyType = RigidbodyType2D.Kinematic;
+        falling = true;
     }
 }

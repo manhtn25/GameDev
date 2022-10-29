@@ -44,8 +44,18 @@ public class NewMainEnemyScript : MonoBehaviour
     private string facingDirection;
     Vector3 baseScale;
 
-
     RaycastHit2D hitInfo;
+
+    private bool staticIsDead = false;
+    [SerializeField] private PlayerLife deathCheck;
+
+    private int Enemyhealth = 3;
+    private bool isDamaged = false;
+
+    [SerializeField]
+    private Interactables virtualCheck;
+    [SerializeField]
+    private Interactables virtualCheckTwo;
 
     // Start is called before the first frame update
     void Start()
@@ -69,6 +79,16 @@ public class NewMainEnemyScript : MonoBehaviour
     void Update()
     {
 
+        if (virtualCheck.inVirtual == true || virtualCheckTwo.inVirtual == true)
+        {
+            sprite.enabled = false;
+            exclamationPoint.SetActive(false);
+        }
+        else
+        {
+            sprite.enabled = true;
+        }
+
         //transform.Rotate(Vector3.forward * Time.deltaTime * speed);, useful for rotating vision 
         if (facingDirection == RIGHT)
         {
@@ -82,10 +102,15 @@ public class NewMainEnemyScript : MonoBehaviour
 
         }
 
+        if (staticIsDead == true)
+        {
+            exclamationPoint.SetActive(false);
+        }
+
 
 
         //detecting the player
-        if (hitInfo.collider != null)
+        if (hitInfo.collider != null && staticIsDead == false)
         {
             Debug.DrawLine(transform.position, hitInfo.point, Color.red);
 
@@ -107,7 +132,7 @@ public class NewMainEnemyScript : MonoBehaviour
 
         }
         //not detecting the player but just patroling
-        else if (hitInfo.collider == null)
+        else if (hitInfo.collider == null && staticIsDead == false)
         {
             // Debug.DrawLine(transform.position, transform.position + transform.right * visionDistance, Color.green);
 
@@ -123,6 +148,11 @@ public class NewMainEnemyScript : MonoBehaviour
 
             characterDetected = false;
             exclamationPoint.SetActive(false);
+        }
+
+        if (deathCheck.isDead == true)
+        {
+            EnemyDestroyed();
         }
 
     }
@@ -191,7 +221,7 @@ public class NewMainEnemyScript : MonoBehaviour
 
         //hitting the waypoints flipping the enemy --> work around now is just setting up farther waypoints
 
-        if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Enemy_Attack"))
+        if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Enemy_Attack") && isDamaged == false)
         {
             Vector2 targetPosition = new Vector2(target.transform.position.x, transform.position.y);
             transform.position = Vector2.MoveTowards(transform.position, targetPosition, 5f * Time.deltaTime);
@@ -342,6 +372,70 @@ public class NewMainEnemyScript : MonoBehaviour
 
         return val;
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.name == "BulletRight(Clone)" || collision.gameObject.name == "BulletLeft(Clone)")
+        {
+
+            Destroy(collision.gameObject);
+
+            Enemyhealth--;
+            sprite.color = new Color32(255, 127, 127, 255);
+
+            if (Enemyhealth <= 0)
+            {
+                staticIsDead = true;
+                ResetSprite();
+                EnemyGuardParticle();
+            }
+            else
+            {
+                isDamaged = true;
+                Invoke("ResetSprite", .15f);
+            }
+        }
+        else if (collision.gameObject.name == "punchRight" || collision.gameObject.name == "punchLeft")
+        {
+            Enemyhealth--;
+            sprite.color = new Color32(255, 127, 127, 255);
+
+
+            if (Enemyhealth <= 0)
+            {
+                staticIsDead = true;
+                ResetSprite();
+                EnemyGuardParticle();
+            }
+            else
+            {
+                isDamaged = true;
+                Invoke("ResetSprite", .15f);
+            }
+        }
+    }
+
+    private void ResetSprite()
+    {
+        sprite.color = new Color32(255, 255, 255, 255);
+        isDamaged = false;
+    }
+
+
+    private void EnemyDestroyed()
+    {
+
+        //exclamationPoint.SetActive(false);
+        Invoke("Respawn", .10f);
+    }
+
+    private void Respawn()
+    {
+        anim.Play("Enemy_Idle");
+        staticIsDead = false;
+        Enemyhealth = 3;
+    }
+
 
 
 

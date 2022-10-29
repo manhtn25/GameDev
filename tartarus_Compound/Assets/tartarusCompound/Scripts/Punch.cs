@@ -11,9 +11,9 @@ public class Punch : MonoBehaviour
     //[SerializeField] NewMainEnemyScript enemyOne;
    // [SerializeField] MainEnemyGuard enemyTwo;
 
-    NewMainEnemyScript enemy;
+   /* NewMainEnemyScript enemy;
     FlyingEnemyPatrol enemyTwo;
-    StaticEnemyScript enemyStatic;
+    StaticEnemyScript enemyStatic;*/
 
    
 
@@ -48,7 +48,7 @@ public class Punch : MonoBehaviour
 
 
          }*/
-
+/*
         if (collision.CompareTag("Enemy"))
         {
 
@@ -70,7 +70,7 @@ public class Punch : MonoBehaviour
             enemyStatic = collision.transform.gameObject.GetComponent<StaticEnemyScript>();
             enemyStatic.EnemyGuardParticle();
             Destroy(collision.gameObject, .10f);
-        }
+        }*/
 
       
     }

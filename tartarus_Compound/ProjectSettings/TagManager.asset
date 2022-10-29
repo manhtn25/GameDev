@@ -6,7 +6,6 @@ TagManager:
   tags:
   - Checkpoint
   - Coins
-  - FallingPoint
   - TilemappedLevel
   - OutofBounds
   - WorldFall
@@ -19,6 +18,8 @@ TagManager:
   - LaserTrap
   - ElectricTrap
   - Trap
+  - Terminal
+  - RespawnPlatforms
   layers:
   - Default
   - TransparentFX

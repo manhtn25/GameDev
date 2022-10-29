@@ -7,7 +7,7 @@ public class MainPlayerMovement : MonoBehaviour
 {
 
     private Rigidbody2D rb; //caching the components; make sure to make it private and not expose it to use in other scripts
-    private SpriteRenderer sprite;
+    public SpriteRenderer spriteMainPlayer;
     private Animator anim;
 
     //set to public so interactables script can change
@@ -16,6 +16,7 @@ public class MainPlayerMovement : MonoBehaviour
     private BoxCollider2D coll;
     [SerializeField] private LayerMask jumpableGround;
     [SerializeField] private Interactables virtualCheck;
+    [SerializeField] private Interactables virtualCheckTwo;
     private float dirX = 0f;
     [SerializeField] private float moveSpeed = 10f; //serializedfield allows the edits of value in the editor
     [SerializeField] private float jumpForce = 20f;
@@ -30,15 +31,17 @@ public class MainPlayerMovement : MonoBehaviour
 
     PunchingDmg punchAnim;
 
-    private bool canPunch = true;
+    public bool canPunch = true;
     private bool isPunching;
-    private float punchForwardPos = 10f;
+    private float DashForce = 20f;
     private float punchTime = .2f;
-    private float punchCoolDown = 1f;
+    private float punchCoolDown = 3f;
     //private int punchCount = 1;
     private float punchBetweenTime = 0f;
-    public Image punchImage;
+    private float dashBetweenTime = 0f;
+    public Image dashImage;
     [SerializeField] private GameObject coinUI;
+    private bool canDash = true;
 
     public bool canMove = true;
 
@@ -65,7 +68,7 @@ public class MainPlayerMovement : MonoBehaviour
     private void Start() //methods should be private as well
     {
         rb = GetComponent<Rigidbody2D>(); //do this you can use the component
-        sprite = GetComponent<SpriteRenderer>();
+        spriteMainPlayer = GetComponent<SpriteRenderer>();
         coll = GetComponent<BoxCollider2D>();
         anim = GetComponent<Animator>(); //animator component
 
@@ -92,7 +95,7 @@ public class MainPlayerMovement : MonoBehaviour
         {
 
 
-            if (virtualCheck.inVirtual == false)
+        /*    if (virtualCheck.inVirtual == false)
             {
                 sprite.color = new Color32(248, 248, 248, 255);
             }
@@ -100,7 +103,7 @@ public class MainPlayerMovement : MonoBehaviour
             else if (virtualCheck.inVirtual == true)
             {
                 sprite.color = new Color32(67, 237, 255, 255);
-            }
+            }*/
 
 
             coinUI.SetActive(true);
@@ -114,45 +117,50 @@ public class MainPlayerMovement : MonoBehaviour
             /* rb.velocity = new Vector2(dirX * moveSpeed, rb.velocity.y);
              horizontalVal = 1;*/
 
-            if (isPunching)
+           /* if (isPunching)
             {
                 return;
-            }
+            }*/
 
-
-            if (Input.GetKey(KeyCode.LeftShift))  //this one still needs to be setup for console for sneaking
+            if (Input.GetKey(KeyCode.LeftShift))  //dashing move even if idle and moving
             {
 
-                rb.velocity = new Vector2(dirX * 3f, rb.velocity.y);
-                horizontalVal = 0;
-            }
-            else if (Input.GetButtonUp("Fire1") && !Input.GetButton("Fire2") && movementVector != Vector2.zero)
-            {
-                if (Time.time > punchBetweenTime)
+                /*rb.velocity = new Vector2(dirX * 3f, rb.velocity.y);
+                horizontalVal = 0;*/
+                if (Time.time > dashBetweenTime)
                 {
-                    punchImage.enabled = !punchImage.enabled;
-                    StartCoroutine(PunchWait()); //set a dash punch
+                    dashImage.enabled = false;
+                    StartCoroutine(DashWait()); //set a dash punch
 
-                    punchBetweenTime = Time.time + 3.0f;
+                    dashBetweenTime = Time.time + 3.0f;
 
                 }
-
-
-
             }
-            else if (Input.GetButton("Fire1") && !Input.GetButton("Fire2"))
-            {
+            /* else if (Input.GetButtonUp("Fire1") && !Input.GetButton("Fire2") && movementVector != Vector2.zero)
+             {
+             //dash punching only if moving
+                 if (Time.time > punchBetweenTime)
+                 {
+                     punchImage.enabled = !punchImage.enabled;
+                     //StartCoroutine(PunchWait()); //set a dash punch
 
+                     punchBetweenTime = Time.time + 3.0f;
+                 }
+             }*/
+            /*else if (Input.GetButton("Fire1") && !Input.GetButton("Fire2"))
+            {
                 horizontalVal = 4;
 
-                //this is for fighting
+                //this is for fighting/punching
             }
             else if (Input.GetButton("Fire2") && IsGrounded() && Input.GetButton("Fire1"))
             {
-                horizontalVal = 3;              //shooting in ground
-                bulletAnim.Fire();
-                rb.velocity = new Vector2(0, 0);
-
+                if (virtualCheck.inVirtual == false && virtualCheckTwo.inVirtual == false)
+                {
+                    horizontalVal = 3;              //shooting in ground
+                    bulletAnim.Fire();
+                    rb.velocity = new Vector2(0, 0);
+                }
 
             }
             else if (Input.GetButton("Fire2") && !IsGrounded() && Input.GetButton("Fire1")) //mainly aiming right now and combine with fire one to shoot/ cause fire1 by itself is punch
@@ -160,6 +168,33 @@ public class MainPlayerMovement : MonoBehaviour
                 horizontalVal = 3;
                 rb.velocity = new Vector2(dirX * moveSpeed, rb.velocity.y);
 
+            }*/
+            
+            else if (Input.GetKey(KeyCode.J) && !Input.GetKey(KeyCode.K))
+            {
+
+                if (Time.time > punchBetweenTime)
+                {
+                    horizontalVal = 4;
+                 
+                    punchBetweenTime = Time.time + .20f;
+
+                }
+                
+            }
+            else if (Input.GetKey(KeyCode.K) && IsGrounded())
+            {
+                if (virtualCheck.inVirtual == false && virtualCheckTwo.inVirtual == false)
+                {
+                    horizontalVal = 3;              //shooting in ground
+                    bulletAnim.Fire();
+                    rb.velocity = new Vector2(0, 0);
+
+                }
+            }else if (Input.GetKey(KeyCode.K) && !IsGrounded())
+            {
+                horizontalVal = 3;
+                rb.velocity = new Vector2(dirX * moveSpeed, rb.velocity.y);
             }
             else if (canMove)
             {
@@ -187,6 +222,11 @@ public class MainPlayerMovement : MonoBehaviour
 
             //note that transition can be paused momentarily
 
+            if (canDash == true)
+            {
+                dashImage.enabled = true;
+            }
+
             UpdateAnimationState(horizontalVal);
 
         }
@@ -197,7 +237,7 @@ public class MainPlayerMovement : MonoBehaviour
         
         }
 
-
+       
 
     }
 
@@ -220,7 +260,7 @@ public class MainPlayerMovement : MonoBehaviour
             //make sure spelling within animator is exact
             //anim.SetBool("running", true); //running right
             state = MovementState.running;
-            sprite.flipX = false;
+            spriteMainPlayer.flipX = false;
             facingRight = true;
 
 
@@ -234,7 +274,7 @@ public class MainPlayerMovement : MonoBehaviour
         {
             //anim.SetBool("running", true);//running left
             state = MovementState.running;
-            sprite.flipX = true;
+            spriteMainPlayer.flipX = true;
             facingRight = false;
             //Debug.Log(transform.right);
 
@@ -244,10 +284,10 @@ public class MainPlayerMovement : MonoBehaviour
             //sneakingSound.Pause();
 
         }
-        else if (dirX > 0f && horizontalVal == 0)
+       /* else if (dirX > 0f && horizontalVal == 0)
         {
             state = MovementState.sneaking;
-            sprite.flipX = false;
+            spriteMainPlayer.flipX = false;
             runningSound.GetComponent<AudioSource>().Pause();
 
             //sneakingSound.UnPause();
@@ -256,11 +296,11 @@ public class MainPlayerMovement : MonoBehaviour
         else if (dirX < 0f && horizontalVal == 0)
         {
             state = MovementState.sneaking;
-            sprite.flipX = true;
+            spriteMainPlayer.flipX = true;
             runningSound.GetComponent<AudioSource>().Pause();
             //sneakingSound.UnPause();
           
-        }
+        }*/
         else
         {
             /* anim.SetBool("running", false);*/
@@ -290,74 +330,86 @@ public class MainPlayerMovement : MonoBehaviour
 
         }
 
-
-
-        if (horizontalVal == 3)
+        if (virtualCheck.inVirtual == false && virtualCheckTwo.inVirtual == false)
         {
-            state = MovementState.shooting;
-            bulletAnim.Fire();
+            if (horizontalVal == 3)
+            {
+                state = MovementState.shooting;
+                bulletAnim.Fire();
+            }
+
+
+            if (horizontalVal == 5)
+            {
+                // rb.velocity = new Vector3(50, 0, 0);
+
+                rb.velocity = transform.right * DashForce * Time.deltaTime;
+
+                // rb.AddForce(rb.velocity * punchForwardPos);     // this is actually teleports you;
+
+                //rb.velocity = new Vector3(50, 0, 0);
+
+            }
+
+            else if (dirX > 0f && horizontalVal == 4 && facingRight && canPunch)
+            {
+
+
+
+
+                state = MovementState.punching;
+                punchAnim.Punch();
+                //rb.AddForce(transform.right * punchForwardPos);
+
+
+
+                /* if (curPunch == numPunches)
+               {
+                   anim.SetBool("test", false);
+                   StartCoroutine(PunchCooldown());
+                   //Debug.Log("Success");
+               }
+               curPunch++;*/
+
+            }
+            else if (dirX < 0f && horizontalVal == 4 && !facingRight && canPunch)
+            {
+
+
+                state = MovementState.punching;
+                punchAnim.Punch();
+                //rb.AddForce(-(transform.right * punchForwardPos)); //this is for impulse mechanic
+                //rb.velocity = new Vector2(0, 0);
+
+
+
+            }
+            else if (horizontalVal == 4)
+            {
+
+                //rb.velocity = new Vector2(0, 0);
+                state = MovementState.punching;
+                punchAnim.Punch();
+                /*anim.SetTrigger("IdlePunch");
+                punchAnim.Punch();
+                Invoke("ResetPunch", 0.25f);*/
+
+            }
+
+
+
+
         }
-
-
-        if (horizontalVal == 5)
-        {
-           // rb.velocity = new Vector3(50, 0, 0);
-
-            rb.velocity = transform.right * punchForwardPos * Time.deltaTime;
-
-           // rb.AddForce(rb.velocity * punchForwardPos);     // this is actually teleports you;
-
-            //rb.velocity = new Vector3(50, 0, 0);
-
-        }
-
-        else if (dirX > 0f && horizontalVal == 4 && facingRight && canPunch)
-        {
-
-          
-           
-            
-            state = MovementState.punching;
-            punchAnim.Punch();
-            //rb.AddForce(transform.right * punchForwardPos);
-
-           
-
-            /* if (curPunch == numPunches)
-           {
-               anim.SetBool("test", false);
-               StartCoroutine(PunchCooldown());
-               //Debug.Log("Success");
-           }
-           curPunch++;*/
-
-        }
-        else if (dirX < 0f && horizontalVal == 4 && !facingRight && canPunch)
-        {
-           
-
-            state = MovementState.punching;
-            punchAnim.Punch();
-            //rb.AddForce(-(transform.right * punchForwardPos)); //this is for impulse mechanic
-            //rb.velocity = new Vector2(0, 0);
-
-           
-
-        }
-        else if (horizontalVal == 4)
-         {
-
-            //rb.velocity = new Vector2(0, 0);
-            state = MovementState.punching;
-            punchAnim.Punch();
-
-           
-
-        }
-
 
         anim.SetInteger("state", (int)state); //state value casts the integer representation
 
+    }
+
+
+    private void ResetPunch()
+    {
+       
+        anim.Play("Player_Idle");
     }
 
     private bool IsGrounded()
@@ -369,21 +421,21 @@ public class MainPlayerMovement : MonoBehaviour
     }
 
 
-    private IEnumerator PunchWait()
+    private IEnumerator DashWait()
     {
-        canPunch = false;
-        isPunching = true;
+         canDash = false;
+        //isPunching = true;
         float originalGravity = rb.gravityScale;
         rb.gravityScale = 0f;
         if (facingRight)
         {
-            rb.velocity = new Vector2(transform.localScale.x * punchForwardPos, 0f);
+            rb.velocity = new Vector2(transform.localScale.x * DashForce, 0f);
             punchTrailRight.Play();
      
         }
         else
         {
-            rb.velocity = new Vector2(-transform.localScale.x * punchForwardPos, 0f);
+            rb.velocity = new Vector2(-transform.localScale.x * DashForce, 0f);
             punchTrailLeft.Play();
   
         }
@@ -393,12 +445,12 @@ public class MainPlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(punchTime);
         dashTrail.emitting = false;
         rb.gravityScale = originalGravity;
-        isPunching = false;
+        //isPunching = false;
         
         yield return new WaitForSeconds(punchCoolDown);
-        canPunch = true;
+        canDash = true;
 
-        punchImage.enabled = !punchImage.enabled;
+        
 
     }
    

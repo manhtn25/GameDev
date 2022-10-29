@@ -8,7 +8,6 @@ public class FlyingEnemyPatrol : MonoBehaviour
     [SerializeField] private GameObject exclamationPoint;
     private GameObject player;
     public bool chase = false;
-    private bool dead = false;
     public Transform initialPoint;
     private Animator anim;
 
@@ -22,7 +21,16 @@ public class FlyingEnemyPatrol : MonoBehaviour
 
     PlayerLife healthDmg;
 
+    private bool flyingIsDead = false;
+    [SerializeField] private PlayerLife deathCheck;
 
+    private int Enemyhealth = 3;
+    private bool isDamaged = false;
+
+    [SerializeField]
+    private Interactables virtualCheck;
+    [SerializeField]
+    private Interactables virtualCheckTwo;
 
     private void Start()
     {
@@ -43,12 +51,23 @@ public class FlyingEnemyPatrol : MonoBehaviour
 
     private void Update()
     {
-        if(player == null)
+
+        if (virtualCheck.inVirtual == true || virtualCheckTwo.inVirtual == true)
+        {
+            sprite.enabled = false;
+            exclamationPoint.SetActive(false);
+        }
+        else
+        {
+            sprite.enabled = true;
+        }
+
+        if (player == null)
         {
             return;
         }
 
-        if (dead)
+        if (flyingIsDead)
         {
           
            rb.velocity = Vector2.zero;
@@ -56,7 +75,7 @@ public class FlyingEnemyPatrol : MonoBehaviour
         }
         else
         {
-            if (chase == true)
+            if (chase == true && flyingIsDead == false && isDamaged == false)
             {
                 TargetPlayer();
                 exclamationPoint.SetActive(true);
@@ -68,6 +87,16 @@ public class FlyingEnemyPatrol : MonoBehaviour
             }
             TargetPlayer();
             Flip();
+        }
+
+        if (deathCheck.isDead == true)
+        {
+            EnemyDestroyed();
+        }
+
+        if (flyingIsDead == true)
+        {
+            exclamationPoint.SetActive(false);
         }
 
 
@@ -100,7 +129,6 @@ public class FlyingEnemyPatrol : MonoBehaviour
     public void FlyingEnemyGuardParticle()
     {
         coll.isTrigger = false;
-        dead = true;
         exclamationPoint.SetActive(false);
         StartCoroutine(Destroy());
         
@@ -112,7 +140,7 @@ public class FlyingEnemyPatrol : MonoBehaviour
        
         yield return new WaitForSeconds(2.0f);
         anim.Play("Explode_Animation");
-        Destroy(this.gameObject, 0.30f);
+       // Destroy(this.gameObject, 0.30f);
         
     }
 
@@ -129,10 +157,67 @@ public class FlyingEnemyPatrol : MonoBehaviour
              //call the playerlife function to respawn --> just invisible not runnign
              respawnAfterDeath.combackAlive();*/
 
-
-
         }
 
-     
+        if (collision.gameObject.name == "BulletRight(Clone)" || collision.gameObject.name == "BulletLeft(Clone)" )
+        {
+          
+
+            Destroy(collision.gameObject);
+
+            Enemyhealth--;
+            sprite.color = new Color32(255, 127, 127, 255);
+
+            if (Enemyhealth <= 0)
+            {
+                flyingIsDead = true;
+                ResetSprite();
+                FlyingEnemyGuardParticle();
+            }
+            else
+            {
+                isDamaged = true;
+                Invoke("ResetSprite", .15f);
+            }
+        }
+        else if (collision.gameObject.name == "punchRight" || collision.gameObject.name == "punchLeft")
+        {
+        
+            Enemyhealth--;
+            sprite.color = new Color32(255, 127, 127, 255);
+
+            if (Enemyhealth <= 0)
+            {
+                flyingIsDead = true;
+                ResetSprite();
+                FlyingEnemyGuardParticle();
+            }
+            else
+            {
+                isDamaged = true;
+                Invoke("ResetSprite", .15f);
+            }
+        }
+
+    }
+
+    private void ResetSprite()
+    {
+        sprite.color = new Color32(255, 255, 255, 255);
+        isDamaged = false;
+    }
+
+    private void EnemyDestroyed()
+    {
+
+        //exclamationPoint.SetActive(false);
+        Invoke("Respawn", .10f);
+    }
+
+    private void Respawn()
+    {
+        anim.Play("Idle_Animation");
+        flyingIsDead = false;
+        Enemyhealth = 3;
     }
 }

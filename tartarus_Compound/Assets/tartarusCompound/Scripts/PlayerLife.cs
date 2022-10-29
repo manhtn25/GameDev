@@ -39,6 +39,10 @@ public class PlayerLife : MonoBehaviour
     public int currentHealth;
     MainPlayerMovement death;
 
+    private bool isInvincible = false;
+    private float InvincibleDuration = 2.0f;
+    private float InvincibleTimeAdd = 0.15f;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -84,6 +88,11 @@ public class PlayerLife : MonoBehaviour
         if (isDead == true)
         {
             virtualCheck.inVirtual = false;
+        }
+
+        if (virtualCheck.inVirtual == true)
+        {
+            mainPlayer.color = new Color32(67, 237, 255, 255);
         }
 
     }
@@ -193,22 +202,41 @@ public class PlayerLife : MonoBehaviour
 
     public void TakeDamage(int amount)
     {
-        currentHealth -= amount;
-        //subtract the hearts
 
-
-        if (currentHealth <= 0)
+        if (virtualCheck.inVirtual == false)
         {
-            death.MainPlayerDeath();
-            isDead = true;
-            combackAlive();
-            GetComponent<MainPlayerMovement>().canMove = false;
-            
+            if (isInvincible) return;
 
-            //enable all the hearts again
-            //make sure to add where the player can't move
+            currentHealth -= amount;
+            mainPlayer.color = new Color32(255, 127, 127, 255);
+            //subtract the hearts
 
+            if (currentHealth <= 0)
+            {
+                death.MainPlayerDeath();
+                isDead = true;
+                combackAlive();
+                GetComponent<MainPlayerMovement>().canMove = false;
+
+                //enable all the hearts again
+                //make sure to add where the player can't move
+
+            }
+            else
+            {
+                Invoke("ResetSprite", .10f);
+                StartCoroutine(ActivateInvincibility());
+            }
         }
+
+       
+    }
+
+    private void ResetSprite()
+    {
+        mainPlayer.color = new Color32(255, 255, 255, 255);
+ 
+  
     }
 
     private void GainHealth(int amount)
@@ -219,6 +247,34 @@ public class PlayerLife : MonoBehaviour
         {
             currentHealth = maxHealth;
         }
+    }
+
+    
+
+    private IEnumerator ActivateInvincibility()
+    {
+        //yield return new WaitForSeconds(1.65f);
+       
+        isInvincible = true;
+        int count = 0;
+
+        for (float i = 0; i < InvincibleDuration; i += InvincibleTimeAdd)
+        {
+            if (count % 2 == 0)
+            {
+                mainPlayer.color = new Color32(255, 255, 255, 255);
+            }
+            else
+            {
+                mainPlayer.color = new Color32(198, 198, 198, 255);
+            }
+            count++;
+            yield return new WaitForSeconds(InvincibleTimeAdd);
+        }
+
+        isInvincible = false;
+        mainPlayer.color = new Color32(255, 255, 255, 255);
+
     }
 
 }

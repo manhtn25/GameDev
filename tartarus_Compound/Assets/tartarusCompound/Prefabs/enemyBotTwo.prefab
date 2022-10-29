@@ -28,7 +28,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2894410748279865478}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.2000046, y: -0.40999985, z: 0.72942114}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -166,14 +166,14 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   timer: 3
-  target: {fileID: 689427458130046347, guid: 7c1a2c0efe68290429de4c306b06ee89, type: 3}
+  target: {fileID: 0}
   distance: 2.5
   attackDistance: 2
   characterDetected: 0
   punchRight: {fileID: 2894410750102952706}
   punchLeft: {fileID: 2894410748536055763}
   exclamationPoint: {fileID: 2894410748720022083}
-  enemyStaticPrefab: {fileID: 2894410748279865478}
+  deathCheck: {fileID: 0}
 --- !u!1 &2894410748536055763
 GameObject:
   m_ObjectHideFlags: 0

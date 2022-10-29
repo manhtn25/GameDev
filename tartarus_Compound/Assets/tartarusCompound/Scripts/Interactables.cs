@@ -23,12 +23,24 @@ public class Interactables : MonoBehaviour
     [SerializeField] private GameObject realCamera;
 
     [SerializeField] private PlayerLife deathCheck;
+    [SerializeField] private MainPlayerMovement mainPlayerRef;
 
 
     [SerializeField] private TilemapRenderer virtualMapBackground;
 
     [SerializeField] private TilemapCollider2D virtualMapTerrainCollider;
     [SerializeField] private TilemapRenderer virtualMapTerrain;
+
+    [SerializeField]
+    private GameObject VirtualTimerBarObject;
+    [SerializeField] private Slider VirtualTimerBar;
+    private float FillSpeed = 0.068f;
+    private float targetProgress = 0f;
+
+    private bool terminalIsCooldown = false;
+
+  
+
     //[SerializeField] private GameObject virtualPlayer;
    
     //[SerializeField] private GameObject virtualCamera; 
@@ -46,6 +58,11 @@ public class Interactables : MonoBehaviour
         virtualMapTerrainCollider.enabled = false;
         virtualMapTerrain.enabled = false;
 
+        VirtualTimerBar.enabled = false;
+
+
+        /*DecrementProgress(0f);*/
+
         //platforms.SetActive(false);
     }
 
@@ -53,7 +70,20 @@ public class Interactables : MonoBehaviour
     private void Update()
     {
 
-        if (isInRange)
+        if (VirtualTimerBar.value > targetProgress && inVirtual == true)
+        {
+            VirtualTimerBarObject.SetActive(true);
+            VirtualTimerBar.enabled = enabled;
+            VirtualTimerBar.value -= FillSpeed * Time.deltaTime;
+        }
+        else
+        {
+            VirtualTimerBarObject.SetActive(false);
+            VirtualTimerBar.enabled = false;
+        }
+
+
+        if (isInRange && inVirtual == false && terminalIsCooldown == false)
         {
             terminalText.SetActive(true);
         }
@@ -64,9 +94,10 @@ public class Interactables : MonoBehaviour
 
 
 
-        if (isInRange && Input.GetKeyDown(interactKey) && !inVirtual)
+        if (isInRange && Input.GetKeyDown(interactKey) && inVirtual == false && terminalIsCooldown == false)
         {
             AudioSource.PlayClipAtPoint(terminal, transform.position);
+
 
             //just reveals the platforms && enable a new character and change background, but platforms are static and no timer, pressing E again resets world
 
@@ -77,46 +108,61 @@ public class Interactables : MonoBehaviour
             virtualMapTerrainCollider.enabled = !virtualMapTerrainCollider.enabled;
 
             virtualMapTerrain.enabled = !virtualMapTerrain.enabled;
-
-          
-
+            mainPlayerRef.spriteMainPlayer.color = new Color32(67, 237, 255, 255);
+            mainPlayerRef.tag = "Enemy";
             inVirtual = true;
+            mainPlayerRef.canPunch = false;
+            Invoke("VirtualTimer", 15);
 
         }
-        else if(isInRange && Input.GetKeyDown(interactKey) && inVirtual)
+       /* else if(isInRange && Input.GetKeyDown(interactKey) && inVirtual)
         {
             AudioSource.PlayClipAtPoint(terminal, transform.position);
-            physicalMapBackground.enabled = !physicalMapBackground.enabled; //false
+            VirtualTimer();
 
-            virtualMapBackground.enabled = !virtualMapBackground.enabled; //true
-
-            virtualMapTerrainCollider.enabled = !virtualMapTerrainCollider.enabled;
-
-            virtualMapTerrain.enabled = !virtualMapTerrain.enabled;
-
-
-            inVirtual = false;
-
-        }
+        }*/
         
         if (deathCheck.isDead == true)
         {
-            physicalMapBackground.enabled = true; //false
+            CancelInvoke();
+            VirtualTimer();
+        }
 
-            virtualMapBackground.enabled = false; //true
-
-            virtualMapTerrainCollider.enabled = false;
-
-            virtualMapTerrain.enabled = false;
-
-            inVirtual = false;
-
+       
+        if (terminalIsCooldown == true)
+        {
+            Invoke("TerminalCooldown", 10);
         }
 
 
     }
 
-   
+    private void TerminalCooldown()
+    {
+        terminalIsCooldown = false;
+    }
+
+    private void VirtualTimer()
+    {
+        mainPlayerRef.spriteMainPlayer.color = new Color32(248, 248, 248, 255);
+        physicalMapBackground.enabled = true; //false
+        virtualMapBackground.enabled = false; //true
+        virtualMapTerrainCollider.enabled = false;
+        virtualMapTerrain.enabled = false;
+        inVirtual = false;
+        VirtualTimerBar.value = 1;
+        mainPlayerRef.tag = "Player";
+        mainPlayerRef.canPunch = true;
+        terminalIsCooldown = true;
+
+    }
+
+
+    /*private void DecrementProgress(float newProgress)
+    {
+        targetProgress = VirtualTimerBar.value - newProgress;
+    }
+*/
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -129,7 +175,7 @@ public class Interactables : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Enemy"))
         {
             isInRange = false;
     
