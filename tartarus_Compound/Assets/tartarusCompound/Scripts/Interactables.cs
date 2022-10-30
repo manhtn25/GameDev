@@ -101,7 +101,7 @@ public class Interactables : MonoBehaviour
 
             //just reveals the platforms && enable a new character and change background, but platforms are static and no timer, pressing E again resets world
 
-            physicalMapBackground.enabled = !physicalMapBackground.enabled; //false
+            //physicalMapBackground.enabled = !physicalMapBackground.enabled; //false
 
             virtualMapBackground.enabled = !virtualMapBackground.enabled; //true
 
