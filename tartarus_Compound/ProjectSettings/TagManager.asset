@@ -10,7 +10,6 @@ TagManager:
   - OutofBounds
   - WorldFall
   - Enemy
-  - Cherry
   - StaticEnemy
   - FlyingEnemy
   - FxTemporaire
@@ -21,6 +20,7 @@ TagManager:
   - Terminal
   - RespawnPlatforms
   - FallingPoint
+  - Health
   layers:
   - Default
   - TransparentFX
