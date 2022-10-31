@@ -9,6 +9,10 @@ public class ItemCollector : MonoBehaviour
     public int realCoins = 0;
     public AudioClip coinSound;
 
+    public bool hasGun = false;
+
+    [SerializeField] PlayerLife mainPlayerHealth;
+
     //[SerializeField] private Text coinsText; //make sure to import libarary
 
     /*    [SerializeField] private AudioSource collectionSoundEffect;
@@ -23,13 +27,32 @@ public class ItemCollector : MonoBehaviour
             /*            collectionSoundEffect.Play();
             */
             AudioSource.PlayClipAtPoint(coinSound, transform.position);
-            Destroy(collision.gameObject); 
+
+            //Destroy(collision.gameObject); 
+            //collision.gameObject.SetActive(false);
             realCoins++;
+            collision.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            collision.gameObject.GetComponent<BoxCollider2D>().enabled = false;
             //coinsText.text = ": " + realCoins;
 
             //keep an eye on the hierarchy of objects to see if it actually got destroyed
         }
-        
+        else if (collision.gameObject.CompareTag("Health") && mainPlayerHealth.currentHealth < 3)
+        {
+            mainPlayerHealth.GainHealth(1);
+            collision.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            collision.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        }
+
+        if (collision.gameObject.name == "GunFind")
+        {
+            hasGun = true;
+            AudioSource.PlayClipAtPoint(coinSound, transform.position);
+            collision.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            collision.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        }
+
     }
+
 
 }

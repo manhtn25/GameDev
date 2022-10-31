@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class PlayerLife : MonoBehaviour
 {
-   /* private Animator anim;*/
+    /* private Animator anim;*/
     private Rigidbody2D rb;
 
     private Vector3 respawnPoint; //records player position at the start of the game
@@ -40,7 +40,7 @@ public class PlayerLife : MonoBehaviour
     MainPlayerMovement death;
 
     private bool isInvincible = false;
-    private float InvincibleDuration = 2.0f;
+    private float InvincibleDuration = 1.5f;
     private float InvincibleTimeAdd = 0.15f;
 
     // Start is called before the first frame update
@@ -60,27 +60,27 @@ public class PlayerLife : MonoBehaviour
 
     private void Update()
     {
-        
-     if (Input.GetKeyDown(KeyCode.H)) //for geting stuck
+
+        if (Input.GetKeyDown(KeyCode.H)) //for geting stuck
         {
             StartCoroutine(Respawn());
         }
-      
-     if (currentHealth == 3)
+
+        if (currentHealth == 3)
         {
             healthOne.enabled = true;
             healthTwo.enabled = true;
             healthThree.enabled = true;
         }
-     else if(currentHealth == 2)
+        else if (currentHealth == 2)
         {
             healthThree.enabled = false;
         }
-     else if(currentHealth == 1)
+        else if (currentHealth == 1)
         {
             healthTwo.enabled = false;
         }
-     else if (currentHealth == 0)
+        else if (currentHealth == 0)
         {
             healthOne.enabled = false;
         }
@@ -121,20 +121,21 @@ public class PlayerLife : MonoBehaviour
         else if (collision.gameObject.CompareTag("OutofBounds"))
         {
             //StartCoroutine("Respawn", 5f);
-           
+
         }
     }
 
     private void Die()
     {
-/*        anim.SetTrigger("death");
-*/        rb.bodyType = RigidbodyType2D.Static;
+        /*        anim.SetTrigger("death");
+        */
+        rb.bodyType = RigidbodyType2D.Static;
     }
 
-   /* private void RestartLevel()
-    {
-       *//* SceneManager.LoadScene(SceneManager.GetActiveScene().name);*//* //this is a complete reset of the level to the beginning
-    }*/
+    /* private void RestartLevel()
+     {
+        *//* SceneManager.LoadScene(SceneManager.GetActiveScene().name);*//* //this is a complete reset of the level to the beginning
+     }*/
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -145,16 +146,18 @@ public class PlayerLife : MonoBehaviour
                 respawnPoint = transform.position;
                 objectiveFlag.CheckPointAnim();
 
-            }else if (collision.gameObject.name == "checkpointOneFinal")
+            }
+            else if (collision.gameObject.name == "checkpointOneFinal")
             {
                 respawnPoint = transform.position;
                 endingFlag.CheckPointAnim();
-            }else 
+            }
+            else
             {
                 respawnPoint = transform.position;
             }
-            
-           
+
+
 
 
         }
@@ -178,7 +181,7 @@ public class PlayerLife : MonoBehaviour
         //mainPlayer.enabled = true;
         //Debug.Log("Success");
         currentHealth = maxHealth;
-        
+
     }
 
     public void combackAlive()
@@ -196,7 +199,7 @@ public class PlayerLife : MonoBehaviour
         transform.position = respawnPoint;
         GetComponent<MainPlayerMovement>().canMove = true;
         currentHealth = maxHealth;
-       
+
         //mainPlayer.enabled = true;
     }
 
@@ -229,17 +232,17 @@ public class PlayerLife : MonoBehaviour
             }
         }
 
-       
+
     }
 
     private void ResetSprite()
     {
         mainPlayer.color = new Color32(255, 255, 255, 255);
- 
-  
+
+
     }
 
-    private void GainHealth(int amount)
+    public void GainHealth(int amount)
     {
         currentHealth += amount;
 
@@ -249,12 +252,12 @@ public class PlayerLife : MonoBehaviour
         }
     }
 
-    
+
 
     private IEnumerator ActivateInvincibility()
     {
         //yield return new WaitForSeconds(1.65f);
-       
+
         isInvincible = true;
         int count = 0;
 

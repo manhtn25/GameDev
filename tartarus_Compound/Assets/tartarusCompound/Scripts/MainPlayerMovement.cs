@@ -21,6 +21,7 @@ public class MainPlayerMovement : MonoBehaviour
     [SerializeField] private float moveSpeed = 10f; //serializedfield allows the edits of value in the editor
     [SerializeField] private float jumpForce = 20f;
     [SerializeField] private ForceMode ForceModeValue;
+    [SerializeField] private PlayerLife deathCheck;
 
     private int horizontalVal = 0; //this one sets up an integer whether player is walking or trying to run
 
@@ -33,7 +34,7 @@ public class MainPlayerMovement : MonoBehaviour
 
     public bool canPunch = true;
     private bool isPunching;
-    private float DashForce = 20f;
+    private float DashForce = 15f;
     private float punchTime = .2f;
     private float punchCoolDown = 3f;
     //private int punchCount = 1;
@@ -51,13 +52,13 @@ public class MainPlayerMovement : MonoBehaviour
     [SerializeField] ParticleSystem punchTrailRight;
     [SerializeField] ParticleSystem punchTrailLeft;
 
-    
+    [SerializeField] ItemCollector gunCheck;
 
 
     //public static PauseMenu instance;
 
     private enum MovementState { idle, running, jumping, falling, sneaking, shooting, punching } //this is basically an array, instead of having to remember the correct name, just refer to the its index position
-    public AudioClip running, jump, land, prisonDoors;
+    public AudioClip running, jump, prisonDoors;
     [SerializeField] private AudioSource runningSound;
     //[SerializeField] private AudioSource sneakingSound;
     [SerializeField] private AudioSource backgroundMusic;
@@ -85,7 +86,7 @@ public class MainPlayerMovement : MonoBehaviour
     }
 
 
- 
+
 
     // Update is called once per frame
     private void Update()
@@ -95,15 +96,15 @@ public class MainPlayerMovement : MonoBehaviour
         {
 
 
-        /*    if (virtualCheck.inVirtual == false)
-            {
-                sprite.color = new Color32(248, 248, 248, 255);
-            }
+            /*    if (virtualCheck.inVirtual == false)
+                {
+                    sprite.color = new Color32(248, 248, 248, 255);
+                }
 
-            else if (virtualCheck.inVirtual == true)
-            {
-                sprite.color = new Color32(67, 237, 255, 255);
-            }*/
+                else if (virtualCheck.inVirtual == true)
+                {
+                    sprite.color = new Color32(67, 237, 255, 255);
+                }*/
 
 
             coinUI.SetActive(true);
@@ -117,10 +118,10 @@ public class MainPlayerMovement : MonoBehaviour
             /* rb.velocity = new Vector2(dirX * moveSpeed, rb.velocity.y);
              horizontalVal = 1;*/
 
-           /* if (isPunching)
-            {
-                return;
-            }*/
+            /* if (isPunching)
+             {
+                 return;
+             }*/
 
             if (Input.GetKey(KeyCode.LeftShift))  //dashing move even if idle and moving
             {
@@ -169,29 +170,30 @@ public class MainPlayerMovement : MonoBehaviour
                 rb.velocity = new Vector2(dirX * moveSpeed, rb.velocity.y);
 
             }*/
-            
+
             else if (Input.GetKey(KeyCode.J) && !Input.GetKey(KeyCode.K))
             {
 
                 if (Time.time > punchBetweenTime)
                 {
                     horizontalVal = 4;
-                 
+
                     punchBetweenTime = Time.time + .20f;
 
                 }
-                
+
             }
             else if (Input.GetKey(KeyCode.K) && IsGrounded())
             {
-                if (virtualCheck.inVirtual == false && virtualCheckTwo.inVirtual == false)
+                if (virtualCheck.inVirtual == false && virtualCheckTwo.inVirtual == false && gunCheck.hasGun == true)
                 {
                     horizontalVal = 3;              //shooting in ground
                     bulletAnim.Fire();
                     rb.velocity = new Vector2(0, 0);
 
                 }
-            }else if (Input.GetKey(KeyCode.K) && !IsGrounded())
+            }
+            else if (Input.GetKey(KeyCode.K) && !IsGrounded() && gunCheck.hasGun == true)
             {
                 horizontalVal = 3;
                 rb.velocity = new Vector2(dirX * moveSpeed, rb.velocity.y);
@@ -229,15 +231,22 @@ public class MainPlayerMovement : MonoBehaviour
 
             UpdateAnimationState(horizontalVal);
 
+            if (deathCheck.isDead == true)
+            {
+                StopCoroutine(DashWait());
+                canDash = true;
+                dashBetweenTime = 0f;
+            }
+
         }
         else
         {
             coinUI.SetActive(false);
             Cursor.visible = true;
-        
+
         }
 
-       
+
 
     }
 
@@ -284,30 +293,30 @@ public class MainPlayerMovement : MonoBehaviour
             //sneakingSound.Pause();
 
         }
-       /* else if (dirX > 0f && horizontalVal == 0)
-        {
-            state = MovementState.sneaking;
-            spriteMainPlayer.flipX = false;
-            runningSound.GetComponent<AudioSource>().Pause();
+        /* else if (dirX > 0f && horizontalVal == 0)
+         {
+             state = MovementState.sneaking;
+             spriteMainPlayer.flipX = false;
+             runningSound.GetComponent<AudioSource>().Pause();
 
-            //sneakingSound.UnPause();
-           
-        }
-        else if (dirX < 0f && horizontalVal == 0)
-        {
-            state = MovementState.sneaking;
-            spriteMainPlayer.flipX = true;
-            runningSound.GetComponent<AudioSource>().Pause();
-            //sneakingSound.UnPause();
-          
-        }*/
+             //sneakingSound.UnPause();
+
+         }
+         else if (dirX < 0f && horizontalVal == 0)
+         {
+             state = MovementState.sneaking;
+             spriteMainPlayer.flipX = true;
+             runningSound.GetComponent<AudioSource>().Pause();
+             //sneakingSound.UnPause();
+
+         }*/
         else
         {
             /* anim.SetBool("running", false);*/
             state = MovementState.idle;
             runningSound.GetComponent<AudioSource>().Pause();
             //sneakingSound.Pause();
-          
+
         }
 
 
@@ -408,57 +417,57 @@ public class MainPlayerMovement : MonoBehaviour
 
     private void ResetPunch()
     {
-       
+
         anim.Play("Player_Idle");
     }
 
     private bool IsGrounded()
     {
-   
+
         return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, .1f, jumpableGround);
         //creates another box similar to the size of the actual boxcollider, 0f is the rotation value, vector2.down + .1f moves the box a tiny bit down/ offsets it (overlaps it)
-        
+
     }
 
 
     private IEnumerator DashWait()
     {
-         canDash = false;
+        canDash = false;
         //isPunching = true;
         float originalGravity = rb.gravityScale;
         rb.gravityScale = 0f;
         if (facingRight)
         {
-            rb.velocity = new Vector2(transform.localScale.x * DashForce, 0f);
+            rb.velocity = new Vector2((transform.localScale.x) * DashForce, 0f);
             punchTrailRight.Play();
-     
+
         }
         else
         {
-            rb.velocity = new Vector2(-transform.localScale.x * DashForce, 0f);
+            rb.velocity = new Vector2(-(transform.localScale.x) * DashForce, 0f);
             punchTrailLeft.Play();
-  
+
         }
 
-       
+
         dashTrail.emitting = true;
         yield return new WaitForSeconds(punchTime);
         dashTrail.emitting = false;
         rb.gravityScale = originalGravity;
         //isPunching = false;
-        
+
         yield return new WaitForSeconds(punchCoolDown);
         canDash = true;
 
-        
+
 
     }
-   
+
 
     public void MainPlayerDeath()
     {
         anim.Play("Player_Death");
-       
+
 
     }
 

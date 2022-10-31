@@ -8,7 +8,7 @@ public class Interactables : MonoBehaviour
 {
     // Start is called before the first frame update
 
-   //www.youtube.com/watch?v=hPsB6MiJPQY&ab_channel=ShackMan, cool idea + tutorial
+    //www.youtube.com/watch?v=hPsB6MiJPQY&ab_channel=ShackMan, cool idea + tutorial
 
     //still working on making it private
 
@@ -39,10 +39,10 @@ public class Interactables : MonoBehaviour
 
     private bool terminalIsCooldown = false;
 
-  
+
 
     //[SerializeField] private GameObject virtualPlayer;
-   
+
     //[SerializeField] private GameObject virtualCamera; 
 
 
@@ -115,23 +115,26 @@ public class Interactables : MonoBehaviour
             Invoke("VirtualTimer", 15);
 
         }
-       /* else if(isInRange && Input.GetKeyDown(interactKey) && inVirtual)
-        {
-            AudioSource.PlayClipAtPoint(terminal, transform.position);
-            VirtualTimer();
+        /* else if(isInRange && Input.GetKeyDown(interactKey) && inVirtual)
+         {
+             AudioSource.PlayClipAtPoint(terminal, transform.position);
+             VirtualTimer();
 
-        }*/
-        
+         }*/
+
+
+
+
+        if (terminalIsCooldown == true)
+        {
+            Invoke("TerminalCooldown", 5);
+        }
+
         if (deathCheck.isDead == true)
         {
             CancelInvoke();
             VirtualTimer();
-        }
-
-       
-        if (terminalIsCooldown == true)
-        {
-            Invoke("TerminalCooldown", 10);
+            terminalIsCooldown = false;
         }
 
 
@@ -169,7 +172,7 @@ public class Interactables : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             isInRange = true;
-            
+
         }
     }
 
@@ -178,7 +181,7 @@ public class Interactables : MonoBehaviour
         if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Enemy"))
         {
             isInRange = false;
-    
+
         }
     }
 

@@ -32,6 +32,8 @@ public class FlyingEnemyPatrol : MonoBehaviour
     [SerializeField]
     private Interactables virtualCheckTwo;
 
+    public AudioSource audioSource; 
+
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -47,6 +49,7 @@ public class FlyingEnemyPatrol : MonoBehaviour
         respawnAfterDeath = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerLife>();
         healthDmg = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerLife>();
 
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Update()

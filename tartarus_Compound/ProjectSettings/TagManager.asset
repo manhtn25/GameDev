@@ -10,7 +10,6 @@ TagManager:
   - OutofBounds
   - WorldFall
   - Enemy
-  - Cherry
   - StaticEnemy
   - FlyingEnemy
   - FxTemporaire
@@ -20,6 +19,8 @@ TagManager:
   - Trap
   - Terminal
   - RespawnPlatforms
+  - FallingPoint
+  - Health
   layers:
   - Default
   - TransparentFX
@@ -68,4 +69,7 @@ TagManager:
     locked: 0
   - name: Terrain
     uniqueID: 3161110929
+    locked: 0
+  - name: Foreground
+    uniqueID: 1569291711
     locked: 0
