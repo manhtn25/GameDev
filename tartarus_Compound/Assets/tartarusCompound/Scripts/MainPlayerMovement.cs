@@ -58,7 +58,7 @@ public class MainPlayerMovement : MonoBehaviour
     //public static PauseMenu instance;
 
     private enum MovementState { idle, running, jumping, falling, sneaking, shooting, punching } //this is basically an array, instead of having to remember the correct name, just refer to the its index position
-    public AudioClip running, jump, land, prisonDoors;
+    public AudioClip running, jump, prisonDoors;
     [SerializeField] private AudioSource runningSound;
     //[SerializeField] private AudioSource sneakingSound;
     [SerializeField] private AudioSource backgroundMusic;

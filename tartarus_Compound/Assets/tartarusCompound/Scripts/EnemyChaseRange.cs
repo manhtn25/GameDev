@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyChaseRange : MonoBehaviour
 {
+
     public FlyingEnemyPatrol[] enemyArray;
 
     private void OnTriggerEnter2D(Collider2D collision)

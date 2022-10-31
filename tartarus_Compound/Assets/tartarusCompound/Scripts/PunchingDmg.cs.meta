@@ -3,7 +3,10 @@ guid: ca59a281afc2d694894d983110091adc
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - punchRight: {instanceID: 0}
+  - punchLeft: {instanceID: 0}
+  - airPunch: {fileID: 8300000, guid: 6eca732d544107e49a5b869a8fe8f791, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

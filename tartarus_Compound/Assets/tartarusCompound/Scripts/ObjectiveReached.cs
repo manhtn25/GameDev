@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ObjectiveReached : MonoBehaviour
 {
+    public AudioClip flagWave;
+
     private Animator anim;
     // Start is called before the first frame update
     void Start()
@@ -14,13 +16,12 @@ public class ObjectiveReached : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void CheckPointAnim()
     {
         anim.Play("WayPoint_Animation");
-
-
+        AudioSource.PlayClipAtPoint(flagWave, transform.position);
     }
 }

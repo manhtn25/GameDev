@@ -7,6 +7,8 @@ public class PunchingDmg : MonoBehaviour
     [SerializeField] private GameObject punchRight;
     [SerializeField] private GameObject punchLeft;
 
+    public AudioClip airPunch;
+
     private Animator anim;
 
     private float punchRate = 0.2f;
@@ -31,15 +33,14 @@ public class PunchingDmg : MonoBehaviour
             {
                 StartCoroutine("PunchWait", .15f);
                 punchRight.SetActive(true);
-               
-               
+                AudioSource.PlayClipAtPoint(airPunch, transform.position);
 
             }
             else
             {
                 StartCoroutine("PunchWait", .15f);
                 punchLeft.SetActive(true);
-               
+                AudioSource.PlayClipAtPoint(airPunch, transform.position);
 
             }
 
