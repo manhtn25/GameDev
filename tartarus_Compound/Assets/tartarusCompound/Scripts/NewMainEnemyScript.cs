@@ -57,6 +57,8 @@ public class NewMainEnemyScript : MonoBehaviour
     [SerializeField]
     private Interactables virtualCheckTwo;
 
+    public AudioSource audioSource;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -73,6 +75,8 @@ public class NewMainEnemyScript : MonoBehaviour
 
         facingDirection = RIGHT;
         baseScale = transform.localScale;
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -225,6 +229,7 @@ public class NewMainEnemyScript : MonoBehaviour
         {
             Vector2 targetPosition = new Vector2(target.transform.position.x, transform.position.y);
             transform.position = Vector2.MoveTowards(transform.position, targetPosition, 5f * Time.deltaTime);
+            audioSource.UnPause();
         }
     }
 
@@ -233,10 +238,12 @@ public class NewMainEnemyScript : MonoBehaviour
         cooling = false;
         attackMode = false;
         anim.SetBool("canAttack", false);
+        audioSource.Pause();
     }
 
     private void Attack()
     {
+        audioSource.UnPause();
         timer = intTimer;
         attackMode = true;
 
@@ -302,7 +309,7 @@ public class NewMainEnemyScript : MonoBehaviour
     public void EnemyGuardParticle()
     {
         anim.Play("Enemy_Vaporate");
-
+        audioSource.Pause();
     }
 
     public void TriggerAttackBox()

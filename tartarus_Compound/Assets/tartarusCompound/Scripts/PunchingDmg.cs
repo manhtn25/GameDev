@@ -35,12 +35,15 @@ public class PunchingDmg : MonoBehaviour
                 punchRight.SetActive(true);
                 AudioSource.PlayClipAtPoint(airPunch, transform.position);
 
+
             }
             else
             {
                 StartCoroutine("PunchWait", .15f);
                 punchLeft.SetActive(true);
                 AudioSource.PlayClipAtPoint(airPunch, transform.position);
+
+
 
             }
 

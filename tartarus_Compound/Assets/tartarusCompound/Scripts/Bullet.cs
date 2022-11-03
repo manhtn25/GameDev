@@ -14,7 +14,7 @@ public class Bullet : MonoBehaviour
 
     private void Start()
     {
-
+        //make sure the turret only has a range when it starts firing
    
     }
 

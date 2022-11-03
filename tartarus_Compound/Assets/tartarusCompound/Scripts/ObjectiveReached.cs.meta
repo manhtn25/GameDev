@@ -3,9 +3,7 @@ guid: 2601aa3dc18c9e74ca0625c2033443c3
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences:
-  - flagWave: {fileID: 8300000, guid: df0501744617f2b4fa87271139b19880, type: 3}
-  - flag: {fileID: 8300000, guid: df0501744617f2b4fa87271139b19880, type: 3}
+  defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

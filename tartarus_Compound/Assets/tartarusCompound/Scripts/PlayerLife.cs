@@ -23,6 +23,9 @@ public class PlayerLife : MonoBehaviour
     [SerializeField] private AudioClip deathSound;
 
     [SerializeField] ObjectiveReached endingFlag;
+    [SerializeField] ObjectiveReached Room2Flag;
+
+    public AudioClip healthLossAudio;
 
     [SerializeField] private Interactables virtualCheck;
 
@@ -75,6 +78,7 @@ public class PlayerLife : MonoBehaviour
         else if (currentHealth == 2)
         {
             healthThree.enabled = false;
+            healthTwo.enabled = true;
         }
         else if (currentHealth == 1)
         {
@@ -152,6 +156,11 @@ public class PlayerLife : MonoBehaviour
                 respawnPoint = transform.position;
                 endingFlag.CheckPointAnim();
             }
+            else if (collision.gameObject.name == "checkpointTwo")
+            {
+                respawnPoint = transform.position;
+                Room2Flag.CheckPointAnim();
+            }
             else
             {
                 respawnPoint = transform.position;
@@ -213,6 +222,10 @@ public class PlayerLife : MonoBehaviour
             currentHealth -= amount;
             mainPlayer.color = new Color32(255, 127, 127, 255);
             //subtract the hearts
+
+           
+
+            AudioSource.PlayClipAtPoint(healthLossAudio, transform.position);
 
             if (currentHealth <= 0)
             {

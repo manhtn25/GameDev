@@ -58,7 +58,7 @@ public class MainPlayerMovement : MonoBehaviour
     //public static PauseMenu instance;
 
     private enum MovementState { idle, running, jumping, falling, sneaking, shooting, punching } //this is basically an array, instead of having to remember the correct name, just refer to the its index position
-    public AudioClip running, jump, prisonDoors;
+    public AudioClip running, jump, land, prisonDoors, death;
     [SerializeField] private AudioSource runningSound;
     //[SerializeField] private AudioSource sneakingSound;
     [SerializeField] private AudioSource backgroundMusic;
@@ -216,7 +216,7 @@ public class MainPlayerMovement : MonoBehaviour
             {
                 /*            jumpSoundEffect.Play();
                 */
-                AudioSource.PlayClipAtPoint(jump, transform.position);
+                AudioSource.PlayClipAtPoint(jump, transform.position, 0.3F);
                 rb.velocity = new Vector3(rb.velocity.x, jumpForce, 0); //vector3(x, y, z), optional but can also use Vector2
 
 
@@ -231,12 +231,13 @@ public class MainPlayerMovement : MonoBehaviour
 
             UpdateAnimationState(horizontalVal);
 
-            if (deathCheck.isDead == true)
+         /*   if (deathCheck.isDead == true)
             {
-                StopCoroutine(DashWait());
+                //StopCoroutine(DashWait());
                 canDash = true;
                 dashBetweenTime = 0f;
-            }
+                
+            }*/
 
         }
         else
@@ -467,7 +468,7 @@ public class MainPlayerMovement : MonoBehaviour
     public void MainPlayerDeath()
     {
         anim.Play("Player_Death");
-
+        AudioSource.PlayClipAtPoint(death, transform.position);
 
     }
 

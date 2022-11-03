@@ -24,7 +24,7 @@ public class FlyingEnemyPatrol : MonoBehaviour
     private bool flyingIsDead = false;
     [SerializeField] private PlayerLife deathCheck;
 
-    private int Enemyhealth = 3;
+    private int Enemyhealth = 1;
     private bool isDamaged = false;
 
     [SerializeField]
@@ -32,7 +32,7 @@ public class FlyingEnemyPatrol : MonoBehaviour
     [SerializeField]
     private Interactables virtualCheckTwo;
 
-    public AudioSource audioSource; 
+    public AudioSource audioSourceFlying;
 
     private void Start()
     {
@@ -49,7 +49,6 @@ public class FlyingEnemyPatrol : MonoBehaviour
         respawnAfterDeath = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerLife>();
         healthDmg = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerLife>();
 
-        audioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -78,10 +77,12 @@ public class FlyingEnemyPatrol : MonoBehaviour
         }
         else
         {
+            
             if (chase == true && flyingIsDead == false && isDamaged == false)
             {
                 TargetPlayer();
                 exclamationPoint.SetActive(true);
+                audioSourceFlying.UnPause();
             }
             else
             {
@@ -100,6 +101,7 @@ public class FlyingEnemyPatrol : MonoBehaviour
         if (flyingIsDead == true)
         {
             exclamationPoint.SetActive(false);
+            audioSourceFlying.Pause();
         }
 
 
@@ -143,8 +145,9 @@ public class FlyingEnemyPatrol : MonoBehaviour
        
         yield return new WaitForSeconds(2.0f);
         anim.Play("Explode_Animation");
-       // Destroy(this.gameObject, 0.30f);
-        
+        coll.enabled = false;
+        // Destroy(this.gameObject, 0.30f);
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -221,6 +224,8 @@ public class FlyingEnemyPatrol : MonoBehaviour
     {
         anim.Play("Idle_Animation");
         flyingIsDead = false;
-        Enemyhealth = 3;
+        Enemyhealth = 1;
+        coll.enabled = true;
+        coll.isTrigger = true;
     }
 }

@@ -3,8 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(AudioSource))]
-
 public class LaserScript : MonoBehaviour
 {
     private Animator anim;
@@ -16,7 +14,7 @@ public class LaserScript : MonoBehaviour
 
     [SerializeField] private GameObject puzzleSecondCoin;
     [SerializeField] private GameObject puzzleFirstCoin;
-    
+
     public AudioSource laserClip;
 
     // Start is called before the first frame update
@@ -26,8 +24,9 @@ public class LaserScript : MonoBehaviour
         anim = GetComponent<Animator>(); //animator component
                                          //inVirtual = GetComponent<Interactables>().inVirtual;
 
-        //terminalListSize = virtualCheck.Length;
         laserClip = GetComponent<AudioSource>();
+
+        //terminalListSize = virtualCheck.Length;
 
     }
 
@@ -37,9 +36,8 @@ public class LaserScript : MonoBehaviour
 
         if (virtualCheck.inVirtual == false && virtualCheckTwo.inVirtual == false)
         {
-            laserClip.UnPause();
             anim.SetBool("isOn", true);
-
+            laserClip.UnPause();
             coll.enabled = true;
 
             /*else
@@ -50,7 +48,6 @@ public class LaserScript : MonoBehaviour
         else if (virtualCheck.inVirtual == true || virtualCheckTwo.inVirtual == true)
         {
             laserClip.Pause();
-            anim.SetBool("isOn", false);
             if (tag == "LaserTrap")
             {
                 anim.SetBool("isOn", false);
