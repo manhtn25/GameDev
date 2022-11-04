@@ -54,7 +54,7 @@ public class FlyingEnemyPatrol : MonoBehaviour
     private void Update()
     {
 
-        if (virtualCheck.inVirtual == true || virtualCheckTwo.inVirtual == true)
+        /*if (virtualCheck.inVirtual == true || virtualCheckTwo.inVirtual == true)
         {
             sprite.enabled = false;
             exclamationPoint.SetActive(false);
@@ -62,7 +62,7 @@ public class FlyingEnemyPatrol : MonoBehaviour
         else
         {
             sprite.enabled = true;
-        }
+        }*/
 
         if (player == null)
         {
@@ -133,7 +133,7 @@ public class FlyingEnemyPatrol : MonoBehaviour
 
     public void FlyingEnemyGuardParticle()
     {
-        coll.isTrigger = false;
+        //coll.isTrigger = false;
         exclamationPoint.SetActive(false);
         StartCoroutine(Destroy());
         
@@ -152,7 +152,7 @@ public class FlyingEnemyPatrol : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player") || collision.CompareTag("VirtualPlayer"))
         {
             flyingAttack.Play();
             healthDmg.TakeDamage(1);
@@ -189,7 +189,7 @@ public class FlyingEnemyPatrol : MonoBehaviour
         else if (collision.gameObject.name == "punchRight" || collision.gameObject.name == "punchLeft")
         {
         
-            Enemyhealth--;
+            Enemyhealth -= 2;
             sprite.color = new Color32(255, 127, 127, 255);
 
             if (Enemyhealth <= 0)
@@ -226,6 +226,6 @@ public class FlyingEnemyPatrol : MonoBehaviour
         flyingIsDead = false;
         Enemyhealth = 1;
         coll.enabled = true;
-        coll.isTrigger = true;
+        //coll.isTrigger = true;
     }
 }

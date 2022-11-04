@@ -12,8 +12,8 @@ public class LaserScript : MonoBehaviour
     [SerializeField] private Interactables virtualCheck;
     [SerializeField] private Interactables virtualCheckTwo;
 
-    [SerializeField] private GameObject puzzleSecondCoin;
-    [SerializeField] private GameObject puzzleFirstCoin;
+    [SerializeField] private Switches switchFirst;
+    [SerializeField] private Switches switchSecond;
 
     public AudioSource laserClip;
 
@@ -55,7 +55,7 @@ public class LaserScript : MonoBehaviour
             }
         }
 
-        if (puzzleSecondCoin.GetComponent<SpriteRenderer>().enabled == false && puzzleFirstCoin.GetComponent<SpriteRenderer>().enabled == false)
+        if (switchFirst.switchActive == false && switchSecond.switchActive == false)
         {
             if (tag == "ElectricTrap")
             {

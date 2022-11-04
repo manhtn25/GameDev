@@ -109,7 +109,7 @@ public class Interactables : MonoBehaviour
 
             virtualMapTerrain.enabled = !virtualMapTerrain.enabled;
             mainPlayerRef.spriteMainPlayer.color = new Color32(67, 237, 255, 255);
-            mainPlayerRef.tag = "Enemy";
+            mainPlayerRef.tag = "VirtualPlayer";
             inVirtual = true;
             mainPlayerRef.canPunch = false;
             Invoke("VirtualTimer", 15);

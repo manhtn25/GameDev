@@ -21,6 +21,7 @@ TagManager:
   - RespawnPlatforms
   - FallingPoint
   - Health
+  - VirtualPlayer
   layers:
   - Default
   - TransparentFX

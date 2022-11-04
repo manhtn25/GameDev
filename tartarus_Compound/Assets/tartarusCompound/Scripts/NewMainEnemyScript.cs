@@ -404,7 +404,7 @@ public class NewMainEnemyScript : MonoBehaviour
         }
         else if (collision.gameObject.name == "punchRight" || collision.gameObject.name == "punchLeft")
         {
-            Enemyhealth--;
+            Enemyhealth -= 2;
             sprite.color = new Color32(255, 127, 127, 255);
 
 

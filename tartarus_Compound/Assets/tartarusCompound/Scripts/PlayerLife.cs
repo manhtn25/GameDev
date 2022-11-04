@@ -42,7 +42,7 @@ public class PlayerLife : MonoBehaviour
     public int currentHealth;
     MainPlayerMovement death;
 
-    private bool isInvincible = false;
+    public bool isInvincible = false;
     private float InvincibleDuration = 1.5f;
     private float InvincibleTimeAdd = 0.15f;
 

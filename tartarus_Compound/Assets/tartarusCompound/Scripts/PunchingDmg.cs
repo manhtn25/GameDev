@@ -6,6 +6,8 @@ public class PunchingDmg : MonoBehaviour
 {
     [SerializeField] private GameObject punchRight;
     [SerializeField] private GameObject punchLeft;
+    [SerializeField] private GameObject dashDamage;
+
 
     public AudioClip airPunch;
 
@@ -28,6 +30,7 @@ public class PunchingDmg : MonoBehaviour
         if (Time.time > nextPunch)
         {
             nextPunch = Time.time + punchRate;
+
 
             if (GetComponent<MainPlayerMovement>().facingRight)
             {

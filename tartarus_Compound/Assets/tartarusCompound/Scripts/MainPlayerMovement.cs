@@ -131,8 +131,8 @@ public class MainPlayerMovement : MonoBehaviour
                 if (Time.time > dashBetweenTime)
                 {
                     dashImage.enabled = false;
+                    punchAnim.Punch();
                     StartCoroutine(DashWait()); //set a dash punch
-
                     dashBetweenTime = Time.time + 3.0f;
 
                 }
@@ -178,7 +178,7 @@ public class MainPlayerMovement : MonoBehaviour
                 {
                     horizontalVal = 4;
 
-                    punchBetweenTime = Time.time + .20f;
+                    punchBetweenTime = Time.time + .2f;
 
                 }
 
@@ -434,19 +434,20 @@ public class MainPlayerMovement : MonoBehaviour
     private IEnumerator DashWait()
     {
         canDash = false;
+        deathCheck.isInvincible = true;
         //isPunching = true;
         float originalGravity = rb.gravityScale;
         rb.gravityScale = 0f;
         if (facingRight)
         {
             rb.velocity = new Vector2((transform.localScale.x) * DashForce, 0f);
-            punchTrailRight.Play();
+           // punchTrailRight.Play();
 
         }
         else
         {
             rb.velocity = new Vector2(-(transform.localScale.x) * DashForce, 0f);
-            punchTrailLeft.Play();
+           // punchTrailLeft.Play();
 
         }
 
@@ -456,8 +457,9 @@ public class MainPlayerMovement : MonoBehaviour
         dashTrail.emitting = false;
         rb.gravityScale = originalGravity;
         //isPunching = false;
-
+        
         yield return new WaitForSeconds(punchCoolDown);
+        deathCheck.isInvincible = false;
         canDash = true;
 
 

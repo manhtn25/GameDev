@@ -8,7 +8,7 @@ public class EnemyChaseRange : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player") || collision.CompareTag("VirtualPlayer"))
         {
             foreach(FlyingEnemyPatrol enemy in enemyArray)
             {
@@ -19,7 +19,7 @@ public class EnemyChaseRange : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player") || collision.CompareTag("VirtualPlayer"))
         {
             foreach (FlyingEnemyPatrol enemy in enemyArray)
             {
