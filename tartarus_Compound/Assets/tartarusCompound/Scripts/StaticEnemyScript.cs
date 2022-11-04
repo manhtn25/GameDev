@@ -28,6 +28,8 @@ public class StaticEnemyScript : MonoBehaviour
     private bool attackMode;
     private float intTimer;
 
+    
+
     [SerializeField] private GameObject punchRight;
     [SerializeField] private GameObject punchLeft;
 
@@ -59,6 +61,8 @@ public class StaticEnemyScript : MonoBehaviour
     [SerializeField]
     private Interactables virtualCheckTwo;
 
+    public GameObject itemType;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -74,7 +78,7 @@ public class StaticEnemyScript : MonoBehaviour
         exclamationPoint.SetActive(false);
 
         facingDirection = RIGHT;
-
+        itemType.SetActive(false);
 
         
     }
@@ -159,6 +163,10 @@ public class StaticEnemyScript : MonoBehaviour
         if (deathCheck.isDead == true)
         {
             EnemyDestroyed();
+            itemType.GetComponent<SpriteRenderer>().enabled = true;
+            itemType.GetComponent<BoxCollider2D>().enabled = true;
+            itemType.SetActive(false);
+
         }
 
     }
@@ -299,6 +307,7 @@ public class StaticEnemyScript : MonoBehaviour
 
             if (Enemyhealth <= 0)
             {
+                ItemDrop();
                 staticIsDead = true;
                 ResetSprite();
                 EnemyGuardParticle();
@@ -321,6 +330,7 @@ public class StaticEnemyScript : MonoBehaviour
 
             if (Enemyhealth <= 0)
             {
+                ItemDrop();
                 staticIsDead = true;
                 ResetSprite();
                 EnemyGuardParticle();
@@ -354,6 +364,12 @@ public class StaticEnemyScript : MonoBehaviour
         anim.Play("Enemy_Idle");
         staticIsDead = false;
         Enemyhealth = 3;
+    }
+
+    private void ItemDrop()
+    {
+        // Instantiate(itemType, transform.position + new Vector3(0, 1, 0), Quaternion.identity);
+        itemType.SetActive(true);
     }
 
   

@@ -203,7 +203,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -314,24 +314,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc3f98cba87de0f4aa06f8886ed05e8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spriteMainPlayer: {fileID: 0}
   jumpableGround:
     serializedVersion: 2
     m_Bits: 64
   virtualCheck: {fileID: 0}
+  virtualCheckTwo: {fileID: 0}
   moveSpeed: 7
   jumpForce: 14
   ForceModeValue: 0
+  deathCheck: {fileID: 0}
   facingRight: 1
-  punchImage: {fileID: 0}
+  canPunch: 1
+  dashImage: {fileID: 0}
   coinUI: {fileID: 0}
   canMove: 1
   dashTrail: {fileID: 6069067386734750964}
   punchTrailRight: {fileID: 8193018737374669409}
   punchTrailLeft: {fileID: 8193018737896544873}
+  gunCheck: {fileID: 0}
   running: {fileID: 8300000, guid: 78dcf5fab06f4564e8a989d2aa3c7e62, type: 3}
   jump: {fileID: 8300000, guid: 5dd0f7f79de307a41ad00ccfd3b2243f, type: 3}
   land: {fileID: 0}
   prisonDoors: {fileID: 8300000, guid: 7df27edd2144d7d4486cc825a397a292, type: 3}
+  death: {fileID: 0}
   runningSound: {fileID: 6069067386734750914}
   backgroundMusic: {fileID: 6069067386734750975}
 --- !u!114 &689427458130046353
@@ -348,7 +354,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   realCoins: 0
   coinSound: {fileID: 8300000, guid: 4a89ae5c13493954fa27303976616777, type: 3}
-  coinsText: {fileID: 0}
+  hasGun: 0
+  mainPlayerHealth: {fileID: 0}
 --- !u!114 &689427458130046355
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -364,11 +371,16 @@ MonoBehaviour:
   objectiveFlag: {fileID: 0}
   deathSound: {fileID: 8300000, guid: 833122ae88f142f45964380363bf7511, type: 3}
   endingFlag: {fileID: 0}
+  Room2Flag: {fileID: 0}
+  healthLossAudio: {fileID: 0}
+  virtualCheck: {fileID: 0}
   healthOne: {fileID: 0}
   healthTwo: {fileID: 0}
   healthThree: {fileID: 0}
+  isDead: 0
   maxHealth: 3
   currentHealth: 0
+  isInvincible: 0
 --- !u!114 &689427458130046354
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -412,6 +424,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   punchRight: {fileID: 689427458532738779}
   punchLeft: {fileID: 689427456822510257}
+  dashDamage: {fileID: 0}
+  airPunch: {fileID: 0}
 --- !u!82 &6069067386734750914
 AudioSource:
   m_ObjectHideFlags: 0
@@ -625,7 +639,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -292,6 +292,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5ba9ea6ff2a6f1458a293f4660a3489, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectiveFlag: {fileID: 0}
+  deathSound: {fileID: 0}
+  endingFlag: {fileID: 0}
+  Room2Flag: {fileID: 0}
+  healthLossAudio: {fileID: 0}
+  virtualCheck: {fileID: 0}
+  healthOne: {fileID: 0}
+  healthTwo: {fileID: 0}
+  healthThree: {fileID: 0}
+  isDead: 0
+  maxHealth: 3
+  currentHealth: 0
+  isInvincible: 0
 --- !u!114 &403066010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -305,7 +318,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   realCoins: 0
-  coinsText: {fileID: 0}
+  coinSound: {fileID: 0}
+  hasGun: 0
+  mainPlayerHealth: {fileID: 0}
 --- !u!114 &403066011
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -318,6 +333,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5ba9ea6ff2a6f1458a293f4660a3489, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectiveFlag: {fileID: 0}
+  deathSound: {fileID: 0}
+  endingFlag: {fileID: 0}
+  Room2Flag: {fileID: 0}
+  healthLossAudio: {fileID: 0}
+  virtualCheck: {fileID: 0}
+  healthOne: {fileID: 0}
+  healthTwo: {fileID: 0}
+  healthThree: {fileID: 0}
+  isDead: 0
+  maxHealth: 3
+  currentHealth: 0
+  isInvincible: 0
 --- !u!114 &403066012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -330,12 +358,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc3f98cba87de0f4aa06f8886ed05e8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spriteMainPlayer: {fileID: 0}
   jumpableGround:
     serializedVersion: 2
     m_Bits: 64
+  virtualCheck: {fileID: 0}
+  virtualCheckTwo: {fileID: 0}
   moveSpeed: 7
   jumpForce: 14
-  jumpSoundEffect: {fileID: 0}
+  ForceModeValue: 0
+  deathCheck: {fileID: 0}
+  facingRight: 1
+  canPunch: 1
+  dashImage: {fileID: 0}
+  coinUI: {fileID: 0}
+  canMove: 1
+  dashTrail: {fileID: 0}
+  punchTrailRight: {fileID: 0}
+  punchTrailLeft: {fileID: 0}
+  gunCheck: {fileID: 0}
+  running: {fileID: 0}
+  jump: {fileID: 0}
+  land: {fileID: 0}
+  prisonDoors: {fileID: 0}
+  death: {fileID: 0}
+  runningSound: {fileID: 0}
+  backgroundMusic: {fileID: 0}
 --- !u!95 &403066013
 Animator:
   serializedVersion: 4
@@ -423,7 +471,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -550,6 +598,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 3
+  points: []
+  enemyFacingRight: 1
+  gotFlipped: 0
 --- !u!212 &691598708
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -570,7 +621,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -975,6 +1026,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 3
+  points: []
+  enemyFacingRight: 1
+  gotFlipped: 0
 --- !u!212 &1462918971
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -995,7 +1049,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1227,7 +1281,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

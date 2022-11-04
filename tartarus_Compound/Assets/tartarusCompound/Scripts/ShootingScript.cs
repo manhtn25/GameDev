@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShootingScript : MonoBehaviour
 {
@@ -10,6 +11,9 @@ public class ShootingScript : MonoBehaviour
     [SerializeField] private GameObject BulletLeft;
     [SerializeField] private Transform GunNozzleRight;
     [SerializeField] private Transform GunNozzleLeft;
+
+    [SerializeField] private Text bulletText;
+    [SerializeField] private GameObject bulletUI;
 
     public AudioClip gunShot;
     //[SerializeField] private AudioSource gunMainSound;
@@ -21,10 +25,24 @@ public class ShootingScript : MonoBehaviour
     private float fireRate = 0.25f;
     private float nextFire = 0.0f;
 
+    private int maxBullets = 7;
+    public int currentBullets;
+
+
+    private void Start()
+    {
+        currentBullets = maxBullets;
+        bulletUI.SetActive(true);
+    }
+
+    private void Update()
+    {
+        bulletText.text = ": " + currentBullets;
+    }
 
     public void Fire()
     {
-        if (Time.time > nextFire)
+        if (Time.time > nextFire && currentBullets > 0)
         {
 
             nextFire = Time.time + fireRate;
@@ -42,13 +60,21 @@ public class ShootingScript : MonoBehaviour
                 AudioSource.PlayClipAtPoint(gunShot, transform.position);
             }
 
-        }else if (Time.time < nextFire)
-        {
-          
+            currentBullets--;
         }
 
         
 
         Destroy(tempBullet, 2.0f); //destroys when bullet does hit anything
+    }
+
+    public void GainAmmo(int amount)
+    {
+        currentBullets += amount;
+
+        if (currentBullets > maxBullets)
+        {
+            currentBullets = maxBullets;
+        }
     }
 }

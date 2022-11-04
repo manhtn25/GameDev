@@ -133,7 +133,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -247,6 +247,10 @@ MonoBehaviour:
   punchLeft: {fileID: 6268143690862596161}
   exclamationPoint: {fileID: 6268143691622716646}
   castPos: {fileID: 6268143691320509164}
+  deathCheck: {fileID: 0}
+  virtualCheck: {fileID: 0}
+  virtualCheckTwo: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!61 &6268143691307423040
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -382,7 +386,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

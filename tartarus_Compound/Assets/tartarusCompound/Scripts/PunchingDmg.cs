@@ -6,7 +6,6 @@ public class PunchingDmg : MonoBehaviour
 {
     [SerializeField] private GameObject punchRight;
     [SerializeField] private GameObject punchLeft;
-    [SerializeField] private GameObject dashDamage;
 
 
     public AudioClip airPunch;

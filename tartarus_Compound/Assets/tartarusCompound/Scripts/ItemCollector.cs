@@ -12,11 +12,12 @@ public class ItemCollector : MonoBehaviour
     public bool hasGun = false;
 
     [SerializeField] PlayerLife mainPlayerHealth;
+    [SerializeField] ShootingScript mainBulletGain;
 
     //[SerializeField] private Text coinsText; //make sure to import libarary
 
-    /*    [SerializeField] private AudioSource collectionSoundEffect;
-    */
+    //[SerializeField] private AudioSource collectionSoundEffect;
+    
 
 
 
@@ -39,7 +40,14 @@ public class ItemCollector : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("Health") && mainPlayerHealth.currentHealth < 3)
         {
+            AudioSource.PlayClipAtPoint(coinSound, transform.position);
             mainPlayerHealth.GainHealth(1);
+            collision.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            collision.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        }else if (collision.gameObject.CompareTag("Bullets") && mainBulletGain.currentBullets < 7)
+        {
+            AudioSource.PlayClipAtPoint(coinSound, transform.position);
+            mainBulletGain.GainAmmo(1);
             collision.gameObject.GetComponent<SpriteRenderer>().enabled = false;
             collision.gameObject.GetComponent<BoxCollider2D>().enabled = false;
         }

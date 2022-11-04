@@ -34,6 +34,8 @@ public class FlyingEnemyPatrol : MonoBehaviour
 
     public AudioSource audioSourceFlying;
 
+    public GameObject itemTypeFlying;
+
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -48,6 +50,8 @@ public class FlyingEnemyPatrol : MonoBehaviour
         death = GameObject.FindGameObjectWithTag("Player").GetComponent<MainPlayerMovement>();
         respawnAfterDeath = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerLife>();
         healthDmg = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerLife>();
+
+        itemTypeFlying.SetActive(false);
 
     }
 
@@ -96,6 +100,9 @@ public class FlyingEnemyPatrol : MonoBehaviour
         if (deathCheck.isDead == true)
         {
             EnemyDestroyed();
+            itemTypeFlying.GetComponent<SpriteRenderer>().enabled = true;
+            itemTypeFlying.GetComponent<BoxCollider2D>().enabled = true;
+            itemTypeFlying.SetActive(false);
         }
 
         if (flyingIsDead == true)
@@ -176,6 +183,7 @@ public class FlyingEnemyPatrol : MonoBehaviour
 
             if (Enemyhealth <= 0)
             {
+                ItemDrop();
                 flyingIsDead = true;
                 ResetSprite();
                 FlyingEnemyGuardParticle();
@@ -194,6 +202,7 @@ public class FlyingEnemyPatrol : MonoBehaviour
 
             if (Enemyhealth <= 0)
             {
+                ItemDrop();
                 flyingIsDead = true;
                 ResetSprite();
                 FlyingEnemyGuardParticle();
@@ -228,4 +237,11 @@ public class FlyingEnemyPatrol : MonoBehaviour
         coll.enabled = true;
         //coll.isTrigger = true;
     }
+
+    private void ItemDrop()
+    {
+        // Instantiate(itemType, transform.position + new Vector3(0, 1, 0), Quaternion.identity);
+        itemTypeFlying.SetActive(true);
+    }
+
 }
