@@ -1,0 +1,4084 @@
+fileFormatVersion: 2
+guid: 988f96d4d89e04a48a321e73bd4e302a
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 40
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_0
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 84
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6236214cef3e056408468851bddfe609
+      internalID: -1051768885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_1
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 84
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2dc2475907a66645bc240b66d2eba18
+      internalID: -1095170462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_2
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 84
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25db17dd11120aa49b0460aba1b2983f
+      internalID: -218294252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_3
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 84
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ac05c27f31d6b446975c9cf64d63d29
+      internalID: 198504419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_4
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 84
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72679dd5c7972db45bdeec1049221f40
+      internalID: 1278358530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_5
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 84
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 550b44f8cf1d6e04480c0dc00ec3a009
+      internalID: 1935185545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_6
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 84
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1dfe2224f329cf4aa0301db6e28dd00
+      internalID: -1758692596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_7
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 84
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 829522794e7946449b912440c4d52b9b
+      internalID: -1485558195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_8
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 84
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7df5360b7977a9247b63d9d3ded8ec21
+      internalID: -2104634286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_9
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 84
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7e241e4e66a1e444a2efc044c514137
+      internalID: -1325609183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_10
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 84
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42fcfa831dbefd144b2d6accac17c890
+      internalID: -808238405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_11
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 84
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc5f1dfeb9633cb4e9e5afb3636f39ec
+      internalID: 1458652452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_12
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 84
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8658bb7e6b37b34790e8bbb2e9cb2f4
+      internalID: -1389453916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_13
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 84
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a1f91b6d654f6e41b544e66598ea23a
+      internalID: 819257797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_14
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 84
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a13c95f26401dbf4584e822ba45f8474
+      internalID: 435344199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_15
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 84
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da850c8067a582f4fb8a3f11920d52fe
+      internalID: -806320715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_16
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 84
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f798ba5919d54441beb59a33b2c381b
+      internalID: -2096827096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_17
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 84
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 269ea6260cf32104faaac4b29f1f12d6
+      internalID: 1694200768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_18
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 78
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c0a502f25c667943ba300a66a996c45
+      internalID: 1922853923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_19
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 78
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0cfdc38b676b3a542b493edae4b31325
+      internalID: 1462418002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_20
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 78
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ace2fa821d0c8754d8d02d2ce3fe85ef
+      internalID: -757185780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_21
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 78
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d5ca4fdc538acd4fbb8c74143f439c9
+      internalID: -1094141969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_22
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 78
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 523041b7ca85ede4eb12e649885b4dca
+      internalID: -413851805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_23
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 78
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99a904a7d34fa244dba5e6dffe9cbd0b
+      internalID: -1155367154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_24
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 78
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0d391e013729e6409b4c38404c09a42
+      internalID: 2070769551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_25
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 78
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1984d6a482d5f274a9f258827924a230
+      internalID: 615968376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_26
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 78
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36c5331e3141a494081a95255a624183
+      internalID: -412521583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_27
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 78
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 990e7a0e5337abc4b8e58748a838790c
+      internalID: 2016380917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_28
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 78
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2eafb36da2f15234eac3d55685a5bae6
+      internalID: 322574334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_29
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 78
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a83849fe75bc194683192c002303262
+      internalID: 1288251498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_30
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 72
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 418b02f3b0dd78e489dc4239f2718391
+      internalID: -1336532816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_31
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 72
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d98e0db6761abf94b884eb90792cf73b
+      internalID: 1091370686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_32
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 72
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: adac573c5ce704b4499e51a35f5455ab
+      internalID: 1207950470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_33
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 72
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7fdf6dfff6d3c04aacf1c6b071dc61a
+      internalID: 1301504919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_34
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 72
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d52c9aa5c4020374fbcaa23e3516742a
+      internalID: -1967603931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_35
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 72
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1952dba32e92e5f4fb50e0a5ce8ec2f7
+      internalID: 1909597808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_36
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 72
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe59c4641bbc8d44197b258173b886f1
+      internalID: 859908488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_37
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 72
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f80253d293bb36e489eb86f8c5cd9168
+      internalID: 1106049150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_38
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 72
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4cf852106f69c6e4eb375465c20c1969
+      internalID: -757673352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_39
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 72
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc25942f33900bc4d852967972035aa4
+      internalID: -247799823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_40
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 72
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9bb029d2a0c645843ae2758eb97f99e7
+      internalID: -538531173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_41
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 72
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 502cdd25b776abb45b50efc9e2d8cd84
+      internalID: 1392127669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_42
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 72
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 242a88a1ab8c63f479543407ac143d72
+      internalID: 428174529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_43
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 72
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 176af0c72fd8cb0498fb01f87b86a520
+      internalID: 444810421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_44
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 72
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11bf8533b6fa7dc49ad4bffac4813df2
+      internalID: 1456805863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_45
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 72
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 817476a3b6bf0de46b5bbb278ca379e0
+      internalID: 1334999365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_46
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 66
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a443751ec177f364d9fddf97797e05f5
+      internalID: -205503992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_47
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 66
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b47c1eb185b4104086503508b931a11
+      internalID: 357944676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_48
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 66
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8d0b9ea89684cd449c77f8a194587b2
+      internalID: -237926844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_49
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 66
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 811c19a14a2cd854f86dab9b0b46cc8d
+      internalID: -1043234761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_50
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 66
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b7c8f5a29f85024dab1abda8e7396a8
+      internalID: -1856616583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_51
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 66
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e0ed93c08fba1b48a081b5539e63766
+      internalID: -153545023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_52
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 66
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 699ecce3d2b17c047b36c448c14ddb0c
+      internalID: -362035780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_53
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 66
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f55d932a4c8ebb4a8b69202a981fa17
+      internalID: 1136571777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_54
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 66
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6229fbaf2e1e9b94487812aad22b052b
+      internalID: 1868765973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_55
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 66
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3a6a2d2ce825a841b04b29421056772
+      internalID: 1414326376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_56
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 66
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 087db46fd86c5934ca7c9db574c6e0e1
+      internalID: -780424698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_57
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 66
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8713ccc9864a65c45909d50e0ae04698
+      internalID: 2021151681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_58
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 66
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 193f387581acbae409774c41db85ba20
+      internalID: -562779168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_59
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 66
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2bc2635e65f06c742a9297bf57065009
+      internalID: 1429888451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_60
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 66
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc05039b4ad216347ad23f11bc0286d7
+      internalID: -1502588483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_61
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 66
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 526f34b3ea7688f4ebe7ad273a817271
+      internalID: -1961455430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_62
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 60
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ebbe95ea52d6ae4da35fa51ae3ac094
+      internalID: -1138548484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_63
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 60
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9935722d2599824c989e7fcfccb42bb
+      internalID: 1555929399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_64
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 60
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76ba8acf23b1f44458484107b7505f14
+      internalID: 1623794763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_65
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 60
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3abb7efcdf66704ca01c83ca94e3715
+      internalID: -623399396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_66
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 60
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 549d16f972765c34382e90f7db6a1047
+      internalID: -1059020108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_67
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 60
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bd23d89db4751741b2d274ace060d21
+      internalID: 1000922226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_68
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 60
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a11c8cfa972438498458fe92b01d33e
+      internalID: -557129163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_69
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 60
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5842854703f17a34083978c9947af8e0
+      internalID: -386473136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_70
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 60
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6289701dca73ad4189173328b610970
+      internalID: 2097643966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_71
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 60
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d13e0f93da7177c4c828ba21aecef28e
+      internalID: -2039605566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_72
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 54
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68a86b340c545b5419fd4fd218cf030e
+      internalID: -1767229702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_73
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 54
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed684d7c4f10bba46be8b71231f1af9a
+      internalID: -634343521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_74
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 54
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1d428107fbba184e90e636af362c534
+      internalID: 129655922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_75
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 54
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f6a7b8372fbb1a4792498011c4e1225
+      internalID: -1170957967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_76
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 54
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38699166119498a45bd04497cd22bc6b
+      internalID: -1852123693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_77
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 54
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80bc5d75c4e43f34ba8834dcd709cb18
+      internalID: 1393169550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_78
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 54
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f68c0f5372633444bf1dea5f0d3e152
+      internalID: -1401684196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_79
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 54
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b2a09f93a126db48846ef43484a334e
+      internalID: 1162902200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_80
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 54
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa2032a412ec20b4e950d92a7d10474d
+      internalID: -314998237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_81
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 54
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4528bc13a7e10446800647028b1f45b
+      internalID: -432483408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_82
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 54
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 018a3c9878339784fb461e0564c1fbdb
+      internalID: 1286953730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_83
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 54
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39c7ff5e660827b49aa123946cdc14ab
+      internalID: -1895336670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_84
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 54
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dcfdf78b58e921b4a9b2fbd84ab1da9d
+      internalID: 107280650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_85
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 54
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59ece99756e2d16429157f5576246e6a
+      internalID: 369661849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_86
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 54
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ca225794c2c3404082efe7bb9e9b4f5
+      internalID: 355002327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_87
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 54
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d97910d2fc4663743b144d8026aafd5c
+      internalID: -936728117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_88
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 54
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ed1b705db3a4584cb81c87880ad38bf
+      internalID: -1203673485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_89
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 54
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09c347c78f378f241836629b2680bc50
+      internalID: 1169156247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_90
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 36
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 614ae73e4300b454b875ca31dc280b29
+      internalID: 1120980184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_91
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 36
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: edc59b1ce6b3d47439099110221386df
+      internalID: -262181763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_92
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 36
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47de0d715eb106a45803eb9aea0571dc
+      internalID: 62437574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_93
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 36
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0df890c0ac8aff64f8f371faafd72463
+      internalID: 1785390595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_94
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 36
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d89efb878a2402a44bcef3a98a4bd00e
+      internalID: -1078742323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_95
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 36
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c360f9fba68961348981d2507e4e09d1
+      internalID: 1204389849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_96
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 36
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21791987fc9d09348b97b0927d5bf173
+      internalID: -857492398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_97
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 36
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b67b77cfb1b958f4881bad600190f521
+      internalID: -54661908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_98
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 36
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c99dba0e91c7b7d4ba827275ef067173
+      internalID: -1165640596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_99
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 36
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c05b16a68addfb4ab8e2ebcc7a1aab2
+      internalID: 1482563072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_100
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 36
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 311ac23e98089534a94ea5d430c579b0
+      internalID: 136675151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_101
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 36
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70f0f04fa59396d4da0bab0b7e6c0f58
+      internalID: 1301914311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_102
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 36
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 703d95e15b34d6b47ac370b0ca211e2c
+      internalID: 237695313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_103
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 36
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca0fd972b920fa646af2152851056b49
+      internalID: 1501267372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_104
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 36
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0acdd675ea23d549a88f5cd284ff2aa
+      internalID: 1185758157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_105
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 36
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2eec591129ea78543af53c2c1017d8c2
+      internalID: -435436818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_106
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 36
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbf6177fee1dc0240a18473a45836b74
+      internalID: 1943161542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_107
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 36
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd2b9c58b597b4d44a3b583832776ba3
+      internalID: -608194880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_108
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 30
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 884f55681fe2ee3428351a80644f7816
+      internalID: -1854053539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_109
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 30
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 425a5a8a42364c14296a695a6b523dd1
+      internalID: -1017108084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_110
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 30
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18fe07b4b5c0f7a449bad54f83bb2501
+      internalID: 647500666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_111
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 30
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2e0d97ff85f93f48880e09ed21b3b6a
+      internalID: 794604804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_112
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 30
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ec9613313d17ca4983204650d6fcefa
+      internalID: 396830121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_113
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 30
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f15706dccee95d84bbadc5d8466e82e8
+      internalID: -956486580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_114
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 30
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6fa8d691912326448e774946de30ec3
+      internalID: 43734405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_115
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 30
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bf9ca36a81e1f64b92c6f26d45769b6
+      internalID: -1639929571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_116
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 30
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9441c98f67489f49886f3be48abc292
+      internalID: 932918959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_117
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 30
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4392942d7db9cd488a4bad1f4296351
+      internalID: 1292165717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_118
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 30
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c51ace8f6be75574eb2b7e4811412770
+      internalID: 1177606381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_119
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 30
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 950071bccaf798f4a8438bb0abd27642
+      internalID: 1963094057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_120
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 24
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ced4b6ca8abf284d8eb29c5aa9b561b
+      internalID: 1552740154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_121
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 24
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a45217a65d98607459924fb077136a99
+      internalID: -2058125999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_122
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 24
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36ee56328b133e044bd7d68f0939af43
+      internalID: -2013147317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_123
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 24
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 060f98883721dd142a125099662eb54f
+      internalID: -988347977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_124
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 24
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ef30560a09d5b94ca785808e5f93361
+      internalID: -587216334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_125
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 24
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ab92b6966bf91d43b5b646c8476d597
+      internalID: 778472910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_126
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 24
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d4aa7ed2d0f0f14bb0668332399cbf8
+      internalID: 1507125214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_127
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 24
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fecbf6860af370a4ba93c84208edbe5e
+      internalID: 406291484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_128
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 24
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f834f8d707581545bc0a5155960ec28
+      internalID: -220043405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_129
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 24
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8cadb1be2af2bb641bbc60401ea26241
+      internalID: -886731402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_130
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 24
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c5812af50843fb4ebd053314dfe081b
+      internalID: 1635232652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_131
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 24
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 289b6a141d5ae534d8776de84fe61339
+      internalID: -323944914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_132
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 24
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b771c3c53aa535748a72c30483fb51cb
+      internalID: -764776500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_133
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 24
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c7706d1d9387b34da4bd6d0743b1ca5
+      internalID: -1987757191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_134
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 24
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f282b351848785e40a89596a4454baf2
+      internalID: -731048057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_135
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 24
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c8a21a3dd1786243955bf996ceca10e
+      internalID: 385279122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_136
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 18
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9a1de19c9ec60945bcce8ff45550241
+      internalID: -554814285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_137
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 18
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4675378e71c315f47b3bb66d7fc57fcd
+      internalID: -2047949529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_138
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 18
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f9f90ed409db7e43b7a79d3a53c41a8
+      internalID: -554763282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_139
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 18
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9ac7c0e656359a4f92be00b080631c1
+      internalID: 1491975235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_140
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 18
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbba56b2d8f548b4aa2c11c6809164fd
+      internalID: 959650910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_141
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 18
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f4032cab57bc5d4ba29e3c8986b7e18
+      internalID: -1589665440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_142
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 18
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eca2d581f0ce14c4fa8257df85a3c9d0
+      internalID: -112078374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_143
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 18
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc1fce1d396b5434ca03872a6564958a
+      internalID: 1920480565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_144
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 18
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f56f0251045df5e4d845eed6ee585364
+      internalID: -640286372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_145
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 18
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7afb0674f53ec448957651ee5c28e2c
+      internalID: -1363194348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_146
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 18
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6616ffa4628a8f84bbe46155378c9844
+      internalID: 814549060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_147
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 18
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 575c009af554ef64889b976ba5021e79
+      internalID: 1613361948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_148
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 18
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9165b5bc82b0ace449ef80cc0a55d5b3
+      internalID: -213328551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_149
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 18
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c1aeafa9f2f0c74ca157e48920d0394
+      internalID: 2057554625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_150
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 18
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68d066a9d7d4e714d92ee25e10d15b1e
+      internalID: 1458830979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_151
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 18
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4214107b4b4bdf478f9cddf813ea13a
+      internalID: -2063667071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_152
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 12
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b48b00f8a65f0d243be03ec3e153a1a6
+      internalID: 100704436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_153
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 12
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08e4e4bbe45e5a54a92ab21d918bae97
+      internalID: 1962845157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_154
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 12
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20ccb1428368c7842b8269e6ecdb1862
+      internalID: 685266086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_155
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 12
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1ed6f7f17c415c498e3375d04ed7cbf
+      internalID: 2124693722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_156
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 12
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e59bf7ca572f88409f4f40017606260
+      internalID: -2120230104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_157
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 12
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3275de1de8dbe94a88154b268b0be62
+      internalID: -766967491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_158
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 12
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b934298be38010409e6985b7af020ca
+      internalID: -349935236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_159
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 12
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d89ecca71ebeec4d9efd3f71cace5c4
+      internalID: -350220342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_160
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 12
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e2657088b3abc44f95684c545d451b7
+      internalID: -2009512692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_161
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 12
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e22d2ae026d7554db095d7042327f21
+      internalID: 226941304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_162
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 6
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a4c84d73a786b84ab0f65cf9dc4725c
+      internalID: -650729713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_163
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 6
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c52509f1101bc1468ca03da17a8cb57
+      internalID: -1569223205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_164
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 6
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3428eec004c4ff4597fa686e453044b
+      internalID: -140829730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_165
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 6
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 940c7e2291fb946409c5c824189de720
+      internalID: 1036067133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_166
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 6
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8849add11cad694eb9e3db0efba25f2
+      internalID: -825940523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_167
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 6
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93cb40f0a016cdd4b838688e2f3afe50
+      internalID: 1990539642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_168
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 6
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68460f28e0a64d748883e6f86a9051ee
+      internalID: 1557845006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_169
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 6
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3071c4689ff05104ea18336c2ce7d742
+      internalID: 165506954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_170
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 6
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5323bd8cef51ef94e93a56444e0cddc0
+      internalID: 2034369693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_171
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 6
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c9ea7031ee626b4aae36f0acfd1a982
+      internalID: 1756382191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_172
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 6
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14586f308d862fb46a2359d5e6625723
+      internalID: 1039004197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_173
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 6
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8c9c9798c281e144887558c0cec2619
+      internalID: 798146895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_174
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 6
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1412f413ad3c71046ac0d5bb7af584c5
+      internalID: -907428210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_175
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 6
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8a937a21cf058e4db1b2b15192d1fde
+      internalID: -914106237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_176
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 6
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f078867e249232f4cb6e87af6184c5c9
+      internalID: -1370353173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_177
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 6
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad19372b935a1504f87337bb74558d7a
+      internalID: 1315167719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_178
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 6
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df2bce748a8d75b43bf88ca804aeac48
+      internalID: 781551606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap_switch_wires (1)_179
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 6
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d2240e200316c546818e6f2c913aa22
+      internalID: 1506792053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Trap_switch_wires (1)_67: 1000922226
+      Trap_switch_wires (1)_20: -757185780
+      Trap_switch_wires (1)_65: -623399396
+      Trap_switch_wires (1)_87: -936728117
+      Trap_switch_wires (1)_120: 1552740154
+      Trap_switch_wires (1)_83: -1895336670
+      Trap_switch_wires (1)_101: 1301914311
+      Trap_switch_wires (1)_125: 778472910
+      Trap_switch_wires (1)_113: -956486580
+      Trap_switch_wires (1)_24: 2070769551
+      Trap_switch_wires (1)_116: 932918959
+      Trap_switch_wires (1)_10: -808238405
+      Trap_switch_wires (1)_33: 1301504919
+      Trap_switch_wires (1)_71: -2039605566
+      Trap_switch_wires (1)_68: -557129163
+      Trap_switch_wires (1)_56: -780424698
+      Trap_switch_wires (1)_137: -2047949529
+      Trap_switch_wires (1)_106: 1943161542
+      Trap_switch_wires (1)_99: 1482563072
+      Trap_switch_wires (1)_0: -1051768885
+      Trap_switch_wires (1)_169: 165506954
+      Trap_switch_wires (1)_7: -1485558195
+      Trap_switch_wires (1)_32: 1207950470
+      Trap_switch_wires (1)_78: -1401684196
+      Trap_switch_wires (1)_108: -1854053539
+      Trap_switch_wires (1)_38: -757673352
+      Trap_switch_wires (1)_142: -112078374
+      Trap_switch_wires (1)_140: 959650910
+      Trap_switch_wires (1)_82: 1286953730
+      Trap_switch_wires (1)_2: -218294252
+      Trap_switch_wires (1)_107: -608194880
+      Trap_switch_wires (1)_149: 2057554625
+      Trap_switch_wires (1)_52: -362035780
+      Trap_switch_wires (1)_23: -1155367154
+      Trap_switch_wires (1)_54: 1868765973
+      Trap_switch_wires (1)_84: 107280650
+      Trap_switch_wires (1)_111: 794604804
+      Trap_switch_wires (1)_73: -634343521
+      Trap_switch_wires (1)_17: 1694200768
+      Trap_switch_wires (1)_28: 322574334
+      Trap_switch_wires (1)_61: -1961455430
+      Trap_switch_wires (1)_131: -323944914
+      Trap_switch_wires (1)_45: 1334999365
+      Trap_switch_wires (1)_128: -220043405
+      Trap_switch_wires (1)_124: -587216334
+      Trap_switch_wires (1)_48: -237926844
+      Trap_switch_wires (1)_58: -562779168
+      Trap_switch_wires (1)_26: -412521583
+      Trap_switch_wires (1)_146: 814549060
+      Trap_switch_wires (1)_81: -432483408
+      Trap_switch_wires (1)_64: 1623794763
+      Trap_switch_wires (1)_80: -314998237
+      Trap_switch_wires (1)_49: -1043234761
+      Trap_switch_wires (1)_133: -1987757191
+      Trap_switch_wires (1)_13: 819257797
+      Trap_switch_wires (1)_127: 406291484
+      Trap_switch_wires (1)_178: 781551606
+      Trap_switch_wires (1)_11: 1458652452
+      Trap_switch_wires (1)_60: -1502588483
+      Trap_switch_wires (1)_123: -988347977
+      Trap_switch_wires (1)_22: -413851805
+      Trap_switch_wires (1)_66: -1059020108
+      Trap_switch_wires (1)_69: -386473136
+      Trap_switch_wires (1)_170: 2034369693
+      Trap_switch_wires (1)_59: 1429888451
+      Trap_switch_wires (1)_121: -2058125999
+      Trap_switch_wires (1)_159: -350220342
+      Trap_switch_wires (1)_70: 2097643966
+      Trap_switch_wires (1)_165: 1036067133
+      Trap_switch_wires (1)_92: 62437574
+      Trap_switch_wires (1)_174: -907428210
+      Trap_switch_wires (1)_152: 100704436
+      Trap_switch_wires (1)_3: 198504419
+      Trap_switch_wires (1)_172: 1039004197
+      Trap_switch_wires (1)_5: 1935185545
+      Trap_switch_wires (1)_15: -806320715
+      Trap_switch_wires (1)_43: 444810421
+      Trap_switch_wires (1)_37: 1106049150
+      Trap_switch_wires (1)_158: -349935236
+      Trap_switch_wires (1)_29: 1288251498
+      Trap_switch_wires (1)_79: 1162902200
+      Trap_switch_wires (1)_98: -1165640596
+      Trap_switch_wires (1)_100: 136675151
+      Trap_switch_wires (1)_114: 43734405
+      Trap_switch_wires (1)_88: -1203673485
+      Trap_switch_wires (1)_153: 1962845157
+      Trap_switch_wires (1)_75: -1170957967
+      Trap_switch_wires (1)_46: -205503992
+      Trap_switch_wires (1)_97: -54661908
+      Trap_switch_wires (1)_175: -914106237
+      Trap_switch_wires (1)_19: 1462418002
+      Trap_switch_wires (1)_102: 237695313
+      Trap_switch_wires (1)_130: 1635232652
+      Trap_switch_wires (1)_148: -213328551
+      Trap_switch_wires (1)_47: 357944676
+      Trap_switch_wires (1)_129: -886731402
+      Trap_switch_wires (1)_155: 2124693722
+      Trap_switch_wires (1)_150: 1458830979
+      Trap_switch_wires (1)_31: 1091370686
+      Trap_switch_wires (1)_157: -766967491
+      Trap_switch_wires (1)_160: -2009512692
+      Trap_switch_wires (1)_77: 1393169550
+      Trap_switch_wires (1)_76: -1852123693
+      Trap_switch_wires (1)_1: -1095170462
+      Trap_switch_wires (1)_91: -262181763
+      Trap_switch_wires (1)_41: 1392127669
+      Trap_switch_wires (1)_34: -1967603931
+      Trap_switch_wires (1)_25: 615968376
+      Trap_switch_wires (1)_42: 428174529
+      Trap_switch_wires (1)_118: 1177606381
+      Trap_switch_wires (1)_18: 1922853923
+      Trap_switch_wires (1)_51: -153545023
+      Trap_switch_wires (1)_168: 1557845006
+      Trap_switch_wires (1)_143: 1920480565
+      Trap_switch_wires (1)_176: -1370353173
+      Trap_switch_wires (1)_86: 355002327
+      Trap_switch_wires (1)_90: 1120980184
+      Trap_switch_wires (1)_94: -1078742323
+      Trap_switch_wires (1)_109: -1017108084
+      Trap_switch_wires (1)_95: 1204389849
+      Trap_switch_wires (1)_27: 2016380917
+      Trap_switch_wires (1)_134: -731048057
+      Trap_switch_wires (1)_72: -1767229702
+      Trap_switch_wires (1)_164: -140829730
+      Trap_switch_wires (1)_74: 129655922
+      Trap_switch_wires (1)_112: 396830121
+      Trap_switch_wires (1)_151: -2063667071
+      Trap_switch_wires (1)_96: -857492398
+      Trap_switch_wires (1)_21: -1094141969
+      Trap_switch_wires (1)_177: 1315167719
+      Trap_switch_wires (1)_163: -1569223205
+      Trap_switch_wires (1)_40: -538531173
+      Trap_switch_wires (1)_63: 1555929399
+      Trap_switch_wires (1)_122: -2013147317
+      Trap_switch_wires (1)_12: -1389453916
+      Trap_switch_wires (1)_53: 1136571777
+      Trap_switch_wires (1)_39: -247799823
+      Trap_switch_wires (1)_93: 1785390595
+      Trap_switch_wires (1)_145: -1363194348
+      Trap_switch_wires (1)_6: -1758692596
+      Trap_switch_wires (1)_9: -1325609183
+      Trap_switch_wires (1)_136: -554814285
+      Trap_switch_wires (1)_139: 1491975235
+      Trap_switch_wires (1)_44: 1456805863
+      Trap_switch_wires (1)_132: -764776500
+      Trap_switch_wires (1)_161: 226941304
+      Trap_switch_wires (1)_55: 1414326376
+      Trap_switch_wires (1)_16: -2096827096
+      Trap_switch_wires (1)_57: 2021151681
+      Trap_switch_wires (1)_154: 685266086
+      Trap_switch_wires (1)_171: 1756382191
+      Trap_switch_wires (1)_115: -1639929571
+      Trap_switch_wires (1)_173: 798146895
+      Trap_switch_wires (1)_141: -1589665440
+      Trap_switch_wires (1)_166: -825940523
+      Trap_switch_wires (1)_179: 1506792053
+      Trap_switch_wires (1)_162: -650729713
+      Trap_switch_wires (1)_144: -640286372
+      Trap_switch_wires (1)_138: -554763282
+      Trap_switch_wires (1)_147: 1613361948
+      Trap_switch_wires (1)_104: 1185758157
+      Trap_switch_wires (1)_50: -1856616583
+      Trap_switch_wires (1)_14: 435344199
+      Trap_switch_wires (1)_35: 1909597808
+      Trap_switch_wires (1)_135: 385279122
+      Trap_switch_wires (1)_110: 647500666
+      Trap_switch_wires (1)_85: 369661849
+      Trap_switch_wires (1)_167: 1990539642
+      Trap_switch_wires (1)_8: -2104634286
+      Trap_switch_wires (1)_30: -1336532816
+      Trap_switch_wires (1)_126: 1507125214
+      Trap_switch_wires (1)_103: 1501267372
+      Trap_switch_wires (1)_156: -2120230104
+      Trap_switch_wires (1)_62: -1138548484
+      Trap_switch_wires (1)_89: 1169156247
+      Trap_switch_wires (1)_36: 859908488
+      Trap_switch_wires (1)_105: -435436818
+      Trap_switch_wires (1)_119: 1963094057
+      Trap_switch_wires (1)_117: 1292165717
+      Trap_switch_wires (1)_4: 1278358530
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
