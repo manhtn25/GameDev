@@ -34,7 +34,11 @@ public class FlyingEnemyPatrol : MonoBehaviour
 
     public AudioSource audioSourceFlying;
 
-    public GameObject itemTypeFlying;
+    public GameObject[] itemDrop;
+    private GameObject newInstance;
+    private bool canDrop = true;
+
+
 
     private void Start()
     {
@@ -51,8 +55,7 @@ public class FlyingEnemyPatrol : MonoBehaviour
         respawnAfterDeath = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerLife>();
         healthDmg = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerLife>();
 
-        itemTypeFlying.SetActive(false);
-
+       
     }
 
     private void Update()
@@ -100,9 +103,8 @@ public class FlyingEnemyPatrol : MonoBehaviour
         if (deathCheck.isDead == true)
         {
             EnemyDestroyed();
-            itemTypeFlying.GetComponent<SpriteRenderer>().enabled = true;
-            itemTypeFlying.GetComponent<BoxCollider2D>().enabled = true;
-            itemTypeFlying.SetActive(false);
+            canDrop = true;
+          
         }
 
         if (flyingIsDead == true)
@@ -140,7 +142,7 @@ public class FlyingEnemyPatrol : MonoBehaviour
 
     public void FlyingEnemyGuardParticle()
     {
-        //coll.isTrigger = false;
+        coll.isTrigger = false;
         exclamationPoint.SetActive(false);
         StartCoroutine(Destroy());
         
@@ -149,8 +151,9 @@ public class FlyingEnemyPatrol : MonoBehaviour
 
     private IEnumerator Destroy()
     {
-       
-        yield return new WaitForSeconds(2.0f);
+
+        //yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(0.1f);
         anim.Play("Explode_Animation");
         coll.enabled = false;
         // Destroy(this.gameObject, 0.30f);
@@ -183,7 +186,11 @@ public class FlyingEnemyPatrol : MonoBehaviour
 
             if (Enemyhealth <= 0)
             {
-                ItemDrop();
+                
+                if (canDrop)
+                {
+                    ItemDrop();
+                }
                 flyingIsDead = true;
                 ResetSprite();
                 FlyingEnemyGuardParticle();
@@ -200,9 +207,12 @@ public class FlyingEnemyPatrol : MonoBehaviour
             Enemyhealth -= 2;
             sprite.color = new Color32(255, 127, 127, 255);
 
-            if (Enemyhealth <= 0)
+            if (Enemyhealth <= -1)
             {
-                ItemDrop();
+                if (canDrop)
+                {
+                    ItemDrop();
+                }
                 flyingIsDead = true;
                 ResetSprite();
                 FlyingEnemyGuardParticle();
@@ -235,13 +245,29 @@ public class FlyingEnemyPatrol : MonoBehaviour
         flyingIsDead = false;
         Enemyhealth = 1;
         coll.enabled = true;
-        //coll.isTrigger = true;
+        coll.isTrigger = true;
     }
 
     private void ItemDrop()
     {
         // Instantiate(itemType, transform.position + new Vector3(0, 1, 0), Quaternion.identity);
-        itemTypeFlying.SetActive(true);
+
+        for (int i = 0; i < itemDrop.Length; i++)
+        {
+            if (i % 2 == 0)
+            {
+                newInstance = Instantiate(itemDrop[i], transform.position + new Vector3(-2, 1, 0), Quaternion.identity);
+            }
+            else
+            {
+                newInstance = Instantiate(itemDrop[i], transform.position + new Vector3(-2, 1, 0), Quaternion.identity);
+
+            }
+
+            Destroy(newInstance, 3.0f);
+        }
+
+        canDrop = false;
     }
 
 }

@@ -17,6 +17,7 @@ public class MainPlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask jumpableGround;
     [SerializeField] private Interactables virtualCheck;
     [SerializeField] private Interactables virtualCheckTwo;
+    [SerializeField] private Interactables virtualCheckThree;
     private float dirX = 0f;
     [SerializeField] private float moveSpeed = 10f; //serializedfield allows the edits of value in the editor
     [SerializeField] private float jumpForce = 20f;
@@ -54,6 +55,9 @@ public class MainPlayerMovement : MonoBehaviour
 
     [SerializeField] ItemCollector gunCheck;
 
+    [SerializeField] private Text bulletText;
+    [SerializeField] private GameObject bulletUI;
+
 
     //public static PauseMenu instance;
 
@@ -83,6 +87,8 @@ public class MainPlayerMovement : MonoBehaviour
         //runningSound.Stop();
         //numPunches = extraPunchVal;
 
+        bulletUI.SetActive(false);
+        bulletText.enabled = false;
     }
 
 
@@ -122,6 +128,13 @@ public class MainPlayerMovement : MonoBehaviour
              {
                  return;
              }*/
+
+            if (gunCheck.hasGun == true)
+            {
+                bulletText.text = ": " + bulletAnim.currentBullets;
+                bulletUI.SetActive(true);
+                bulletText.enabled = true;
+            }
 
             if (Input.GetKey(KeyCode.LeftShift))  //dashing move even if idle and moving
             {
@@ -185,7 +198,7 @@ public class MainPlayerMovement : MonoBehaviour
             }
             else if (Input.GetKey(KeyCode.K) && IsGrounded())
             {
-                if (virtualCheck.inVirtual == false && virtualCheckTwo.inVirtual == false && gunCheck.hasGun == true)
+                if (virtualCheck.inVirtual == false && virtualCheckTwo.inVirtual == false && virtualCheckThree.inVirtual == false && gunCheck.hasGun == true)
                 {
                     horizontalVal = 3;              //shooting in ground
                     bulletAnim.Fire();
@@ -340,7 +353,7 @@ public class MainPlayerMovement : MonoBehaviour
 
         }
 
-        if (virtualCheck.inVirtual == false && virtualCheckTwo.inVirtual == false)
+        if (virtualCheck.inVirtual == false && virtualCheckTwo.inVirtual == false && virtualCheckThree.inVirtual == false)
         {
             if (horizontalVal == 3)
             {

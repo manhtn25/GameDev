@@ -61,7 +61,10 @@ public class StaticEnemyScript : MonoBehaviour
     [SerializeField]
     private Interactables virtualCheckTwo;
 
-    public GameObject itemType;
+    public GameObject[] itemDrop;
+    private GameObject newInstance;
+    private bool canDrop = true;
+
 
     // Start is called before the first frame update
     void Start()
@@ -78,7 +81,7 @@ public class StaticEnemyScript : MonoBehaviour
         exclamationPoint.SetActive(false);
 
         facingDirection = RIGHT;
-        itemType.SetActive(false);
+       
 
         
     }
@@ -163,9 +166,7 @@ public class StaticEnemyScript : MonoBehaviour
         if (deathCheck.isDead == true)
         {
             EnemyDestroyed();
-            itemType.GetComponent<SpriteRenderer>().enabled = true;
-            itemType.GetComponent<BoxCollider2D>().enabled = true;
-            itemType.SetActive(false);
+            canDrop = true;
 
         }
 
@@ -307,7 +308,11 @@ public class StaticEnemyScript : MonoBehaviour
 
             if (Enemyhealth <= 0)
             {
-                ItemDrop();
+                if (canDrop)
+                {
+                    ItemDrop();
+                }
+               
                 staticIsDead = true;
                 ResetSprite();
                 EnemyGuardParticle();
@@ -328,9 +333,14 @@ public class StaticEnemyScript : MonoBehaviour
             Sprite.color = new Color32(255, 127, 127, 255);
 
 
-            if (Enemyhealth <= 0)
+            if (Enemyhealth <= -1)
             {
-                ItemDrop();
+                if (canDrop)
+                {
+                    ItemDrop();
+                }
+
+               
                 staticIsDead = true;
                 ResetSprite();
                 EnemyGuardParticle();
@@ -369,7 +379,24 @@ public class StaticEnemyScript : MonoBehaviour
     private void ItemDrop()
     {
         // Instantiate(itemType, transform.position + new Vector3(0, 1, 0), Quaternion.identity);
-        itemType.SetActive(true);
+        for (int i = 0; i < itemDrop.Length; i++)
+        {
+            if (i % 2 == 0)
+            {
+                newInstance = Instantiate(itemDrop[i], transform.position + new Vector3(-1, 1, 0), Quaternion.identity);
+            }
+            else
+            {
+                newInstance = Instantiate(itemDrop[i], transform.position + new Vector3(1, 1, 0), Quaternion.identity);
+
+            }
+
+            Destroy(newInstance, 3.0f);
+        }
+
+        canDrop = false;
+
+
     }
 
   

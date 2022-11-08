@@ -10,6 +10,7 @@ public class NewMainEnemyScript : MonoBehaviour
     private Animator anim;
     private BoxCollider2D coll;
 
+
     //create isgrounded logic for this bot because he is falling out of the tilemap and also disable the patrol script
     //attach and enable follow script ai when detected by the flying orb object and enable an invisible wall that blocks the escape
 
@@ -57,7 +58,13 @@ public class NewMainEnemyScript : MonoBehaviour
     [SerializeField]
     private Interactables virtualCheckTwo;
 
+    public GameObject[] itemDrop;
+    private GameObject newInstance;
+    private bool canDrop = true;
+
     public AudioSource audioSource;
+
+   
 
     // Start is called before the first frame update
     void Start()
@@ -157,6 +164,7 @@ public class NewMainEnemyScript : MonoBehaviour
         if (deathCheck.isDead == true)
         {
             EnemyDestroyed();
+            canDrop = true;
         }
 
     }
@@ -309,6 +317,7 @@ public class NewMainEnemyScript : MonoBehaviour
     public void EnemyGuardParticle()
     {
         anim.Play("Enemy_Vaporate");
+        
         audioSource.Pause();
     }
 
@@ -392,9 +401,16 @@ public class NewMainEnemyScript : MonoBehaviour
 
             if (Enemyhealth <= 0)
             {
+                if (canDrop)
+                {
+                    MovingItemDrop();
+                }
+               
+      
                 staticIsDead = true;
                 ResetSprite();
                 EnemyGuardParticle();
+               
             }
             else
             {
@@ -408,8 +424,13 @@ public class NewMainEnemyScript : MonoBehaviour
             sprite.color = new Color32(255, 127, 127, 255);
 
 
-            if (Enemyhealth <= 0)
+            if (Enemyhealth <= -1)
             {
+                if (canDrop)
+                {
+                    MovingItemDrop();
+                }
+
                 staticIsDead = true;
                 ResetSprite();
                 EnemyGuardParticle();
@@ -441,11 +462,31 @@ public class NewMainEnemyScript : MonoBehaviour
         anim.Play("Enemy_Idle");
         staticIsDead = false;
         Enemyhealth = 3;
+     
     }
 
 
 
+    private void MovingItemDrop()
+    {
+        for (int i = 0; i < itemDrop.Length; i++)
+        {
+            if (i % 2 == 0)
+            {
+                newInstance = Instantiate(itemDrop[i], transform.position + new Vector3(-1, 1, 0), Quaternion.identity);
+            }
+            else
+            {
+                newInstance = Instantiate(itemDrop[i], transform.position + new Vector3(1, 1, 0), Quaternion.identity);
+          
+            }
+           
+            Destroy(newInstance, 3.0f);
+        }
 
+        canDrop = false;
+
+    }
 
 
 }

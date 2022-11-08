@@ -127,6 +127,7 @@ public class Interactables : MonoBehaviour
 
         if (terminalIsCooldown == true)
         {
+          
             Invoke("TerminalCooldown", 5);
         }
 
@@ -178,7 +179,7 @@ public class Interactables : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("VirtualPlayer"))
         {
             isInRange = false;
 

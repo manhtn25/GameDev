@@ -24,10 +24,13 @@ public class PlayerLife : MonoBehaviour
 
     [SerializeField] ObjectiveReached endingFlag;
     [SerializeField] ObjectiveReached Room2Flag;
+    [SerializeField] ObjectiveReached Room3Flag;
 
     public AudioClip healthLossAudio;
 
     [SerializeField] private Interactables virtualCheck;
+    [SerializeField] private Interactables virtualCheckTwo;
+    [SerializeField] private Interactables virtualCheckThree;
 
     public Image healthOne;
     public Image healthTwo;
@@ -63,41 +66,54 @@ public class PlayerLife : MonoBehaviour
 
     private void Update()
     {
+        if (!PauseMenu.instance.isPaused)
+        {
+            if (Input.GetKeyDown(KeyCode.H)) //for geting stuck
+            {
+                StartCoroutine(Respawn());
+            }
 
-        if (Input.GetKeyDown(KeyCode.H)) //for geting stuck
-        {
-            StartCoroutine(Respawn());
-        }
+            if (currentHealth == 3)
+            {
+                healthOne.enabled = true;
+                healthTwo.enabled = true;
+                healthThree.enabled = true;
+            }
+            else if (currentHealth == 2)
+            {
+                healthThree.enabled = false;
+                healthTwo.enabled = true;
+            }
+            else if (currentHealth == 1)
+            {
+                healthTwo.enabled = false;
+            }
+            else if (currentHealth == 0)
+            {
+                healthOne.enabled = false;
+            }
 
-        if (currentHealth == 3)
-        {
-            healthOne.enabled = true;
-            healthTwo.enabled = true;
-            healthThree.enabled = true;
+            if (isDead == true)
+            {
+                virtualCheck.inVirtual = false;
+                virtualCheckTwo.inVirtual = false;
+                virtualCheckThree.inVirtual = false;
+            }
+
+            if (virtualCheck.inVirtual == true || virtualCheckTwo.inVirtual == true || virtualCheckThree.inVirtual == true)
+            {
+                mainPlayer.color = new Color32(67, 237, 255, 255);
+            }
         }
-        else if (currentHealth == 2)
-        {
-            healthThree.enabled = false;
-            healthTwo.enabled = true;
-        }
-        else if (currentHealth == 1)
-        {
-            healthTwo.enabled = false;
-        }
-        else if (currentHealth == 0)
+        else
         {
             healthOne.enabled = false;
+            healthTwo.enabled = false;
+            healthThree.enabled = false;
+
         }
 
-        if (isDead == true)
-        {
-            virtualCheck.inVirtual = false;
-        }
-
-        if (virtualCheck.inVirtual == true)
-        {
-            mainPlayer.color = new Color32(67, 237, 255, 255);
-        }
+       
 
     }
 
@@ -121,7 +137,12 @@ public class PlayerLife : MonoBehaviour
             StartCoroutine(Respawn());
 
         }
+        else if (collision.gameObject.CompareTag("Trap"))
+        {
+            //just disable the sprite renderer and then enable it, cause disabling object stops all the coroutine and play the explode anim
+            TakeDamage(1);
 
+        }
         else if (collision.gameObject.CompareTag("OutofBounds"))
         {
             //StartCoroutine("Respawn", 5f);
@@ -160,6 +181,10 @@ public class PlayerLife : MonoBehaviour
             {
                 respawnPoint = transform.position;
                 Room2Flag.CheckPointAnim();
+            }else if(collision.gameObject.name == "checkPointThree")
+            {
+                respawnPoint = transform.position;
+                Room3Flag.CheckPointAnim();
             }
             else
             {
@@ -215,7 +240,7 @@ public class PlayerLife : MonoBehaviour
     public void TakeDamage(int amount)
     {
 
-        if (virtualCheck.inVirtual == false)
+        if (virtualCheck.inVirtual == false && virtualCheckTwo.inVirtual == false && virtualCheckThree.inVirtual == false)
         {
             if (isInvincible) return;
 
@@ -223,14 +248,15 @@ public class PlayerLife : MonoBehaviour
             mainPlayer.color = new Color32(255, 127, 127, 255);
             //subtract the hearts
 
-           
 
+          
             AudioSource.PlayClipAtPoint(healthLossAudio, transform.position);
 
             if (currentHealth <= 0)
             {
                 death.MainPlayerDeath();
                 isDead = true;
+                
                 combackAlive();
                 GetComponent<MainPlayerMovement>().canMove = false;
 
@@ -240,8 +266,34 @@ public class PlayerLife : MonoBehaviour
             }
             else
             {
+                anim.Play("Player_Attacked");
                 Invoke("ResetSprite", .10f);
                 StartCoroutine(ActivateInvincibility());
+                
+            }
+        } else if (virtualCheck.inVirtual == true || virtualCheckTwo.inVirtual == true || virtualCheckThree.inVirtual == true)
+        {
+
+            currentHealth -= amount;
+
+            if (currentHealth <= 0)
+            {
+                death.MainPlayerDeath();
+                isDead = true;
+
+                combackAlive();
+                GetComponent<MainPlayerMovement>().canMove = false;
+
+                //enable all the hearts again
+                //make sure to add where the player can't move
+
+            }
+            else
+            {
+                anim.Play("Player_Attacked");
+                Invoke("ResetSprite", .10f);
+
+
             }
         }
 
@@ -250,8 +302,19 @@ public class PlayerLife : MonoBehaviour
 
     private void ResetSprite()
     {
-        mainPlayer.color = new Color32(255, 255, 255, 255);
+        
+        if (virtualCheck.inVirtual == true || virtualCheckTwo.inVirtual == true || virtualCheckThree.inVirtual == true)
+        {
+            anim.Play("Player_Idle");
+        }
+        else
+        {
+            mainPlayer.color = new Color32(255, 255, 255, 255);
+            anim.Play("Player_Idle");
+        }
 
+       
+        
 
     }
 

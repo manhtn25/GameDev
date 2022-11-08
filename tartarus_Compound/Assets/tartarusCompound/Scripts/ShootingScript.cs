@@ -32,12 +32,12 @@ public class ShootingScript : MonoBehaviour
     private void Start()
     {
         currentBullets = maxBullets;
-        bulletUI.SetActive(true);
+        //bulletUI.SetActive(true);
     }
 
     private void Update()
     {
-        bulletText.text = ": " + currentBullets;
+        //bulletText.text = ": " + currentBullets;
     }
 
     public void Fire()
