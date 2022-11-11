@@ -58,7 +58,6 @@ public class MainPlayerMovement : MonoBehaviour
     [SerializeField] private Text bulletText;
     [SerializeField] private GameObject bulletUI;
 
-
     //public static PauseMenu instance;
 
     private enum MovementState { idle, running, jumping, falling, sneaking, shooting, punching } //this is basically an array, instead of having to remember the correct name, just refer to the its index position
@@ -292,6 +291,15 @@ public class MainPlayerMovement : MonoBehaviour
             //sneakingSound.Pause();
 
 
+        }else if (dirX > 0f && horizontalVal == 1 && rb.velocity.y > .1f )
+        {
+            state = MovementState.running;
+            spriteMainPlayer.flipX = false;
+            facingRight = true;
+
+            Debug.Log("working");
+
+            runningSound.GetComponent<AudioSource>().UnPause();
         }
         else if (dirX < 0f && horizontalVal == 1) //note that i Know you can change which direction the character is facing via sprite flipX
         {
@@ -305,6 +313,16 @@ public class MainPlayerMovement : MonoBehaviour
             runningSound.GetComponent<AudioSource>().UnPause();
 
             //sneakingSound.Pause();
+
+        } else if (dirX < 0f && horizontalVal == 1 && rb.velocity.y > .1f)
+        {
+            state = MovementState.running;
+            spriteMainPlayer.flipX = true;
+            facingRight = false;
+            Debug.Log("working");
+
+
+            runningSound.GetComponent<AudioSource>().UnPause();
 
         }
         /* else if (dirX > 0f && horizontalVal == 0)
