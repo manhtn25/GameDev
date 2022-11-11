@@ -84,6 +84,8 @@ public class NewMainEnemyScript : MonoBehaviour
         baseScale = transform.localScale;
 
         audioSource = GetComponent<AudioSource>();
+
+        this.GetComponent<WalkingComboScript>().enabled = false;
     }
 
     // Update is called once per frame
@@ -128,16 +130,13 @@ public class NewMainEnemyScript : MonoBehaviour
             if (hitInfo.collider.tag == "Player")
             {
 
-                EnemyLogic();
+                /* EnemyLogic();
 
-                //GetComponent<EnemyPatrol>().enabled = false;
-
-                //characterDetected = true;
-                characterDetected = true;
-                exclamationPoint.SetActive(true);
-                //Debug.Log("See");
+                 characterDetected = true;
+                 exclamationPoint.SetActive(true);*/
 
                 
+                this.GetComponent<WalkingComboScript>().enabled = true;
             }
          
 

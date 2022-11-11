@@ -164,6 +164,13 @@ public class PlayerLife : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+
+        if (collision.gameObject.name == "laserBullet(Clone)")
+        {
+            TakeDamage(1);
+            Destroy(collision.gameObject);
+        }
+
         if (collision.gameObject.CompareTag("Checkpoint"))
         {
             if (collision.gameObject.name == "checkpointOne")

@@ -65,6 +65,8 @@ public class StaticEnemyScript : MonoBehaviour
     private GameObject newInstance;
     private bool canDrop = true;
 
+    public bool staticCanChase = false;
+
 
     // Start is called before the first frame update
     void Start()
@@ -89,7 +91,7 @@ public class StaticEnemyScript : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        
+
         if (virtualCheck.inVirtual == true || virtualCheckTwo.inVirtual == true)
         {
             Sprite.enabled = false;
@@ -99,62 +101,75 @@ public class StaticEnemyScript : MonoBehaviour
         {
             Sprite.enabled = true;
         }
-        
-        Flip();
 
-        enemyPlayerDistance = Vector2.Distance(transform.position, target.transform.position);
-
-        //transform.Rotate(Vector3.forward * Time.deltaTime * speed);, useful for rotating vision 
-        if (facingDirection == RIGHT)
+        if (staticCanChase == true)
         {
- 
-            hitInfo = Physics2D.Raycast(transform.position, transform.right, attackRaycast, rayCastMask);
-            punchDirection = true;
+       
+            Flip();
 
-        }
+            enemyPlayerDistance = Vector2.Distance(transform.position, target.transform.position);
 
-        else if (facingDirection == LEFT)
-        {
-
-            //hitInfo = Physics2D.Raycast(transform.position, -transform.right, attackRaycast, rayCastMask);
-            hitInfo = Physics2D.Raycast(transform.position, transform.right, attackRaycast, rayCastMask);
-            punchDirection = false;
-
-          
-        }
-
-        //whats wrong with this one is that once it flips the raycast and transform position does not work
-
-        if (staticIsDead == true)
-        {
-            exclamationPoint.SetActive(false);
-        }
-
-        //detecting the player
-        if (hitInfo.collider != null && staticIsDead == false)
-        {
-            Debug.DrawLine(transform.position, hitInfo.point, Color.red);
-
-            if (hitInfo.collider.tag == "Player")
+            //transform.Rotate(Vector3.forward * Time.deltaTime * speed);, useful for rotating vision 
+            if (facingDirection == RIGHT)
             {
 
-                EnemyLogic();
-                characterDetected = true;
-                exclamationPoint.SetActive(true);
-                //Debug.Log("See");
+                hitInfo = Physics2D.Raycast(transform.position, transform.right, attackRaycast, rayCastMask);
+                punchDirection = true;
+
+            }
+
+            else if (facingDirection == LEFT)
+            {
+
+                //hitInfo = Physics2D.Raycast(transform.position, -transform.right, attackRaycast, rayCastMask);
+                hitInfo = Physics2D.Raycast(transform.position, transform.right, attackRaycast, rayCastMask);
+                punchDirection = false;
 
 
             }
 
+            //whats wrong with this one is that once it flips the raycast and transform position does not work
 
+            if (staticIsDead == true)
+            {
+                exclamationPoint.SetActive(false);
+            }
+
+            //detecting the player
+            if (hitInfo.collider != null && staticIsDead == false)
+            {
+                Debug.DrawLine(transform.position, hitInfo.point, Color.red);
+
+                if (hitInfo.collider.tag == "Player")
+                {
+
+                    EnemyLogic();
+                    characterDetected = true;
+                    exclamationPoint.SetActive(true);
+                    //Debug.Log("See");
+
+
+                }
+
+
+            }
+            //not detecting the player but just patroling
+            else if (hitInfo.collider == null && staticIsDead == false)
+            {
+                // Debug.DrawLine(transform.position, transform.position + transform.right * visionDistance, Color.green);
+
+                Debug.DrawLine(transform.position, transform.position + transform.right * visionDistance, Color.green);
+
+                anim.SetBool("canRun", false);
+                anim.SetBool("canWalk", false);
+                StopAttack();
+
+                characterDetected = false;
+                exclamationPoint.SetActive(false);
+            }
         }
-        //not detecting the player but just patroling
-        else if (hitInfo.collider == null && staticIsDead == false)
+        else
         {
-            // Debug.DrawLine(transform.position, transform.position + transform.right * visionDistance, Color.green);
-
-            Debug.DrawLine(transform.position, transform.position + transform.right * visionDistance, Color.green);
-
             anim.SetBool("canRun", false);
             anim.SetBool("canWalk", false);
             StopAttack();
@@ -162,6 +177,7 @@ public class StaticEnemyScript : MonoBehaviour
             characterDetected = false;
             exclamationPoint.SetActive(false);
         }
+        
 
         if (deathCheck.isDead == true)
         {

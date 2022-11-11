@@ -58,6 +58,8 @@ public class MainPlayerMovement : MonoBehaviour
     [SerializeField] private Text bulletText;
     [SerializeField] private GameObject bulletUI;
 
+    public bool isJumping = false;
+
     //public static PauseMenu instance;
 
     private enum MovementState { idle, running, jumping, falling, sneaking, shooting, punching } //this is basically an array, instead of having to remember the correct name, just refer to the its index position
@@ -228,6 +230,7 @@ public class MainPlayerMovement : MonoBehaviour
             {
                 /*            jumpSoundEffect.Play();
                 */
+                isJumping = true;
                 AudioSource.PlayClipAtPoint(jump, transform.position, 0.3F);
                 rb.velocity = new Vector3(rb.velocity.x, jumpForce, 0); //vector3(x, y, z), optional but can also use Vector2
 
@@ -291,15 +294,6 @@ public class MainPlayerMovement : MonoBehaviour
             //sneakingSound.Pause();
 
 
-        }else if (dirX > 0f && horizontalVal == 1 && rb.velocity.y > .1f )
-        {
-            state = MovementState.running;
-            spriteMainPlayer.flipX = false;
-            facingRight = true;
-
-            Debug.Log("working");
-
-            runningSound.GetComponent<AudioSource>().UnPause();
         }
         else if (dirX < 0f && horizontalVal == 1) //note that i Know you can change which direction the character is facing via sprite flipX
         {
@@ -313,16 +307,6 @@ public class MainPlayerMovement : MonoBehaviour
             runningSound.GetComponent<AudioSource>().UnPause();
 
             //sneakingSound.Pause();
-
-        } else if (dirX < 0f && horizontalVal == 1 && rb.velocity.y > .1f)
-        {
-            state = MovementState.running;
-            spriteMainPlayer.flipX = true;
-            facingRight = false;
-            Debug.Log("working");
-
-
-            runningSound.GetComponent<AudioSource>().UnPause();
 
         }
         /* else if (dirX > 0f && horizontalVal == 0)
@@ -351,25 +335,28 @@ public class MainPlayerMovement : MonoBehaviour
 
         }
 
-
-        if (rb.velocity.y > .1f)
+        if (isJumping)
         {
-            state = MovementState.jumping;
-            runningSound.GetComponent<AudioSource>().Pause();
-            //sneakingSound.Pause();
+            if (rb.velocity.y > .1f)
+            {
+                state = MovementState.jumping;
+                runningSound.GetComponent<AudioSource>().Pause();
+                //sneakingSound.Pause();
 
-        }
-        else if (rb.velocity.y > .1f && maxJumps > 0)
-        {
-            state = MovementState.running;
-        }
-        else if (rb.velocity.y < -.1f)
-        {
-            state = MovementState.falling;
-            runningSound.GetComponent<AudioSource>().Pause();
-            //sneakingSound.Pause();
+            }
+            else if (rb.velocity.y > .1f && maxJumps > 0)
+            {
+                state = MovementState.running;
+            }
+            else if (rb.velocity.y < -.1f)
+            {
+                state = MovementState.falling;
+                runningSound.GetComponent<AudioSource>().Pause();
+                //sneakingSound.Pause();
 
+            }
         }
+        
 
         if (virtualCheck.inVirtual == false && virtualCheckTwo.inVirtual == false && virtualCheckThree.inVirtual == false)
         {
@@ -457,6 +444,7 @@ public class MainPlayerMovement : MonoBehaviour
     {
 
         return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, .1f, jumpableGround);
+
         //creates another box similar to the size of the actual boxcollider, 0f is the rotation value, vector2.down + .1f moves the box a tiny bit down/ offsets it (overlaps it)
 
     }
