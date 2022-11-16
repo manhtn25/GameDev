@@ -28,4 +28,10 @@ public class EnemyChaseRange : MonoBehaviour
         }
     }
 
+    [SerializeField] private Transform flyingbot;
+
+    private void Update()
+    {
+        transform.position = new Vector3(flyingbot.position.x, flyingbot.position.y, flyingbot.position.z);
+    }
 }

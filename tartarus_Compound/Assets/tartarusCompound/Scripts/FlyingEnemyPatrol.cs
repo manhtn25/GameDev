@@ -125,7 +125,7 @@ public class FlyingEnemyPatrol : MonoBehaviour
 
     private void BackPatrolling()
     {
-        transform.position = Vector2.MoveTowards(transform.position, initialPoint.position, speed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, initialPoint.position, 2 * speed * Time.deltaTime);
     }
 
     private void Flip()
