@@ -407,7 +407,7 @@ public class StaticEnemyScript : MonoBehaviour
 
             }
 
-            Destroy(newInstance, 3.0f);
+            Destroy(newInstance, 5.0f);
         }
 
         canDrop = false;
