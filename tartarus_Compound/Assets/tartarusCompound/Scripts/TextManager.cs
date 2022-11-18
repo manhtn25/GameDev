@@ -16,18 +16,21 @@ public class TextManager : MonoBehaviour {
     [SerializeField] public int endAtLine;
 
     public MainPlayerMovement player;
+    public bool stopPlayerMovement;
+
     public bool isActive;
 
     // Start is called before the first frame update
     void Start()
     {
-        //player = FindObjectOfType<mainPlayerMovement>();
+        player = FindObjectOfType<MainPlayerMovement>();
 
         if (textFile != null)
         {
             textLines = (textFile.text.Split('\n'));
         }
 
+        // default setting for when endAtLine is set to 0, go all the way to end of file
         if (endAtLine == 0)
         {
             endAtLine = textLines.Length - 1;
@@ -49,11 +52,16 @@ public class TextManager : MonoBehaviour {
     {
         if (!isActive)
         {
-
+            return;
         }
 
-        theText.text = textLines[currentLine];
+        // get the current line of text to display
+        if (currentLine < textLines.Length)
+        {
+            theText.text = textLines[currentLine];
+        }
 
+        // next line on button push
         if (Input.GetKeyDown(KeyCode.Return))
         {
             currentLine += 1;
@@ -62,17 +70,27 @@ public class TextManager : MonoBehaviour {
         if (currentLine > endAtLine)
         {
             DisableTextBox();
-
         }
+
+
     }
 
     public void EnableTextBox()
     {
+        textBox.SetActive(true);
 
+        // restrict player movement when text box is active
+        if (stopPlayerMovement)
+        {
+            player.canMove = false;
+        }
     }
 
     public void DisableTextBox()
     {
         textBox.SetActive(false);
+
+        // set player free after text box is gone
+        player.canMove = true;
     }
 }
