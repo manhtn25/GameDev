@@ -28,10 +28,14 @@ public class WalkingComboScript : MonoBehaviour
     private bool attackMode;
     private float intTimer;
 
+    public GameObject righTempWall;
+    public GameObject leftTempWall;
     //[SerializeField] private NewMainEnemyScript directionCheck;
 
     [SerializeField] private GameObject punchRight;
     [SerializeField] private GameObject punchLeft;
+
+   // [SerializeField] private GameObject secondDamageCheck;
 
     [SerializeField] private GameObject exclamationPoint;
 
@@ -78,6 +82,7 @@ public class WalkingComboScript : MonoBehaviour
         anim = GetComponent<Animator>(); //animator component
         punchRight.SetActive(false);
         punchLeft.SetActive(false);
+        //secondDamageCheck.SetActive(false);
         player = GameObject.FindGameObjectWithTag("Player");
         exclamationPoint.SetActive(false);
 
@@ -115,6 +120,7 @@ public class WalkingComboScript : MonoBehaviour
 
                 hitInfo = Physics2D.Raycast(transform.position, transform.right, attackRaycast, rayCastMask);
                 punchDirection = true;
+  
 
             }
 
@@ -124,9 +130,9 @@ public class WalkingComboScript : MonoBehaviour
                 //hitInfo = Physics2D.Raycast(transform.position, -transform.right, attackRaycast, rayCastMask);
                 hitInfo = Physics2D.Raycast(transform.position, transform.right, attackRaycast, rayCastMask);
                 punchDirection = false;
+      
 
-
-            }
+        }
 
             //whats wrong with this one is that once it flips the raycast and transform position does not work
 
@@ -177,7 +183,7 @@ public class WalkingComboScript : MonoBehaviour
 
         if (deathCheck.isDead == true)
         {
-            this.GetComponent<NewMainEnemyScript>().enabled = true;
+           // this.GetComponent<NewMainEnemyScript>().enabled = true;
             EnemyDestroyed();
             canDrop = true;
            
@@ -250,7 +256,14 @@ public class WalkingComboScript : MonoBehaviour
 
         if (canDamage)
         {
+
+          /*  if (facingDirection == RIGHT)
+            {
+                secondDamageCheck.SetActive(true);
+            }*/
+
             punchRight.SetActive(true);
+            
             StartCoroutine("EnemyPunchWait", .02f);
 
         }
@@ -290,6 +303,7 @@ public class WalkingComboScript : MonoBehaviour
         yield return new WaitForSeconds(punchDelay);
         //punchLeft.SetActive(false);
         punchRight.SetActive(false);
+        //secondDamageCheck.SetActive(false);
         canDamage = false;
 
 
@@ -393,16 +407,23 @@ public class WalkingComboScript : MonoBehaviour
 
         }*/
         //exclamationPoint.SetActive(false);
-        Invoke("Respawn", .10f);
+
+     
+        //righTempWall.SetActive(true);
+
+        Invoke("Respawn", .02f);
     }
 
     private void Respawn()
     {
+      
         anim.Play("Enemy_Idle");
         staticIsDead = false;
         Enemyhealth = 3;
+       // righTempWall.SetActive(false);
+       // leftTempWall.SetActive(false);
 
-        this.GetComponent<WalkingComboScript>().enabled = false;
+       // this.GetComponent<WalkingComboScript>().enabled = false;
     }
 
     private void ItemDrop()

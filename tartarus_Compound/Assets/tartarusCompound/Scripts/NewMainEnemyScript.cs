@@ -165,7 +165,7 @@ public class NewMainEnemyScript : MonoBehaviour
         {
             EnemyDestroyed();
             canDrop = true;
-            this.GetComponent<WalkingComboScript>().enabled = false;
+           // this.GetComponent<WalkingComboScript>().enabled = false;
         }
 
     }
