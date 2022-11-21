@@ -78,19 +78,32 @@ public class TextManager : MonoBehaviour {
     public void EnableTextBox()
     {
         textBox.SetActive(true);
+        isActive = true;
 
         // restrict player movement when text box is active
         if (stopPlayerMovement)
         {
-            player.canMove = false;
+            //player.canMove = false;
+            Time.timeScale = 0f;
         }
     }
 
     public void DisableTextBox()
     {
         textBox.SetActive(false);
+        isActive = false;
 
         // set player free after text box is gone
-        player.canMove = true;
+        //player.canMove = true;
+        Time.timeScale = 1.0f;
+    }
+
+    public void ReloadScript(TextAsset theText)
+    {
+        if (theText != null)
+        {
+            textLines = new string[1];
+            textLines = (theText.text.Split('\n'));
+        }
     }
 }
