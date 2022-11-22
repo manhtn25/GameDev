@@ -32,6 +32,8 @@ public class PlayerLife : MonoBehaviour
     [SerializeField] private Interactables virtualCheck;
     [SerializeField] private Interactables virtualCheckTwo;
     [SerializeField] private Interactables virtualCheckThree;
+    [SerializeField] private Interactables virtualCheckFour;
+
 
     public Image healthOne;
     public Image healthTwo;
@@ -99,9 +101,10 @@ public class PlayerLife : MonoBehaviour
                 virtualCheck.inVirtual = false;
                 virtualCheckTwo.inVirtual = false;
                 virtualCheckThree.inVirtual = false;
+                virtualCheckFour.inVirtual = false;
             }
 
-            if (virtualCheck.inVirtual == true || virtualCheckTwo.inVirtual == true || virtualCheckThree.inVirtual == true)
+            if (virtualCheck.inVirtual == true || virtualCheckTwo.inVirtual == true || virtualCheckThree.inVirtual == true || virtualCheckFour.inVirtual == true)
             {
                 mainPlayer.color = new Color32(67, 237, 255, 255);
             }
@@ -166,7 +169,7 @@ public class PlayerLife : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
-        if (collision.gameObject.name == "laserBullet(Clone)")
+        if (collision.gameObject.name == "laserBullet(Clone)" || collision.gameObject.name == "laserBulletVirtual(Clone)")
         {
             TakeDamage(1);
             Destroy(collision.gameObject);
@@ -252,7 +255,7 @@ public class PlayerLife : MonoBehaviour
     public void TakeDamage(int amount)
     {
 
-        if (virtualCheck.inVirtual == false && virtualCheckTwo.inVirtual == false && virtualCheckThree.inVirtual == false)
+        if (virtualCheck.inVirtual == false && virtualCheckTwo.inVirtual == false && virtualCheckThree.inVirtual == false && virtualCheckFour.inVirtual == false)
         {
             if (isInvincible) return;
 
@@ -283,7 +286,7 @@ public class PlayerLife : MonoBehaviour
                 StartCoroutine(ActivateInvincibility());
                 
             }
-        } else if (virtualCheck.inVirtual == true || virtualCheckTwo.inVirtual == true || virtualCheckThree.inVirtual == true)
+        } else if (virtualCheck.inVirtual == true || virtualCheckTwo.inVirtual == true || virtualCheckThree.inVirtual == true || virtualCheckFour.inVirtual == true)
         {
 
             currentHealth -= amount;
@@ -315,7 +318,7 @@ public class PlayerLife : MonoBehaviour
     private void ResetSprite()
     {
         
-        if (virtualCheck.inVirtual == true || virtualCheckTwo.inVirtual == true || virtualCheckThree.inVirtual == true)
+        if (virtualCheck.inVirtual == true || virtualCheckTwo.inVirtual == true || virtualCheckThree.inVirtual == true || virtualCheckFour.inVirtual == true)
         {
             anim.Play("Player_Idle");
         }

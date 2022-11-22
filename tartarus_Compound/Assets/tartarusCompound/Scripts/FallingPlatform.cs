@@ -43,6 +43,9 @@ public class FallingPlatform : MonoBehaviour
         {
             fallingCoroutine = StartCoroutine(Fall());
             
+        }else if (collision.gameObject.CompareTag("VirtualPlayer") && falling == false)
+        {
+            fallingCoroutine = StartCoroutine(Fall());
         }
   
        

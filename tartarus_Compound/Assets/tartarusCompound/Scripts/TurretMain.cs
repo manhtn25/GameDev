@@ -12,6 +12,7 @@ public class TurretMain : MonoBehaviour
     private GameObject tempBullet;
     [SerializeField] private Transform firepoint;
     [SerializeField] private GameObject bullet;
+    [SerializeField] private GameObject virtualBullet;
     float timebetween;
     public float startTimeBetween;
     private float bulletSpeed = 400f;
@@ -37,7 +38,7 @@ public class TurretMain : MonoBehaviour
 
     private GameObject player;
 
-
+    [SerializeField] private Interactables virtualCheck;
 
     void Start()
     {
@@ -64,10 +65,16 @@ public class TurretMain : MonoBehaviour
         {
             if (playerInTurretRange == true && turretDead == false)
             {
-                if (timebetween <= 0)
-
+                if (timebetween <= 0 && virtualCheck.inVirtual == false)
                 {
                     tempBullet = Instantiate(bullet, firepoint.position, bullet.transform.rotation);
+                    tempBullet.GetComponent<Rigidbody2D>().AddForce(Vector2.right * bulletSpeed);
+
+                    timebetween = startTimeBetween;
+                }
+                else if (timebetween <= 0 && virtualCheck.inVirtual == true)
+                {
+                    tempBullet = Instantiate(virtualBullet, firepoint.position, bullet.transform.rotation);
                     tempBullet.GetComponent<Rigidbody2D>().AddForce(Vector2.right * bulletSpeed);
 
                     timebetween = startTimeBetween;
