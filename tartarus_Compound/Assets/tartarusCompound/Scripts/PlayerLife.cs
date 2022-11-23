@@ -26,6 +26,8 @@ public class PlayerLife : MonoBehaviour
     [SerializeField] ObjectiveReached Room2Flag;
     [SerializeField] ObjectiveReached Room3Flag;
     [SerializeField] ObjectiveReached Room3TwoFlag;
+    [SerializeField] ObjectiveReached Room4Flag;
+    [SerializeField] ObjectiveReached Room4TwoFlag;
 
     public AudioClip healthLossAudio;
 
@@ -200,6 +202,14 @@ public class PlayerLife : MonoBehaviour
             {
                 respawnPoint = transform.position;
                 Room3TwoFlag.CheckPointAnim();
+            }else if (collision.gameObject.name == "checkpointSix")
+            {
+                respawnPoint = transform.position;
+                Room4Flag.CheckPointAnim();
+            }else if (collision.gameObject.name == "checkpointSeven")
+            {
+                respawnPoint = transform.position;
+                Room4TwoFlag.CheckPointAnim();
             }
             else
             {
