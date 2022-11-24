@@ -8,6 +8,8 @@ public class MainMenu : MonoBehaviour
 
     public string startScene;
 
+    [SerializeField] private GameObject leftCredits;
+    [SerializeField] private GameObject rightCredits;
 
 
    // [SerializeField] private AudioClip prisonDoor;
@@ -16,7 +18,8 @@ public class MainMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        leftCredits.SetActive(false);
+        rightCredits.SetActive(false);
     }
 
     // Update is called once per frame
@@ -32,7 +35,15 @@ public class MainMenu : MonoBehaviour
 
     public void CreditsPage()
     {
+        leftCredits.SetActive(true);
+        rightCredits.SetActive(true);
+        Invoke("DisableCredits", 5.0f);
+    }
 
+    private void DisableCredits()
+    {
+        leftCredits.SetActive(false);
+        rightCredits.SetActive(false);
     }
 
     public void QuitGame()
