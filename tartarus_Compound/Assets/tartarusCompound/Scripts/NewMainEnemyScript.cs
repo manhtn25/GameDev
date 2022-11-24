@@ -42,7 +42,7 @@ public class NewMainEnemyScript : MonoBehaviour
     [SerializeField] Transform castPos;
     const string LEFT = "left";
     const string RIGHT = "right";
-    private string facingDirection;
+    public string facingDirectionNew;
     Vector3 baseScale;
 
     RaycastHit2D hitInfo;
@@ -64,8 +64,6 @@ public class NewMainEnemyScript : MonoBehaviour
 
     public AudioSource audioSource;
 
-   
-
     // Start is called before the first frame update
     void Start()
     {
@@ -80,17 +78,19 @@ public class NewMainEnemyScript : MonoBehaviour
 
         exclamationPoint.SetActive(false);
 
-        facingDirection = RIGHT;
+        facingDirectionNew = RIGHT;
+        
         baseScale = transform.localScale;
 
         audioSource = GetComponent<AudioSource>();
 
-        this.GetComponent<WalkingComboScript>().enabled = false;
+       // this.GetComponent<WalkingComboScript>().enabled = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        
 
         if (virtualCheck.inVirtual == true || virtualCheckTwo.inVirtual == true)
         {
@@ -103,16 +103,17 @@ public class NewMainEnemyScript : MonoBehaviour
         }
 
         //transform.Rotate(Vector3.forward * Time.deltaTime * speed);, useful for rotating vision 
-        if (facingDirection == RIGHT)
+        if (facingDirectionNew == RIGHT)
         {
             hitInfo = Physics2D.Raycast(transform.position, transform.right, attackRaycast, rayCastMask);
             punchDirection = true;
+        
         }
-        else if (facingDirection == LEFT)
+        else if (facingDirectionNew == LEFT)
         {
             hitInfo = Physics2D.Raycast(transform.position, -transform.right, attackRaycast, rayCastMask);
             punchDirection = false;
-
+       
         }
 
         if (staticIsDead == true)
@@ -164,6 +165,7 @@ public class NewMainEnemyScript : MonoBehaviour
         {
             EnemyDestroyed();
             canDrop = true;
+           // this.GetComponent<WalkingComboScript>().enabled = false;
         }
 
     }
@@ -174,7 +176,7 @@ public class NewMainEnemyScript : MonoBehaviour
 
         float adjustDirectionSpeed = walkSpeed;
 
-        if (facingDirection == LEFT)
+        if (facingDirectionNew == LEFT)
         {
             adjustDirectionSpeed *= -1;
         }
@@ -186,7 +188,7 @@ public class NewMainEnemyScript : MonoBehaviour
         //not checking for a ground but just increasing raycast length
         if (IsHittingWall())
         {
-            if (facingDirection == LEFT)
+            if (facingDirectionNew == LEFT)
             {
                 ChangeEnemyDirection(RIGHT);
             }
@@ -350,7 +352,7 @@ public class NewMainEnemyScript : MonoBehaviour
 
         transform.localScale = newScale;
 
-        facingDirection = newDirection;
+        facingDirectionNew = newDirection;
 
     }
 
@@ -360,7 +362,7 @@ public class NewMainEnemyScript : MonoBehaviour
 
         float castDist = distance;
         //defining the raycast Distance for left and right
-        if (facingDirection == LEFT)
+        if (facingDirectionNew == LEFT)
         {
             castDist = distance * -1;
         }
@@ -461,7 +463,8 @@ public class NewMainEnemyScript : MonoBehaviour
         anim.Play("Enemy_Idle");
         staticIsDead = false;
         Enemyhealth = 3;
-     
+        
+
     }
 
 
@@ -480,7 +483,7 @@ public class NewMainEnemyScript : MonoBehaviour
           
             }
            
-            Destroy(newInstance, 3.0f);
+            Destroy(newInstance, 5.0f);
         }
 
         canDrop = false;

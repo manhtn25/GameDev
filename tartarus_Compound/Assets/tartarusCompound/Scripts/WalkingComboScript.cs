@@ -28,10 +28,14 @@ public class WalkingComboScript : MonoBehaviour
     private bool attackMode;
     private float intTimer;
 
-
+    public GameObject righTempWall;
+    public GameObject leftTempWall;
+    //[SerializeField] private NewMainEnemyScript directionCheck;
 
     [SerializeField] private GameObject punchRight;
     [SerializeField] private GameObject punchLeft;
+
+   // [SerializeField] private GameObject secondDamageCheck;
 
     [SerializeField] private GameObject exclamationPoint;
 
@@ -65,7 +69,7 @@ public class WalkingComboScript : MonoBehaviour
     private GameObject newInstance;
     private bool canDrop = true;
 
-
+   
 
     // Start is called before the first frame update
     void Start()
@@ -78,11 +82,11 @@ public class WalkingComboScript : MonoBehaviour
         anim = GetComponent<Animator>(); //animator component
         punchRight.SetActive(false);
         punchLeft.SetActive(false);
+        //secondDamageCheck.SetActive(false);
         player = GameObject.FindGameObjectWithTag("Player");
         exclamationPoint.SetActive(false);
 
         facingDirection = RIGHT;
-
 
 
     }
@@ -90,6 +94,10 @@ public class WalkingComboScript : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+
+        Vector3 Temp = transform.localScale;
+        Temp.x = 1;
+        transform.localScale = Temp;
 
         if (virtualCheck.inVirtual == true || virtualCheckTwo.inVirtual == true)
         {
@@ -112,6 +120,7 @@ public class WalkingComboScript : MonoBehaviour
 
                 hitInfo = Physics2D.Raycast(transform.position, transform.right, attackRaycast, rayCastMask);
                 punchDirection = true;
+  
 
             }
 
@@ -121,16 +130,17 @@ public class WalkingComboScript : MonoBehaviour
                 //hitInfo = Physics2D.Raycast(transform.position, -transform.right, attackRaycast, rayCastMask);
                 hitInfo = Physics2D.Raycast(transform.position, transform.right, attackRaycast, rayCastMask);
                 punchDirection = false;
+      
 
-
-            }
+        }
 
             //whats wrong with this one is that once it flips the raycast and transform position does not work
 
             if (staticIsDead == true)
             {
                 exclamationPoint.SetActive(false);
-            }
+               
+        }
 
             //detecting the player
             if (hitInfo.collider != null && staticIsDead == false)
@@ -143,10 +153,10 @@ public class WalkingComboScript : MonoBehaviour
                     EnemyLogic();
                     characterDetected = true;
                     exclamationPoint.SetActive(true);
-                    //Debug.Log("See");
-
-
-                }
+                //Debug.Log("See");
+                this.GetComponent<NewMainEnemyScript>().enabled = false;
+                rb.velocity = Vector3.zero;
+            }
 
 
             }
@@ -155,26 +165,28 @@ public class WalkingComboScript : MonoBehaviour
             {
             // Debug.DrawLine(transform.position, transform.position + transform.right * visionDistance, Color.green);
 
-            /*Debug.DrawLine(transform.position, transform.position + transform.right * visionDistance, Color.green);
+            Debug.DrawLine(transform.position, transform.position + transform.right * visionDistance, Color.green);
 
             anim.SetBool("canRun", false);
             anim.SetBool("canWalk", false);
             StopAttack();
 
             characterDetected = false;
-            exclamationPoint.SetActive(false);*/
+            exclamationPoint.SetActive(false);
 
-            this.GetComponent<NewMainEnemyScript>().enabled = true;
-            this.GetComponent<WalkingComboScript>().enabled = false;
-            }
+
+            //this.GetComponent<WalkingComboScript>().enabled = false;
+        }
         
        
 
 
         if (deathCheck.isDead == true)
         {
+           // this.GetComponent<NewMainEnemyScript>().enabled = true;
             EnemyDestroyed();
             canDrop = true;
+           
 
         }
 
@@ -244,7 +256,14 @@ public class WalkingComboScript : MonoBehaviour
 
         if (canDamage)
         {
+
+          /*  if (facingDirection == RIGHT)
+            {
+                secondDamageCheck.SetActive(true);
+            }*/
+
             punchRight.SetActive(true);
+            
             StartCoroutine("EnemyPunchWait", .02f);
 
         }
@@ -284,6 +303,7 @@ public class WalkingComboScript : MonoBehaviour
         yield return new WaitForSeconds(punchDelay);
         //punchLeft.SetActive(false);
         punchRight.SetActive(false);
+        //secondDamageCheck.SetActive(false);
         canDamage = false;
 
 
@@ -301,6 +321,7 @@ public class WalkingComboScript : MonoBehaviour
         {
             transform.rotation = Quaternion.Euler(0, 180, 0);
             facingDirection = LEFT;
+           
         }
     }
 
@@ -373,15 +394,36 @@ public class WalkingComboScript : MonoBehaviour
     private void EnemyDestroyed()
     {
 
+/*
+        if (facingDirection == LEFT)
+        {
+
+            this.GetComponent<NewMainEnemyScript>().facingDirectionNew = LEFT;
+
+        }
+        else
+        {
+            this.GetComponent<NewMainEnemyScript>().facingDirectionNew = RIGHT;
+
+        }*/
         //exclamationPoint.SetActive(false);
-        Invoke("Respawn", .10f);
+
+     
+        //righTempWall.SetActive(true);
+
+        Invoke("Respawn", .02f);
     }
 
     private void Respawn()
     {
+      
         anim.Play("Enemy_Idle");
         staticIsDead = false;
         Enemyhealth = 3;
+       // righTempWall.SetActive(false);
+       // leftTempWall.SetActive(false);
+
+       // this.GetComponent<WalkingComboScript>().enabled = false;
     }
 
     private void ItemDrop()
@@ -399,7 +441,7 @@ public class WalkingComboScript : MonoBehaviour
 
             }
 
-            Destroy(newInstance, 3.0f);
+            Destroy(newInstance, 5.0f);
         }
 
         canDrop = false;

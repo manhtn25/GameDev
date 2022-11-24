@@ -27,10 +27,10 @@ public class FlyingEnemyPatrol : MonoBehaviour
     private int Enemyhealth = 1;
     private bool isDamaged = false;
 
-    [SerializeField]
+  /*  [SerializeField]
     private Interactables virtualCheck;
     [SerializeField]
-    private Interactables virtualCheckTwo;
+    private Interactables virtualCheckTwo;*/
 
     public AudioSource audioSourceFlying;
 
@@ -100,9 +100,11 @@ public class FlyingEnemyPatrol : MonoBehaviour
             Flip();
         }
 
+
         if (deathCheck.isDead == true)
         {
             EnemyDestroyed();
+            coll.enabled = false;
             canDrop = true;
           
         }
@@ -125,7 +127,7 @@ public class FlyingEnemyPatrol : MonoBehaviour
 
     private void BackPatrolling()
     {
-        transform.position = Vector2.MoveTowards(transform.position, initialPoint.position, speed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, initialPoint.position, 2 * speed * Time.deltaTime);
     }
 
     private void Flip()
@@ -162,10 +164,12 @@ public class FlyingEnemyPatrol : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player") || collision.CompareTag("VirtualPlayer"))
+        if (collision.CompareTag("Player"))
         {
             flyingAttack.Play();
             healthDmg.TakeDamage(1);
+            coll.enabled = false;
+            Invoke("ResetCollider", .40f);
             /* death.MainPlayerDeath();
 
              collision.GetComponent<MainPlayerMovement>().canMove = false;
@@ -173,6 +177,12 @@ public class FlyingEnemyPatrol : MonoBehaviour
              //call the playerlife function to respawn --> just invisible not runnign
              respawnAfterDeath.combackAlive();*/
 
+        } else if (collision.CompareTag("VirtualPlayer"))
+        {
+            flyingAttack.Play();
+            healthDmg.TakeDamage(1);
+            coll.enabled = false;
+            Invoke("ResetCollider", 1.5f);
         }
 
         if (collision.gameObject.name == "BulletRight(Clone)" || collision.gameObject.name == "BulletLeft(Clone)" )
@@ -226,6 +236,10 @@ public class FlyingEnemyPatrol : MonoBehaviour
 
     }
 
+    private void ResetCollider()
+    {
+        coll.enabled = true;
+    }
     private void ResetSprite()
     {
         sprite.color = new Color32(255, 255, 255, 255);
@@ -264,7 +278,7 @@ public class FlyingEnemyPatrol : MonoBehaviour
 
             }
 
-            Destroy(newInstance, 3.0f);
+            Destroy(newInstance, 5.0f);
         }
 
         canDrop = false;

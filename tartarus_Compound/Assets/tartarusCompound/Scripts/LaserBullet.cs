@@ -39,6 +39,7 @@ public class LaserBullet : MonoBehaviour
     {
         //transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
 
+
         Vector2 Direction = transform.position - player.transform.position;
 
         Direction.Normalize();
