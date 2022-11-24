@@ -27,10 +27,10 @@ public class FlyingEnemyPatrol : MonoBehaviour
     private int Enemyhealth = 1;
     private bool isDamaged = false;
 
-    [SerializeField]
+  /*  [SerializeField]
     private Interactables virtualCheck;
     [SerializeField]
-    private Interactables virtualCheckTwo;
+    private Interactables virtualCheckTwo;*/
 
     public AudioSource audioSourceFlying;
 
@@ -99,6 +99,7 @@ public class FlyingEnemyPatrol : MonoBehaviour
             TargetPlayer();
             Flip();
         }
+
 
         if (deathCheck.isDead == true)
         {

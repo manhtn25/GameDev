@@ -6,7 +6,7 @@ public class LightScript : MonoBehaviour
 {
 
     private Animator anim;
-    [SerializeField] ParticleSystem lightParticles;
+   // [SerializeField] ParticleSystem lightParticles;
 
     // Start is called before the first frame update
     void Start()
@@ -18,6 +18,6 @@ public class LightScript : MonoBehaviour
     void Update()
     {
         anim.SetBool("isOn", true);
-        lightParticles.Play();
+       // lightParticles.Play();
     }
 }
