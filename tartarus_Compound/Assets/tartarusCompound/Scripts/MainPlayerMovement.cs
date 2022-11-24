@@ -18,6 +18,7 @@ public class MainPlayerMovement : MonoBehaviour
     [SerializeField] private Interactables virtualCheck;
     [SerializeField] private Interactables virtualCheckTwo;
     [SerializeField] private Interactables virtualCheckThree;
+    [SerializeField] private Interactables virtualCheckBoss;
     private float dirX = 0f;
     [SerializeField] private float moveSpeed = 10f; //serializedfield allows the edits of value in the editor
     [SerializeField] private float jumpForce = 20f;
@@ -199,7 +200,7 @@ public class MainPlayerMovement : MonoBehaviour
             }
             else if (Input.GetKey(KeyCode.K) && IsGrounded())
             {
-                if (virtualCheck.inVirtual == false && virtualCheckTwo.inVirtual == false && virtualCheckThree.inVirtual == false && gunCheck.hasGun == true)
+                if (virtualCheck.inVirtual == false && virtualCheckTwo.inVirtual == false && virtualCheckThree.inVirtual == false && gunCheck.hasGun == true && virtualCheckBoss.inVirtual == false)
                 {
                     horizontalVal = 3;              //shooting in ground
                     bulletAnim.Fire();
@@ -358,7 +359,7 @@ public class MainPlayerMovement : MonoBehaviour
         }
         
 
-        if (virtualCheck.inVirtual == false && virtualCheckTwo.inVirtual == false && virtualCheckThree.inVirtual == false)
+        if (virtualCheck.inVirtual == false && virtualCheckTwo.inVirtual == false && virtualCheckThree.inVirtual == false && virtualCheck.inVirtual == false)
         {
             if (horizontalVal == 3)
             {

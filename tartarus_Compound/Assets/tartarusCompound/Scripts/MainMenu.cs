@@ -30,6 +30,11 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene(startScene);
     }
 
+    public void CreditsPage()
+    {
+
+    }
+
     public void QuitGame()
     {
         Application.Quit();

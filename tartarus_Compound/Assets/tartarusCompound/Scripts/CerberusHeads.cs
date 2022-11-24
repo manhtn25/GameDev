@@ -44,11 +44,14 @@ public class CerberusHeads : MonoBehaviour
     [SerializeField] private Interactables virtualCheck;
 
     [SerializeField] private Transform firepoint;
-    [SerializeField] private GameObject bullet;
+   //[SerializeField] private GameObject bullet;
     [SerializeField] private GameObject virtualBullet;
     private float bulletSpeed = 400f;
 
+    private bool headFacingRight = true;
+    private Vector3 respawnPoint;
 
+    private SpriteRenderer cerberusHeadSprite;
 
     private void Start()
     {
@@ -66,7 +69,9 @@ public class CerberusHeads : MonoBehaviour
         respawnAfterDeath = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerLife>();
         healthDmg = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerLife>();
 
+        respawnPoint = transform.position;
 
+        cerberusHeadSprite = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
@@ -102,11 +107,19 @@ public class CerberusHeads : MonoBehaviour
                 exclamationPoint.SetActive(true);
                 audioSourceFlying.UnPause();
 
-                
+
                 if (timebetween <= 0 && virtualCheck.inVirtual == true)
                 {
-                    tempBullet = Instantiate(virtualBullet, firepoint.position, bullet.transform.rotation);
-                    tempBullet.GetComponent<Rigidbody2D>().AddForce(Vector2.right * bulletSpeed);
+                    tempBullet = Instantiate(virtualBullet, firepoint.position, virtualBullet.transform.rotation);
+                    if (headFacingRight == true)
+                    {
+                        tempBullet.GetComponent<Rigidbody2D>().AddForce(Vector2.right * bulletSpeed);
+                    }
+                    else
+                    {
+                        tempBullet.GetComponent<Rigidbody2D>().AddForce(-1 * Vector2.right * bulletSpeed);
+                    }
+                   
 
                     timebetween = startTimeBetween;
                 }
@@ -124,23 +137,35 @@ public class CerberusHeads : MonoBehaviour
             Flip();
         }
 
-
-        if (deathCheck.isDead == true)
+        if (virtualCheck.inVirtual == true)
         {
-            EnemyDestroyed();
-            coll.enabled = false;
-            canDrop = true;
+            cerberusHeadSprite.enabled = true;
+        }
+        else
+        {
+            cerberusHeadSprite.enabled = false;
+            exclamationPoint.SetActive(false);
+        }
+
+       
+        if (deathCheck.isDead == true || virtualCheck.inVirtual == false)
+        {
+          
+            transform.position = respawnPoint;
+           // EnemyDestroyed();
+           // coll.enabled = false;
+            //canDrop = true;
 
         }
 
-        if (flyingIsDead == true)
+      /*  if (flyingIsDead == true)
         {
             exclamationPoint.SetActive(false);
             audioSourceFlying.Pause();
-        }
+        }*/
 
 
-        anim.SetBool("IsFlying", true);
+        anim.SetBool("isActive", true);
 
     }
 
@@ -159,10 +184,12 @@ public class CerberusHeads : MonoBehaviour
         if (transform.position.x > player.transform.position.x)
         {
             transform.rotation = Quaternion.Euler(0, 0, 0);
+            headFacingRight = false;
         }
         else
         {
             transform.rotation = Quaternion.Euler(0, 180, 0);
+            headFacingRight = true;
         }
     }
 
@@ -180,7 +207,7 @@ public class CerberusHeads : MonoBehaviour
 
         //yield return new WaitForSeconds(2.0f);
         yield return new WaitForSeconds(0.1f);
-        anim.Play("Explode_Animation");
+        //anim.Play("Explode_Animation");
         coll.enabled = false;
         // Destroy(this.gameObject, 0.30f);
 
@@ -188,28 +215,28 @@ public class CerberusHeads : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+      /*  if (collision.CompareTag("Player"))
         {
             flyingAttack.Play();
             healthDmg.TakeDamage(1);
             coll.enabled = false;
             Invoke("ResetCollider", .40f);
-            /* death.MainPlayerDeath();
+            *//* death.MainPlayerDeath();
 
              collision.GetComponent<MainPlayerMovement>().canMove = false;
 
              //call the playerlife function to respawn --> just invisible not runnign
-             respawnAfterDeath.combackAlive();*/
+             respawnAfterDeath.combackAlive();*//*
 
-        }
-        else if (collision.CompareTag("VirtualPlayer"))
+        }*/
+        if (collision.CompareTag("VirtualPlayer"))
         {
             flyingAttack.Play();
             healthDmg.TakeDamage(1);
             coll.enabled = false;
             Invoke("ResetCollider", 1.5f);
         }
-
+/*
         if (collision.gameObject.name == "BulletRight(Clone)" || collision.gameObject.name == "BulletLeft(Clone)")
         {
 
@@ -257,7 +284,7 @@ public class CerberusHeads : MonoBehaviour
                 isDamaged = true;
                 Invoke("ResetSprite", .15f);
             }
-        }
+        }*/
 
     }
 
@@ -280,7 +307,7 @@ public class CerberusHeads : MonoBehaviour
 
     private void Respawn()
     {
-        anim.Play("Idle_Animation");
+        anim.Play("Idle");
         flyingIsDead = false;
         Enemyhealth = 1;
         coll.enabled = true;

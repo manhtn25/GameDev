@@ -46,7 +46,7 @@ public class CerberusSwitches : MonoBehaviour
 
         if (switchActive == false)
         {
-            Invoke("ResetSwitches", 2.0f);
+            Invoke("ResetSwitches", 50.0f);
         }
 
         /* if (deathCheck.isDead == true)
