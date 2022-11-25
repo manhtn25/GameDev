@@ -14,6 +14,8 @@ public class Switches : MonoBehaviour
 
     [SerializeField] private PlayerLife deathCheck;
 
+    [SerializeField] public AudioClip laserSwitch;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -41,7 +43,8 @@ public class Switches : MonoBehaviour
             switchActive = false;
             switchText.SetActive(false);
             coll.enabled = false;
-            
+            AudioSource.PlayClipAtPoint(laserSwitch, transform.position, 2.0F);
+
 
         }
 
