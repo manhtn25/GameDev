@@ -40,6 +40,8 @@ public class TurretMain : MonoBehaviour
 
     [SerializeField] private Interactables virtualCheck;
 
+    [SerializeField] public AudioClip shoot;
+
     void Start()
     {
         timebetween = startTimeBetween;
@@ -67,6 +69,7 @@ public class TurretMain : MonoBehaviour
             {
                 if (timebetween <= 0 && virtualCheck.inVirtual == false)
                 {
+                    AudioSource.PlayClipAtPoint(shoot, transform.position);
                     tempBullet = Instantiate(bullet, firepoint.position, bullet.transform.rotation);
                     tempBullet.GetComponent<Rigidbody2D>().AddForce(Vector2.right * bulletSpeed);
 
@@ -74,6 +77,7 @@ public class TurretMain : MonoBehaviour
                 }
                 else if (timebetween <= 0 && virtualCheck.inVirtual == true)
                 {
+                    AudioSource.PlayClipAtPoint(shoot, transform.position);
                     tempBullet = Instantiate(virtualBullet, firepoint.position, bullet.transform.rotation);
                     tempBullet.GetComponent<Rigidbody2D>().AddForce(Vector2.right * bulletSpeed);
 

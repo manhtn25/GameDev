@@ -43,7 +43,7 @@ public class Switches : MonoBehaviour
             switchActive = false;
             switchText.SetActive(false);
             coll.enabled = false;
-            AudioSource.PlayClipAtPoint(laserSwitch, transform.position, 2.0F);
+            AudioSource.PlayClipAtPoint(laserSwitch, transform.position, 5.0F);
 
 
         }

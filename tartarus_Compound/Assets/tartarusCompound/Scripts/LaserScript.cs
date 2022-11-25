@@ -57,6 +57,7 @@ public class LaserScript : MonoBehaviour
 
         if (switchFirst.switchActive == false && switchSecond.switchActive == false)
         {
+            laserClip.Pause();
             if (tag == "ElectricTrap")
             {
                 anim.SetBool("isOn", false);
