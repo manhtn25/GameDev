@@ -7,7 +7,9 @@ public class IntroScene : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    private float playVideo = 2.25f;
+    // private float playVideo = 2.25f; just intro
+
+    private float playVideo = 47.0f;
 
     void Start()
     {

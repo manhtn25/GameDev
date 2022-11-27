@@ -7,7 +7,7 @@ public class BossFlyingGuards : MonoBehaviour
     [SerializeField] float speed;
     [SerializeField] private GameObject exclamationPoint;
     private GameObject player;
-    public bool chase = false;
+    public bool chaseBoss = false;
     public Transform initialPoint;
     private Animator anim;
 
@@ -93,7 +93,7 @@ public class BossFlyingGuards : MonoBehaviour
         else
         {
 
-            if (chase == true && flyingIsDead == false && isDamaged == false)
+            if (chaseBoss == true && flyingIsDead == false && isDamaged == false)
             {
                 TargetPlayer();
                 exclamationPoint.SetActive(true);
@@ -119,8 +119,12 @@ public class BossFlyingGuards : MonoBehaviour
 
         if (flyingIsDead == true)
         {
-            exclamationPoint.SetActive(false);
-            audioSourceFlying.Pause();
+            /*exclamationPoint.SetActive(false);
+            audioSourceFlying.Pause();*/
+            EnemyDestroyed();
+            coll.enabled = false;
+            canDrop = true;
+
         }
 
 
@@ -150,7 +154,7 @@ public class BossFlyingGuards : MonoBehaviour
         }
     }
 
-    public void FlyingEnemyGuardParticle()
+    public void FlyingEnemyGuardParticleBoss()
     {
         coll.isTrigger = false;
         exclamationPoint.SetActive(false);
@@ -212,7 +216,7 @@ public class BossFlyingGuards : MonoBehaviour
                 }
                 flyingIsDead = true;
                 ResetSprite();
-                FlyingEnemyGuardParticle();
+                FlyingEnemyGuardParticleBoss();
             }
             else
             {
@@ -234,7 +238,7 @@ public class BossFlyingGuards : MonoBehaviour
                 }
                 flyingIsDead = true;
                 ResetSprite();
-                FlyingEnemyGuardParticle();
+                FlyingEnemyGuardParticleBoss();
             }
             else
             {
@@ -269,6 +273,7 @@ public class BossFlyingGuards : MonoBehaviour
         Enemyhealth = 1;
         coll.enabled = true;
         coll.isTrigger = true;
+        transform.position = respawnPointFlying;
     }
 
     private void ItemDrop()

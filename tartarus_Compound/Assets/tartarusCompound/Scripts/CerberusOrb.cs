@@ -64,12 +64,12 @@ public class CerberusOrb : MonoBehaviour
             HealthBar.enabled = false;
         }
 
-        if (deathCheck.isDead == true)
+      /*  if (deathCheck.isDead == true)
         {
             EnemyDestroyed();
            
 
-        }
+        }*/
     }
 
     private void EnemyDestroyed()
