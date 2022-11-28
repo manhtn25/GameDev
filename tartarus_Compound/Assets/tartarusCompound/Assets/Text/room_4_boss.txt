@@ -1,0 +1,7 @@
+# before the elevator to blue room 4
+"The security is only tighter from here on out..."
+"Be careful!"
+
+# NPC at the drop to boss room
+"Up ahead is the Warden guarding this place"
+"Defeat it to release this prison!!"

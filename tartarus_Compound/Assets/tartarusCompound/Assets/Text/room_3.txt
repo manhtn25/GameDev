@@ -1,0 +1,8 @@
+# first npc on right side, next to disable button
+"Careful of those flying guards!"
+"They chase you everywhere, even in the virtual world!"
+
+# 2nd npc on the stairs, under turret
+"Those turrets scare me"
+"The bullets have tracking that you have to dodge"
+
