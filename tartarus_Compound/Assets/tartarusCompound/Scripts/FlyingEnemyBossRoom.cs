@@ -28,7 +28,7 @@ public class FlyingEnemyBossRoom : MonoBehaviour
         }
     }
 
-  /*  [SerializeField] private Transform flyingbot;
+   /* [SerializeField] private Transform flyingbot;
 
     private void Update()
     {

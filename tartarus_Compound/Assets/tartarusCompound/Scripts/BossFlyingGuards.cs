@@ -263,7 +263,8 @@ public class BossFlyingGuards : MonoBehaviour
     {
 
         //exclamationPoint.SetActive(false);
-        Invoke("Respawn", .10f);
+        FlyingEnemyGuardParticleBoss();
+        Invoke("Respawn", 5.0f);
     }
 
     private void Respawn()

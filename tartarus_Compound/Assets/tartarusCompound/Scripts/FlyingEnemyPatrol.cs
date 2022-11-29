@@ -271,11 +271,12 @@ public class FlyingEnemyPatrol : MonoBehaviour
             if (i % 2 == 0)
             {
                 newInstance = Instantiate(itemDrop[i], transform.position + new Vector3(-2, 1, 0), Quaternion.identity);
+              
             }
             else
             {
                 newInstance = Instantiate(itemDrop[i], transform.position + new Vector3(-2, 1, 0), Quaternion.identity);
-
+          
             }
 
             Destroy(newInstance, 5.0f);

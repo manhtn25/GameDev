@@ -359,7 +359,7 @@ public class MainPlayerMovement : MonoBehaviour
         }
         
 
-        if (virtualCheck.inVirtual == false && virtualCheckTwo.inVirtual == false && virtualCheckThree.inVirtual == false && virtualCheck.inVirtual == false)
+        if (virtualCheck.inVirtual == false && virtualCheckTwo.inVirtual == false && virtualCheckThree.inVirtual == false && virtualCheck.inVirtual == false && virtualCheckBoss.inVirtual == false)
         {
             if (horizontalVal == 3)
             {

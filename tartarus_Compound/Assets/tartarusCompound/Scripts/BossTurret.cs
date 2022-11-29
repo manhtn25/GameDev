@@ -84,14 +84,14 @@ public class BossTurret : MonoBehaviour
 
                         timebetween = startTimeBetweenBoss;
                     }
-                    else if (timebetween <= 0 && virtualCheck.inVirtual == true)
+                   /* else if (timebetween <= 0 && virtualCheck.inVirtual == true)
                     {
                         AudioSource.PlayClipAtPoint(shoot, transform.position);
                         tempBullet = Instantiate(virtualBullet, firepoint.position, bullet.transform.rotation);
                         tempBullet.GetComponent<Rigidbody2D>().AddForce(Vector2.right * bulletSpeed);
 
                         timebetween = startTimeBetweenBoss;
-                    }
+                    }*/
                     else
                     {
                         timebetween -= Time.deltaTime;

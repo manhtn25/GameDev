@@ -5,6 +5,7 @@ using UnityEngine;
 public class BossTurretRange : MonoBehaviour
 {
     public BossTurret turretObject;
+    public BossTurretRight turretObjectRight;
 
     public BoxCollider2D turretRangeCol;
 
@@ -18,21 +19,23 @@ public class BossTurretRange : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player") || collision.CompareTag("VirtualPlayer"))
         {
 
             turretObject.playerInTurretRangeBoss = true;
-            Debug.Log("true");
+            turretObjectRight.playerInTurretRangeBossRight = true;
+         
 
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player") || collision.CompareTag("VirtualPlayer"))
         {
 
             turretObject.playerInTurretRangeBoss = false;
+            turretObjectRight.playerInTurretRangeBossRight = false;
 
         }
     }
