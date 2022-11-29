@@ -40,21 +40,22 @@ public class CerberusSwitches : MonoBehaviour
             switchActive = false;
             switchText.SetActive(false);
             coll.enabled = false;
-
+            Invoke("ResetSwitches", 30.0f);
+            //Debug.Log("Switch off");
 
         }
 
-        if (switchActive == false)
-        {
-            Invoke("ResetSwitches", 50.0f);
-        }
-
-        /* if (deathCheck.isDead == true)
+        /* if (switchActive == false)
          {
-             anim.SetBool("isOn", true);
-             switchActive = true;
-             coll.enabled = true;
+
          }*/
+
+        if (deathCheck.isDead == true)
+        {
+            anim.SetBool("isOn", true);
+            switchActive = true;
+            coll.enabled = true;
+        }
 
     }
 
@@ -63,7 +64,7 @@ public class CerberusSwitches : MonoBehaviour
         anim.SetBool("isOn", true);
         switchActive = true;
         coll.enabled = true;
-
+       // Debug.Log("Switch on");
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

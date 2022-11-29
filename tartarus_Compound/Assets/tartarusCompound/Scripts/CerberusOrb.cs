@@ -28,8 +28,9 @@ public class CerberusOrb : MonoBehaviour
     private GameObject HealthBarObject;
     [SerializeField] private Slider HealthBar;
 
-    private float FillSpeed = 0.068f;
+    private float FillSpeed = 0.75f;
     private float targetProgress = 0f;
+    //private float FillSpeed = 5.0f;
 
     private void Start()
     {
@@ -57,19 +58,19 @@ public class CerberusOrb : MonoBehaviour
 
             //play the opening gates animation
         }
-        else
+        else if (switchFirst.switchActive == true || switchSecond.switchActive == true)
         {
             coll.enabled = false;
             HealthBarObject.SetActive(false);
             HealthBar.enabled = false;
         }
 
-      /*  if (deathCheck.isDead == true)
+        if (deathCheck.isDead == true)
         {
             EnemyDestroyed();
-           
 
-        }*/
+
+        }
     }
 
     private void EnemyDestroyed()
@@ -81,9 +82,9 @@ public class CerberusOrb : MonoBehaviour
 
     private void Respawn()
     {
-        anim.Play("Idle_Animation");
+       /* anim.Play("Idle_Animation");*/
         mainOrbIsDead = false;
-        EnemyHealth = 1;
+        HealthBar.value = 1;
         coll.enabled = true;
         coll.isTrigger = true;
     }
@@ -102,7 +103,7 @@ public class CerberusOrb : MonoBehaviour
 
             
 
-            if (HealthBar.value < targetProgress)
+            if (HealthBar.value <= targetProgress)
             {
 
                 if (canDrop)
@@ -111,7 +112,11 @@ public class CerberusOrb : MonoBehaviour
                 }
                 mainOrbIsDead = true;
                 ResetSprite();
-               // FlyingEnemyGuardParticle(); , can possibly just be exploding
+                Debug.Log("Dead");
+                coll.enabled = false;
+                HealthBarObject.SetActive(false);
+                HealthBar.enabled = false;
+                // FlyingEnemyGuardParticle(); , can possibly just be exploding
             }
             else
             {
@@ -129,7 +134,7 @@ public class CerberusOrb : MonoBehaviour
             EnemyHealth -= 2;
             spriteOrb.color = new Color32(255, 127, 127, 255);
 
-            if (HealthBar.value < targetProgress)
+            if (HealthBar.value <= targetProgress)
             {
                 if (canDrop)
                 {
@@ -137,7 +142,11 @@ public class CerberusOrb : MonoBehaviour
                 }
                 mainOrbIsDead = true;
                 ResetSprite();
-               // FlyingEnemyGuardParticle(); can possibly jsut be exploding
+                Debug.Log("Dead");
+                coll.enabled = false;
+                HealthBarObject.SetActive(false);
+                HealthBar.enabled = false;
+                // FlyingEnemyGuardParticle(); can possibly jsut be exploding
             }
             else
             {

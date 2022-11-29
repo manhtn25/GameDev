@@ -32,7 +32,7 @@ public class BossFlyingGuards : MonoBehaviour
       [SerializeField]
       private Interactables virtualCheckTwo;*/
 
-    public AudioSource audioSourceFlying;
+    public AudioSource audioSourceFlyingBoss;
 
     public GameObject[] itemDrop;
     private GameObject newInstance;
@@ -97,7 +97,8 @@ public class BossFlyingGuards : MonoBehaviour
             {
                 TargetPlayer();
                 exclamationPoint.SetActive(true);
-                audioSourceFlying.UnPause();
+                audioSourceFlyingBoss.UnPause();
+                //Debug.Log("Working");
             }
             else
             {
@@ -111,6 +112,7 @@ public class BossFlyingGuards : MonoBehaviour
 
         if (deathCheck.isDead == true)
         {
+            exclamationPoint.SetActive(false);
             EnemyDestroyed();
             coll.enabled = false;
             canDrop = true;
@@ -121,6 +123,7 @@ public class BossFlyingGuards : MonoBehaviour
         {
             /*exclamationPoint.SetActive(false);
             audioSourceFlying.Pause();*/
+            exclamationPoint.SetActive(false);
             EnemyDestroyed();
             coll.enabled = false;
             canDrop = true;
@@ -170,6 +173,7 @@ public class BossFlyingGuards : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         anim.Play("Explode_Animation");
         coll.enabled = false;
+        exclamationPoint.SetActive(false);
         // Destroy(this.gameObject, 0.30f);
 
     }
@@ -270,6 +274,7 @@ public class BossFlyingGuards : MonoBehaviour
     private void Respawn()
     {
         anim.Play("Idle_Animation");
+        exclamationPoint.SetActive(false);
         flyingIsDead = false;
         Enemyhealth = 1;
         coll.enabled = true;
