@@ -53,6 +53,8 @@ public class CerberusHeads : MonoBehaviour
 
     private SpriteRenderer cerberusHeadSprite;
 
+    public GameObject arenaImage;
+
     private void Start()
     {
         timebetween = startTimeBetween;
@@ -72,6 +74,7 @@ public class CerberusHeads : MonoBehaviour
         respawnPoint = transform.position;
 
         cerberusHeadSprite = GetComponent<SpriteRenderer>();
+        arenaImage.SetActive(true);
     }
 
     private void Update()
@@ -140,11 +143,13 @@ public class CerberusHeads : MonoBehaviour
         if (virtualCheck.inVirtual == true)
         {
             cerberusHeadSprite.enabled = true;
+            arenaImage.SetActive(false);
         }
         else
         {
             cerberusHeadSprite.enabled = false;
             exclamationPoint.SetActive(false);
+            arenaImage.SetActive(true);
         }
 
        
