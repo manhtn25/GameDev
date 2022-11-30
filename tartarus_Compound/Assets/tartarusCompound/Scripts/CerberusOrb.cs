@@ -2,13 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class CerberusOrb : MonoBehaviour
 {
     [SerializeField] private Interactables virtualCheck;
     private SpriteRenderer spriteOrb;
     private Animator anim;
-    private BoxCollider2D coll;
+    //private BoxCollider2D coll;
+    private CircleCollider2D coll;
 
     [SerializeField] private CerberusSwitches switchFirst;
     [SerializeField] private CerberusSwitches switchSecond;
@@ -32,11 +34,14 @@ public class CerberusOrb : MonoBehaviour
     private float targetProgress = 0f;
     //private float FillSpeed = 5.0f;
 
+    public string backToMenu;
+
     private void Start()
     {
         spriteOrb = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
-        coll = GetComponent<BoxCollider2D>();
+        // coll = GetComponent<BoxCollider2D>();
+        coll = GetComponent<CircleCollider2D>();
         coll.enabled = true;
     }
 
@@ -53,6 +58,8 @@ public class CerberusOrb : MonoBehaviour
                 coll.enabled = true;
                 HealthBarObject.SetActive(true);
                 HealthBar.enabled = enabled;
+                anim.SetBool("isOpening", true);
+                Invoke("Opening", 0.75f);
 
             }
 
@@ -63,6 +70,8 @@ public class CerberusOrb : MonoBehaviour
             coll.enabled = false;
             HealthBarObject.SetActive(false);
             HealthBar.enabled = false;
+            anim.SetBool("isVulnerable", false);
+            Invoke("Closing", 0.75f);
         }
 
         if (deathCheck.isDead == true)
@@ -71,6 +80,16 @@ public class CerberusOrb : MonoBehaviour
 
 
         }
+    }
+
+    private void Opening()
+    {
+        anim.SetBool("isVulnerable", true);
+    }
+
+    private void Closing()
+    {
+        anim.SetBool("isOpening", false);
     }
 
     private void EnemyDestroyed()
@@ -112,10 +131,11 @@ public class CerberusOrb : MonoBehaviour
                 }
                 mainOrbIsDead = true;
                 ResetSprite();
-                Debug.Log("Dead");
+                //Debug.Log("Dead");
                 coll.enabled = false;
                 HealthBarObject.SetActive(false);
                 HealthBar.enabled = false;
+                SceneManager.LoadScene(backToMenu);
                 // FlyingEnemyGuardParticle(); , can possibly just be exploding
             }
             else
@@ -142,10 +162,11 @@ public class CerberusOrb : MonoBehaviour
                 }
                 mainOrbIsDead = true;
                 ResetSprite();
-                Debug.Log("Dead");
+               // Debug.Log("Dead");
                 coll.enabled = false;
                 HealthBarObject.SetActive(false);
                 HealthBar.enabled = false;
+                SceneManager.LoadScene(backToMenu);
                 // FlyingEnemyGuardParticle(); can possibly jsut be exploding
             }
             else
