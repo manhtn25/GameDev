@@ -15,7 +15,7 @@ public class CerberusOrb : MonoBehaviour
     [SerializeField] private CerberusSwitches switchFirst;
     [SerializeField] private CerberusSwitches switchSecond;
 
-    private int EnemyHealth = 15;
+    private int EnemyHealth = 10;
     private bool isDamaged = false;
 
     private bool mainOrbIsDead = false;
@@ -30,9 +30,9 @@ public class CerberusOrb : MonoBehaviour
     private GameObject HealthBarObject;
     [SerializeField] private Slider HealthBar;
 
-   // private float FillSpeed = 0.40f;
+    private float FillSpeed = 0.40f;
     private float targetProgress = 0f;
-    private float FillSpeed = 15.0f;
+    //private float FillSpeed = 15.0f;
 
 
     public string backToMenu;
