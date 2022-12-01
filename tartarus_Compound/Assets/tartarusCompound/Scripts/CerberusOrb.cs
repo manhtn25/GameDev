@@ -15,7 +15,7 @@ public class CerberusOrb : MonoBehaviour
     [SerializeField] private CerberusSwitches switchFirst;
     [SerializeField] private CerberusSwitches switchSecond;
 
-    private int EnemyHealth = 10;
+    private int EnemyHealth = 1;
     private bool isDamaged = false;
 
     private bool mainOrbIsDead = false;
