@@ -259,6 +259,8 @@ public class MainPlayerMovement : MonoBehaviour
         else
         {
             coinUI.SetActive(false);
+            bulletText.enabled = false;
+            bulletUI.SetActive(false);
             Cursor.visible = true;
 
         }

@@ -30,12 +30,14 @@ public class CerberusOrb : MonoBehaviour
     private GameObject HealthBarObject;
     [SerializeField] private Slider HealthBar;
 
-    private float FillSpeed = 0.75f;
+   // private float FillSpeed = 0.40f;
     private float targetProgress = 0f;
-    //private float FillSpeed = 5.0f;
+    private float FillSpeed = 15.0f;
 
 
     public string backToMenu;
+
+    public GameObject endScreenUI;
 
     private void Start()
     {
@@ -44,6 +46,8 @@ public class CerberusOrb : MonoBehaviour
         // coll = GetComponent<BoxCollider2D>();
         coll = GetComponent<CircleCollider2D>();
         coll.enabled = true;
+
+        endScreenUI.SetActive(false);
     }
 
     private void Update()
@@ -136,7 +140,10 @@ public class CerberusOrb : MonoBehaviour
                 coll.enabled = false;
                 HealthBarObject.SetActive(false);
                 HealthBar.enabled = false;
-                SceneManager.LoadScene(backToMenu);
+                endScreenUI.SetActive(true);
+                anim.SetBool("isVulnerable", false);
+                anim.SetBool("isOpening", false);
+                Invoke("MenuReset", 5.0f);
                 // FlyingEnemyGuardParticle(); , can possibly just be exploding
             }
             else
@@ -167,7 +174,11 @@ public class CerberusOrb : MonoBehaviour
                 coll.enabled = false;
                 HealthBarObject.SetActive(false);
                 HealthBar.enabled = false;
-                SceneManager.LoadScene(backToMenu);
+                endScreenUI.SetActive(true);
+                anim.SetBool("isVulnerable", false);
+                anim.SetBool("isOpening", false);
+                Invoke("MenuReset", 5.0f);
+               
                 // FlyingEnemyGuardParticle(); can possibly jsut be exploding
             }
             else
@@ -178,6 +189,11 @@ public class CerberusOrb : MonoBehaviour
             }
         }
 
+    }
+
+    private void MenuReset()
+    {
+        SceneManager.LoadScene(backToMenu);
     }
 
     private void ResetSprite()
