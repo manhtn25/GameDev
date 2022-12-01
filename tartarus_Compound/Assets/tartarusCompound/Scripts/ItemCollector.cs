@@ -27,7 +27,7 @@ public class ItemCollector : MonoBehaviour
         {
             /*            collectionSoundEffect.Play();
             */
-            AudioSource.PlayClipAtPoint(coinSound, transform.position);
+            AudioSource.PlayClipAtPoint(coinSound, transform.position, 0.5F);
 
             //Destroy(collision.gameObject); 
             //collision.gameObject.SetActive(false);
@@ -40,13 +40,13 @@ public class ItemCollector : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("Health") && mainPlayerHealth.currentHealth < 3)
         {
-            AudioSource.PlayClipAtPoint(coinSound, transform.position);
+            AudioSource.PlayClipAtPoint(coinSound, transform.position, 0.5F);
             mainPlayerHealth.GainHealth(1);
             collision.gameObject.GetComponent<SpriteRenderer>().enabled = false;
             collision.gameObject.GetComponent<BoxCollider2D>().enabled = false;
         }else if (collision.gameObject.CompareTag("Bullets") && mainBulletGain.currentBullets < 7)
         {
-            AudioSource.PlayClipAtPoint(coinSound, transform.position);
+            AudioSource.PlayClipAtPoint(coinSound, transform.position, 0.5F);
             mainBulletGain.GainAmmo(1);
             collision.gameObject.GetComponent<SpriteRenderer>().enabled = false;
             collision.gameObject.GetComponent<BoxCollider2D>().enabled = false;
@@ -55,7 +55,7 @@ public class ItemCollector : MonoBehaviour
         if (collision.gameObject.name == "GunFind")
         {
             hasGun = true;
-            AudioSource.PlayClipAtPoint(coinSound, transform.position);
+            AudioSource.PlayClipAtPoint(coinSound, transform.position, 0.5F);
             collision.gameObject.GetComponent<SpriteRenderer>().enabled = false;
             collision.gameObject.GetComponent<BoxCollider2D>().enabled = false;
         }
